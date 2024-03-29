@@ -4,16 +4,21 @@
   "description": "proyecto en desarrollo para la materia Ingenieria de Software 2 del programa Ingeniería de Sistemas y Computación de la Universidad Nacional de Colombia 2024-1.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
-    "express": "^4.19.1",
+    "express": "^4.19.2",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "mysql2": "^3.9.2",
+    "nodemon": "^3.1.0",
     "react-router-dom": "^6.22.3",
-    "sass": "^1.72.0"
+    "sass": "^1.72.0",
+    "yarn": "^1.22.22"
   }
 }

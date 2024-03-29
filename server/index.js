@@ -1,1 +1,7 @@
-console.log("hola mundo");
+import  Express  from "express"
+
+const app = Express()
+
+app.listen(8800, () => {
+    console.log("Server is running on port 8800")
+})
