@@ -17,8 +17,12 @@ export const register = (req, res) => {
         const salt = bcrypt.genSaltSync(10)
         const hashedPassword = bcrypt.hashSync(req.body.Password, salt)
 
-        const q = "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name` ) VALUES (?)"
-        const values = [[req.body.Email, hashedPassword, req.body.Name, req.body.Last_Name]]
+        db.query("INSERT Suscription (`Status`) VALUES (0)")
+
+
+        const s = db.query("SELECT MAX(idSuscription) FROM Suscription")
+        const q = "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Suscription_idSuscription` ) VALUES (?)"
+        const values = [req.body.Email, hashedPassword, req.body.Name, req.body.Last_Name, s]
         console.log(values)
 
         db.query(q,[values], (err, data)=> {
