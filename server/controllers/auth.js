@@ -1,4 +1,5 @@
 import  {db} from "../connect.js"
+import bcrypt from "bcryptjs"
 
 
 
@@ -16,8 +17,9 @@ export const register = (req, res) => {
         const salt = bcrypt.genSaltSync(10)
         const hashedPassword = bcrypt.hashSync(req.body.Password, salt)
 
-        const q = "SELECT INTO User (Email, Password, Name, Last_Name ) VALUES (?)"
+        const q = "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name` ) VALUES (?)"
         const values = [[req.body.Email, hashedPassword, req.body.Name, req.body.Last_Name]]
+        console.log(values)
 
         db.query(q,[values], (err, data)=> {
             if(err) return res.status(500).send(err)
