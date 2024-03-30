@@ -1,0 +1,63 @@
+import "./rightBar.scss";
+import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
+import LoyaltyRoundedIcon from '@mui/icons-material/LoyaltyRounded';
+import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
+
+
+function RightBar(props) {
+  return (
+    <div className="rightBar">
+      <div className="container">
+        {/**validar si el usuario tiene sesion activa */}
+        {props.user.session ? (
+            <>
+            <div className="item">
+              <div className="header">
+                <AccessTimeRoundedIcon />
+                <span>Lastest searches</span>
+              </div>
+              <ul>
+                {props.searches && 
+                props.searches.map((search) => (
+                  <li>{search}</li>
+                ))}
+              </ul>
+            </div>
+            </>
+          ):(
+            <>
+            <div className="item">
+              <div className="header">
+                <LoginRoundedIcon />
+                <span>Sign up to see more</span>
+              </div>
+              <p>
+                In company ranker you will be able to see
+                the best companies and reviews, don't wait any longer
+                and sign up now.
+              </p>
+            </div>
+            <div className="item">
+              <div className="header">
+                <LoyaltyRoundedIcon />
+                <span>Subscription</span>
+              </div>
+              
+              <p>
+                You can now subscribe to our platform 
+                and get all the benefits of being a member.
+              </p>
+            </div>
+
+            </>
+          )
+        }
+        
+
+
+      </div>
+    </div>
+  );
+}
+
+export default RightBar;
