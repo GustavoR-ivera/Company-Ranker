@@ -1,3 +1,4 @@
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,6 +13,9 @@ import RightBar from "./components/rightBar/RightBar.jsx";
 import PrincipalPage from "./pages/principal_page/PrincipalPage.jsx";
 import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
+
+import Register from './pages/register/Register';
+import Login from './pages/login/Login';
 
 function App() {
 
@@ -109,6 +113,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

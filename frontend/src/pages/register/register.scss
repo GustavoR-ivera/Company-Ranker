@@ -1,0 +1,62 @@
+.register{
+    height: 100vh;
+    background-color: #009bec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        .card{
+            width: 50%;
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            min-height: 600px;
+            
+            .up{
+                flex: 1;
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                gap: 50px;
+                justify-content: left;
+                h1{
+                    text-align: center;
+                    text-shadow: 5px 3px 3px rgb(179, 172, 172);
+                    color: #000000;
+                }
+                p{
+                    text-align: left;
+                    text-orientation: upright;
+                }
+                form{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    input{
+                        border: none;
+                        border-bottom: 1px solid lightgray;
+                        padding: 20px, 10px;
+                    }
+                    button{
+                        width: 100px, 33.33%; 
+                        padding: 10px;
+                        border: none;
+                        background-color: #009bec;
+                        color: white;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+                a{
+                    text-align: center;
+                    color: #009bec
+                }
+                p{
+                    text-align: center;
+                    a1{
+                        padding-left: 10px;
+                        color: #009bec;
+                    }
+                }
+            }
+        }
+    }
