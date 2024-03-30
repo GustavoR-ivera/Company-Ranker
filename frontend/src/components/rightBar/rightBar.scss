@@ -1,0 +1,45 @@
+.rightBar{
+    flex: 2;
+    position: sticky;
+    top:70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .container{
+        padding: 20px;
+        .item{
+            justify-content: center;
+            align-items: center;
+            border: 1px solid lightgray;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 10px;
+            .header{
+                display: flex;
+                gap: 10px;
+                span{
+                    text-align: center;
+                    color: gray;
+                    font-size: 19px;
+                }
+            }
+            
+            p{
+                font-size: 18px;
+                padding: 10px;
+            }
+            ul{
+                list-style-type: none;
+                font-size: 19px;
+                padding: 10px;
+            }
+        }
+    }
+
+
+
+}
