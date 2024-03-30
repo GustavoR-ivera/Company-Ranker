@@ -67,11 +67,11 @@ function App() {
     //rutas que no utilizan la plantilla de barras de navegacion
     {
       path: "/login",
-      element: <h1>login</h1>,
+      element: <Login/>,
     },
     {
       path: "/register",
-      element: <h1>register</h1>,
+      element: <Register/>,
     },
     {
       path: "/about",
@@ -109,3 +109,10 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
