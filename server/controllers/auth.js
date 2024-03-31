@@ -58,7 +58,7 @@ function NewSuscription(){
 export const login = (req, res) => {
 
     const q = "SELECT * FROM User where Email = ?"
-    db.query(q,[req.body.Email], (err,date)=>{
+    db.query(q,[req.body.Email], (err,data)=>{
         if (err) return res.status(500).json(err);
         if(data.length ===0 ) return res.status(404).json("El correo no se encuentra en la base de datos");
         //Revisar posicion data 0 
