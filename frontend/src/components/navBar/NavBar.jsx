@@ -69,10 +69,10 @@ function NavBar(props) {
       ) : (
         <>
       <div className="right">
-        <Link to="/" style={{textDecoration:"none"}}>
+        <Link to="/login" style={{textDecoration:"none"}}>
           <span>Login</span>
         </Link>
-        <Link to="/" style={{textDecoration:"none"}}>
+        <Link to="/register" style={{textDecoration:"none"}}>
           <span>Register</span>
         </Link>
       </div>
