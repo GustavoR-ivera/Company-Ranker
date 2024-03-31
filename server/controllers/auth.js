@@ -58,13 +58,16 @@ function NewSuscription(){
 export const login = (req, res) => {
 
     const q = "SELECT * FROM User where Email = ?"
-    db.query(q,[req.body.Email], (err,date)=>{
+    db.query(q,[req.body.Email], (err,data)=>{
         if (err) return res.status(500).json(err);
         if(data.length ===0 ) return res.status(404).json("El correo no se encuentra en la base de datos");
         //Revisar posicion data 0 
-        const checkPassword = bcrypt.compareSync(req.body.password, data[0].password)
+        console.log(data)
+        const checkPassword = bcrypt.compareSync(req.body.Password, data[0].Password)
+        console.log(checkPassword)
 
         if(!checkPassword) return res.status(400).json("Contraseña incorrecta")
+        else return res.status(200).json("Bienvenido" + " "+data[0].Name +" "+ data[0].Last_Name)
 
         //const token = jwt.sign({ id: data[0].id }, "secretkey");
 
