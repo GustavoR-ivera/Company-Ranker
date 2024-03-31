@@ -16,14 +16,11 @@ export const register = (req, res) => {
         //hash password
         const salt = bcrypt.genSaltSync(10)
         const hashedPassword = bcrypt.hashSync(req.body.Password, salt)
-
-        db.query("INSERT Suscription (`Status`) VALUES (0)")
-
-
-        const s = db.query("SELECT MAX(idSuscription) FROM Suscription")
+        
+       
         const q = "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Suscription_idSuscription` ) VALUES (?)"
-        const values = [req.body.Email, hashedPassword, req.body.Name, req.body.Last_Name, s]
-        console.log(values)
+        const values = [req.body.Email, hashedPassword, req.body.Name, req.body.Last_Name,10]
+        
 
         db.query(q,[values], (err, data)=> {
             if(err) return res.status(500).send(err)
@@ -38,6 +35,24 @@ export const register = (req, res) => {
 
     //create new user
 }
+function NewSuscription(){
+    db.query("INSERT Suscription (`Status`) VALUES (0)", (err, result) => {
+        if (err) {
+            return err;
+        }
+
+        db.query("SELECT MAX(idSuscription) FROM Suscription", (err, data) => {
+            if (err) {
+                
+                return err;
+            }
+
+            console.log(data[0]['MAX(idSuscription)'])
+            return data[0]['MAX(idSuscription)']
+        })
+    });
+}
+    
 
 
 export const login = (req, res) => {
