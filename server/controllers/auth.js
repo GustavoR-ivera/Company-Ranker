@@ -57,7 +57,25 @@ function NewSuscription(){
 
 export const login = (req, res) => {
 
-}
+    const q = "SELECT * FROM User where Email = ?"
+    db.query(q,[req.body.Email], (err,date)=>{
+        if (err) return res.status(500).json(err);
+        if(data.length ===0 ) return res.status(404).json("El correo no se encuentra en la base de datos");
+        //Revisar posicion data 0 
+        const checkPassword = bcrypt.compareSync(req.body.password, data[0].password)
+
+        if(!checkPassword) return res.status(400).json("Contraseña incorrecta")
+
+        //const token = jwt.sign({ id: data[0].id }, "secretkey");
+
+        //const { password, ...others } = data[0];
+        
+        //res.cookie("accessToken", token, {
+        //    httpOnly: true,          
+        //}).status(200).json(others);
+
+    });
+};
 
 
 export const logout = (req, res) => {
