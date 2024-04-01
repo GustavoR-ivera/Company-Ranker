@@ -1,6 +1,6 @@
 import  {db} from "../connect.js"
 import bcrypt from "bcryptjs"
-import app from "frontend/src/App.js"
+//import App from "../../frontend/src/App.js"
 
 
 
@@ -69,7 +69,7 @@ export const login = (req, res) => {
 
         if(!checkPassword) return res.status(400).json("Contraseña incorrecta")
         else {
-            app.loginUser()
+            //App.loginUser()
             return res.status(200).json("Bienvenido" + " "+data[0].Name +" "+ data[0].Last_Name)
         }
 

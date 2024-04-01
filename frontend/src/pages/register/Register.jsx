@@ -49,6 +49,8 @@ const Register = () => {
                         <input type="password" placeholder="Contraseña" name="password" onChange ={handleChanges}/>
                         <input type="password" placeholder="Confirmar contraseña" name="confirmPasword" onChange ={handleChanges}/>
                         <p>Al dar click en registrarte estás aceptando nuestros terminos y condiciones y nuestras politicas de privacidad y nuestras politicas de cookies </p>
+
+                        {err && <span>Algo salió mal</span>}
                         <button onClick={handleClick}>Regístrate</button>
                         <p>
                             ¿Ya tienes una cuenta?
