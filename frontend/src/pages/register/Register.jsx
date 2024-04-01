@@ -1,6 +1,7 @@
 import { useState } from "react/cjs/react.production.min";
 import "./register.scss"
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 
 const Register = () => {
@@ -13,11 +14,27 @@ const Register = () => {
         confirmPassword: ""
         
     })
+
+    const [err, setErr] = useState(null)
+
     const handleChanges = e =>{
         setInputs(prev => ({...prev, [e.target.name]:e.target.value }))
     }
 
+
     console.log(inputs)
+
+    const handleClick = async (e) =>{
+        e.preventDefault()
+        try{
+            await axios.post("http://localhost:8080/server/auth/registrer", inputs)
+        }catch(err){
+            setErr(true)
+
+        }
+    }
+
+    console.log(err)
     return (
         <div className = "register">
             <div className="card">
@@ -32,7 +49,7 @@ const Register = () => {
                         <input type="password" placeholder="Contraseña" name="password" onChange ={handleChanges}/>
                         <input type="password" placeholder="Confirmar contraseña" name="confirmPasword" onChange ={handleChanges}/>
                         <p>Al dar click en registrarte estás aceptando nuestros terminos y condiciones y nuestras politicas de privacidad y nuestras politicas de cookies </p>
-                        <button>Regístrate</button>
+                        <button onClick={handleClick}>Regístrate</button>
                         <p>
                             ¿Ya tienes una cuenta?
                             <a1>
