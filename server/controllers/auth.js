@@ -1,5 +1,6 @@
 import  {db} from "../connect.js"
 import bcrypt from "bcryptjs"
+import app from "frontend/src/App.js"
 
 
 
@@ -67,7 +68,13 @@ export const login = (req, res) => {
         console.log(checkPassword)
 
         if(!checkPassword) return res.status(400).json("Contraseña incorrecta")
-        else return res.status(200).json("Bienvenido" + " "+data[0].Name +" "+ data[0].Last_Name)
+        else {
+            app.loginUser()
+            return res.status(200).json("Bienvenido" + " "+data[0].Name +" "+ data[0].Last_Name)
+        }
+
+
+        
 
         //const token = jwt.sign({ id: data[0].id }, "secretkey");
 

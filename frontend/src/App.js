@@ -19,11 +19,18 @@ import Login from './pages/login/Login';
 
 function App() {
 
+
+  active = false
+  
+  function loginUser(){
+    active = true
+  }
+
   //ejemplo de datos de usuario
   let user = {
     id: 123,
     name: "User X",
-    session: false
+    session: active
   }
 
   //arreglo de busquedas recientes
