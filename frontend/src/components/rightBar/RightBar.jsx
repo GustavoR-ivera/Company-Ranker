@@ -2,14 +2,19 @@ import "./rightBar.scss";
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import LoyaltyRoundedIcon from '@mui/icons-material/LoyaltyRounded';
 import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
+import { AuthContext } from "../../context/authContext";
+import { useContext } from "react";
 
 
-function RightBar(props) {
+function RightBar() {
+
+  const {currentUser} = useContext(AuthContext);
+
   return (
     <div className="rightBar">
       <div className="container">
         {/**validar si el usuario tiene sesion activa */}
-        {props.user.session ? (
+        {currentUser.access_token ? (
             <>
             <div className="item">
               <div className="header">
@@ -17,10 +22,15 @@ function RightBar(props) {
                 <span>Lastest searches</span>
               </div>
               <ul>
-                {props.searches && 
+                Alkosto
+                Exito
+                {/**
+                 * implementar esto con una consulta a la bd usando
+                 * currentUser
+                 * {props.searches && 
                 props.searches.map((search) => (
                   <li>{search}</li>
-                ))}
+                ))} */}
               </ul>
             </div>
             </>
