@@ -9,13 +9,13 @@ export const AuthContextProvider = ({ children }) => {
     );
 
     //asociar al boton login en el form de login para "activar" validacion
-    const login = () => {
+    const login = async (inputs) => {
         // to do
-        setCurrentUser({ 
-            id: 1, 
-            name: "user X",
-            email: "userx@gmail.com",
-            access_token: true});
+        const res = await axios.post("http://localhost:8800/server/auth/login", inputs, {
+      withCredentials: true,
+    });
+
+    setCurrentUser(res.data);
     };
 
     useEffect(() => {
