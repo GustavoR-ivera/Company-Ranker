@@ -1,10 +1,9 @@
-
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
   Outlet,
-  Navigate
+  Navigate,
 } from "react-router-dom";
 
 import NavBar from "./components/navBar/NavBar.jsx";
@@ -17,6 +16,7 @@ import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext.js";
+
 
 function App() {
 
@@ -36,8 +36,8 @@ function App() {
           <Outlet />
         </div>
         <RightBar/>
+        </div>
       </div>
-    </div>
     );
   }
 
@@ -45,13 +45,12 @@ function App() {
   function ProtectedRoute({children}){
     if(currentUser.access_token){
       return children;
-    }else{
-      return <Navigate to="/login" />
+    } else {
+      return <Navigate to="/login" />;
     }
   }
 
   const router = createBrowserRouter([
-
     //pagina principal (no hay sesion de usuario)
     {
       path: "/",
@@ -60,17 +59,17 @@ function App() {
     //rutas que no utilizan la plantilla de barras de navegacion
     {
       path: "/login",
-      element: <Login/>,
+      element: <Login />,
     },
     {
       path: "/register",
-      element: <Register/>,
+      element: <Register />,
     },
     {
       path: "/about",
       element: <About />,
     },
-    
+
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
       path: "/",
@@ -80,7 +79,7 @@ function App() {
         </ProtectedRoute>
       ),
       children: [
-        //direccion al home de un usuario especifico 
+        //direccion al home de un usuario especifico
         {
           path: "/home/:id",
           element: <Home />,
@@ -89,8 +88,8 @@ function App() {
         {
           path: "/profile/:id",
           element: <h3>profile for user x</h3>,
-        }
-      ]
+        },
+      ],
     },
   ]);
 
@@ -102,15 +101,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
