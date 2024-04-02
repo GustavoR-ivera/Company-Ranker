@@ -1,3 +1,9 @@
-.principalPage{
-    flex: 8;
+.principalPage {
+  flex: 8;
+  text-align: center;
+  margin-top: 25px;
+  h1 {
+    font-size: 38px;
+    margin: auto;
+  }
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./navBar.scss"
-import SearchIcon from '@mui/icons-material/Search';
+import "./navBar.scss";
+import SearchIcon from "@mui/icons-material/Search";
 import logo from "../../images/logo.png";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
@@ -8,63 +8,62 @@ import { useContext } from "react";
 // se debe pasar el dato que determina si el usuario tiene la sesion activa o no para determinar
 // si se muestra el boton de login-registro o el nombre del usuario
 function NavBar() {
+  const { currentUser } = useContext(AuthContext);
 
-  const {currentUser} = useContext(AuthContext);
-
-  //validacion ruta "home" 
+  //validacion ruta "home"
   let path_home = "";
-  currentUser.access_token ? 
-  path_home = "/home"+"/:"+currentUser.id 
-  : path_home = "/"
+  currentUser.access_token
+    ? (path_home = "/home" + "/:" + currentUser.id)
+    : (path_home = "/");
 
   //validacion redireccionamiento "logo"
   let path_logo = "";
-  currentUser.access_token ? 
-  path_logo = "/home"+"/:"+currentUser.id 
-  : path_logo = "/"
+  currentUser.access_token
+    ? (path_logo = "/home" + "/:" + currentUser.id)
+    : (path_logo = "/");
 
   return (
     <div className="navbar">
       <div className="left">
         {/*logo*/}
         <div className="logo">
-          <Link to={path_logo} >
+          <Link to={path_logo}>
             <img src={logo} alt="CompanyRanker" draggable="false" />
           </Link>
-            <span>Company Ranker</span>
+          <span>Company Ranker</span>
         </div>
-          
+
         {/*home*/}
-        <Link to={path_home} style={{textDecoration:"none"}}>
-          Home
+        <Link to={path_home} style={{ textDecoration: "none" }}>
+          Inicio
         </Link>
 
         {/*si el usuario inicia sesion podra ver estas dos secciones*/}
         {currentUser.access_token && (
-        <>
-          <div className="left">
-            <Link to="/" style={{textDecoration:"none"}}>
-              Reviews
-            </Link>
-            <Link to="/" style={{textDecoration:"none"}}>
-              Companies
-            </Link>
-          </div>
-        </>
+          <>
+            <div className="left">
+              <Link to="/" style={{ textDecoration: "none" }}>
+                Reseñas
+              </Link>
+              <Link to="/" style={{ textDecoration: "none" }}>
+                Empresas
+              </Link>
+            </div>
+          </>
         )}
 
         {/*Suscription*/}
-        <Link to="/" style={{textDecoration:"none"}}>
-          Suscription
+        <Link to="/" style={{ textDecoration: "none" }}>
+          Suscripción
         </Link>
         {/*About*/}
-        <Link to="/about" style={{textDecoration:"none"}}>
-          About us
-        </Link>    
+        <Link to="/about" style={{ textDecoration: "none" }}>
+          Quiénes somos
+        </Link>
         {/*search*/}
         <div className="search">
-          <SearchIcon/>
-          <input type="text" placeholder="Search"/>
+          <SearchIcon />
+          <input type="text" placeholder="Buscar" />
         </div>
       </div>
 
@@ -76,24 +75,23 @@ function NavBar() {
             <div className="user">
               <span>{currentUser.name}</span>
             </div>
-            <Link to="/" style={{textDecoration:"none"}}>
-              Profile
+            <Link to="/" style={{ textDecoration: "none" }}>
+              Perfil
             </Link>
           </div>
         </>
       ) : (
         <>
-      <div className="right">
-        <Link to="/login" style={{textDecoration:"none"}}>
-          <span>Login</span>
-        </Link>
-        <Link to="/register" style={{textDecoration:"none"}}>
-          <span>Register</span>
-        </Link>
-      </div>
-      </>
+          <div className="right">
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <span>Inicia sesión</span>
+            </Link>
+            <Link to="/register" style={{ textDecoration: "none" }}>
+              <span>Registrate</span>
+            </Link>
+          </div>
+        </>
       )}
-
     </div>
   );
 }
