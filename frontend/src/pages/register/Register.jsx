@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import GoBack from "../../components/goBack/GoBack";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -38,7 +39,9 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="up">
+        <GoBack />
           <h1>Company Ranker</h1>
+          
           <p>Registrate para empezar a compartir tus experiencias</p>
           <form>
             <input
@@ -60,6 +63,7 @@ const Register = () => {
               onChange={handleChange}
             />
             <p>
+            <span className="red-asterisk">*</span>
               Tu contraseña debe incluir letras, numeros y caracteres especiales
             </p>
             <input

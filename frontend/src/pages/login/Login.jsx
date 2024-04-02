@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext.js";
+import GoBack from "../../components/goBack/GoBack.jsx";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -32,6 +33,7 @@ const Login = () => {
     <div className="login">
       <div className="card">
         <div className="right">
+        <GoBack />
           <h1>Company Ranker</h1>
           <form>
             <input
@@ -49,7 +51,7 @@ const Login = () => {
             {err && err}
             <button onClick={handleLogin}>Iniciar sesión</button>
           </form>
-          <a>¿Has olvidado tu contraseña?</a>
+          <a href="recovery">¿Has olvidado tu contraseña?</a>
           <p>
             ¿No tienes una cuenta?
             <a href="register">Registrarte</a>

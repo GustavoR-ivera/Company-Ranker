@@ -15,6 +15,7 @@ import About from "./pages/about/About.jsx";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
+import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
 
 function App() {
@@ -56,6 +57,10 @@ function App() {
       element: <PrincipalPage />,
     },
     //rutas que no utilizan la plantilla de barras de navegacion
+    {
+      path: "/recovery",
+      element: <Register />
+    },
     {
       path: "/login",
       element: <Login />,
