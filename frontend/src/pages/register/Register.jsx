@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./register.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import GoBack from "../../components/goBack/GoBack";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -13,60 +14,68 @@ const Register = () => {
 
   const [err, setErr] = useState(null);
 
-  const handleChanges = (e) => {
+  const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   console.log(inputs);
+  console.log(err);
+  const navigate = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/server/auth/registrer", inputs);
+      await axios.post("http://localhost:8800/server/auth/register", inputs);
+      //si el registro es exitoso se redirige a la pagina de inicio
+      //apartir de este punto, con que datos de usuario funciona la pagina?
+      navigate("/home");
     } catch (err) {
-      setErr(true);
+      setErr(err.response.data);
     }
   };
-
   console.log(err);
+
   return (
     <div className="register">
       <div className="card">
         <div className="up">
+        <GoBack />
           <h1>Company Ranker</h1>
+          
           <p>Registrate para empezar a compartir tus experiencias</p>
           <form>
             <input
               type="text"
               placeholder="Nombres"
               name="Name"
-              onChange={handleChanges}
+              onChange={handleChange}
             />
             <input
               type="text"
               placeholder="Apellidos"
               name="Last_Name"
-              onChange={handleChanges}
+              onChange={handleChange}
             />
             <input
               type="email"
               placeholder="E-mail"
               name="Email"
-              onChange={handleChanges}
+              onChange={handleChange}
             />
             <p>
+            <span className="red-asterisk">*</span>
               Tu contraseña debe incluir letras, numeros y caracteres especiales
             </p>
             <input
               type="password"
               placeholder="Contraseña"
               name="Password"
-              onChange={handleChanges}
+              onChange={handleChange}
             />
             <input
               type="password"
               placeholder="Confirmar contraseña"
-              //name="confirmPasword"
+              name="confirmPasword"
               //onChange={handleChanges}
             />
             <p>
@@ -79,9 +88,7 @@ const Register = () => {
             <button onClick={handleClick}>Regístrate</button>
             <p>
               ¿Ya tienes una cuenta?
-              <a1>
-                <a href="login">Ingresar</a>
-              </a1>
+              <a href="login">Ingresar</a>
             </p>
           </form>
         </div>

@@ -8,9 +8,8 @@ export const AuthContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("user")) || null
   );
 
-  //asociar al boton login en el form de login para "activar" validacion
+  //metodo login invocado en el inicio de sesion al accionar el boton del form
   const login = async (inputs) => {
-    // to do
     const res = await axios.post(
       "http://localhost:8800/server/auth/login",
       inputs,
@@ -18,10 +17,10 @@ export const AuthContextProvider = ({ children }) => {
         withCredentials: true,
       }
     );
-
     setCurrentUser(res.data);
   };
 
+  //guardar datos del usuario en el local storage del navegador
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
