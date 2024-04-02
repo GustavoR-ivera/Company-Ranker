@@ -12,38 +12,37 @@ import RightBar from "./components/rightBar/RightBar.jsx";
 import PrincipalPage from "./pages/principal_page/PrincipalPage.jsx";
 import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
-import Register from './pages/register/Register';
-import Login from './pages/login/Login';
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext.js";
 
-
 function App() {
-
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
+  let session = true;
 
   // plantilla para usar las diferentes barras de navegacion en diferentes paginas
   function Layout() {
-  return (
-    <div>
-      {/*enviamos user como parametro a navbar*/}
-      <NavBar/>
+    return (
+      <div>
+        {/*enviamos user como parametro a navbar*/}
+        <NavBar />
 
-      <div style={{display:"flex"}}>
-        <LeftBar />
-        {/*componente comodin*/}
-        <div style={{flex:8}}>
-          <Outlet />
-        </div>
-        <RightBar/>
+        <div style={{ display: "flex" }}>
+          <LeftBar />
+          {/*componente comodin*/}
+          <div style={{ flex: 8 }}>
+            <Outlet />
+          </div>
+          <RightBar />
         </div>
       </div>
     );
   }
 
   //validacion de usuario para rutas protegidas
-  function ProtectedRoute({children}){
-    if(currentUser.access_token){
+  function ProtectedRoute({ children }) {
+    if (session) {
       return children;
     } else {
       return <Navigate to="/login" />;
@@ -54,7 +53,7 @@ function App() {
     //pagina principal (no hay sesion de usuario)
     {
       path: "/",
-      element: <PrincipalPage/>, 
+      element: <PrincipalPage />,
     },
     //rutas que no utilizan la plantilla de barras de navegacion
     {
@@ -81,12 +80,12 @@ function App() {
       children: [
         //direccion al home de un usuario especifico
         {
-          path: "/home/:id",
+          path: "/home",
           element: <Home />,
         },
         //direccion al perfil de un usuario especifico
         {
-          path: "/profile/:id",
+          path: "/profile",
           element: <h3>profile for user x</h3>,
         },
       ],

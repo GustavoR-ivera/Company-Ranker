@@ -21,8 +21,8 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(inputs);
-
-      navigate("/");
+      //si el login es exitoso se redirige a la pagina de inicio
+      navigate("/home");
     } catch (err) {
       setErr(err.response.data);
     }
@@ -46,14 +46,13 @@ const Login = () => {
               name="password"
               onChange={handleChange}
             />
+            {err && err}
             <button onClick={handleLogin}>Iniciar sesión</button>
           </form>
           <a>¿Has olvidado tu contraseña?</a>
           <p>
             ¿No tienes una cuenta?
-            <a1>
-              <a href="register">Registrarte</a>
-            </a1>
+            <a href="register">Registrarte</a>
           </p>
         </div>
       </div>

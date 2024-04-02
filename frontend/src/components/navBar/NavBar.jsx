@@ -9,18 +9,25 @@ import { useContext } from "react";
 // si se muestra el boton de login-registro o el nombre del usuario
 function NavBar() {
   const { currentUser } = useContext(AuthContext);
+  let session = false;
 
   //validacion ruta "home"
   let path_home = "";
-  currentUser.access_token
-    ? (path_home = "/home" + "/:" + currentUser.id)
-    : (path_home = "/");
+  //currentUser.access_token
+  if (session) {
+    path_home = "/home";
+  } else {
+    path_home = "/";
+  }
 
   //validacion redireccionamiento "logo"
   let path_logo = "";
-  currentUser.access_token
-    ? (path_logo = "/home" + "/:" + currentUser.id)
-    : (path_logo = "/");
+  //currentUser.access_token
+  if (session) {
+    path_logo = "/home";
+  } else {
+    path_logo = "/";
+  }
 
   return (
     <div className="navbar">
@@ -39,18 +46,21 @@ function NavBar() {
         </Link>
 
         {/*si el usuario inicia sesion podra ver estas dos secciones*/}
-        {currentUser.access_token && (
-          <>
-            <div className="left">
-              <Link to="/" style={{ textDecoration: "none" }}>
-                Reseñas
-              </Link>
-              <Link to="/" style={{ textDecoration: "none" }}>
-                Empresas
-              </Link>
-            </div>
-          </>
-        )}
+        {
+          //currentUser.access_token
+          session && (
+            <>
+              <div className="left">
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  Reseñas
+                </Link>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  Empresas
+                </Link>
+              </div>
+            </>
+          )
+        }
 
         {/*Suscription*/}
         <Link to="/" style={{ textDecoration: "none" }}>
@@ -69,29 +79,32 @@ function NavBar() {
 
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una
       sesion activa*/}
-      {currentUser.access_token ? (
-        <>
-          <div className="right">
-            <div className="user">
-              <span>{currentUser.name}</span>
+      {
+        //currentUser.access_token
+        session ? (
+          <>
+            <div className="right">
+              <div className="user">
+                <span>{currentUser.Name}</span>
+              </div>
+              <Link to="/" style={{ textDecoration: "none" }}>
+                Perfil
+              </Link>
             </div>
-            <Link to="/" style={{ textDecoration: "none" }}>
-              Perfil
-            </Link>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="right">
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <span>Inicia sesión</span>
-            </Link>
-            <Link to="/register" style={{ textDecoration: "none" }}>
-              <span>Registrate</span>
-            </Link>
-          </div>
-        </>
-      )}
+          </>
+        ) : (
+          <>
+            <div className="right">
+              <Link to="/login" style={{ textDecoration: "none" }}>
+                <span>Inicia sesión</span>
+              </Link>
+              <Link to="/register" style={{ textDecoration: "none" }}>
+                <span>Registrate</span>
+              </Link>
+            </div>
+          </>
+        )
+      }
     </div>
   );
 }

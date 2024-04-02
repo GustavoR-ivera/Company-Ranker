@@ -12,6 +12,7 @@ import { useContext } from "react";
 
 function LeftBar() {
   const { currentUser } = useContext(AuthContext);
+  let session = false;
 
   return (
     <div className="leftBar">
@@ -20,16 +21,19 @@ function LeftBar() {
         <hr />
         <div className="menu">
           <span>Explorar</span>
-          {currentUser.access_token && (
-            <>
-              <div className="item">
-                {/**podria consultarse validando la cantidad de
-                 *  reseñas en un periodo de tiempo */}
-                <img src={trending} alt="trending" />
-                <span>Empresas tendencia</span>
-              </div>
-            </>
-          )}
+          {
+            //currentUser.access_token
+            session && (
+              <>
+                <div className="item">
+                  {/**podria consultarse validando la cantidad de
+                   *  reseñas en un periodo de tiempo */}
+                  <img src={trending} alt="trending" />
+                  <span>Empresas tendencia</span>
+                </div>
+              </>
+            )
+          }
 
           <div className="item">
             <img src={news} alt="news" />
@@ -41,7 +45,8 @@ function LeftBar() {
           <span>Mercado Comercial</span>
           {
             //podria consultarse las empresas con mejor valoracion
-            currentUser.access_token && (
+            //currentUser.access_token
+            session && (
               <>
                 <div className="item">
                   <img src={shop} alt="shop" />
