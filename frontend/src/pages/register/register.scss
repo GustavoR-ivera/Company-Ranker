@@ -2,6 +2,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    background-color: #021f75;
     justify-content: center;
         .card{
             width: 50%;
@@ -106,7 +107,6 @@
         }
     }
     body{
-        background-color: #021f75;
         background-attachment: fixed;
         block-size: cover;
     }

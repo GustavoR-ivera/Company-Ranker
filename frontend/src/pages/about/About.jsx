@@ -4,7 +4,6 @@ import NavBar from "../../components/navBar/NavBar.jsx";
 import fotoGustavo from "../../images/fotoAboutGustavo.jpg";
 import linkedin_logo from "../../images/linkedin.png";
 
-
 function About(props) {
   return (
     <div className="about">
