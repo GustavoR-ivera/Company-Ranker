@@ -5,11 +5,12 @@ import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
   //chequear si el email ya existe
-  const q = "SELECT * FROM User where Email = ?";
+  const q = "SELECT idUser, Name, Email FROM User where Email = ?";
 
   db.query(q, [req.body.Email], (err, data) => {
     if (err) return res.status(500).send(err);
-    if (data.length) return res.status(409).send("El email ya registrado");
+    if (data.length) return res.status(409).send("El email ya está registrado");
+    //json(data[0].Email);
     //Crear nuevo usuario
     //hash password
     const salt = bcrypt.genSaltSync(10);
@@ -27,6 +28,7 @@ export const register = (req, res) => {
 
     db.query(q, [values], (err, data) => {
       if (err) return res.status(500).send(err);
+      //devolver el id de usuario creado
       return res.status(200).send("Usuario creado");
     });
   });
