@@ -3,6 +3,7 @@ import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext.js";
 import GoBack from "../../components/goBack/GoBack.jsx";
+import logo from "../../images/logo.png";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -33,7 +34,10 @@ const Login = () => {
     <div className="login">
       <div className="card">
         <div className="right">
-        <GoBack />
+          <GoBack />
+          <Link to="/">
+            <img src={logo} alt="CompanyRanker" draggable="false" />
+          </Link>
           <h1>Company Ranker</h1>
           <form>
             <input

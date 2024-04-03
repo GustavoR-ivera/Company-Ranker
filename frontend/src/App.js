@@ -59,7 +59,7 @@ function App() {
     //rutas que no utilizan la plantilla de barras de navegacion
     {
       path: "/recovery",
-      element: <Register />
+      element: <Recovery />,
     },
     {
       path: "/login",
