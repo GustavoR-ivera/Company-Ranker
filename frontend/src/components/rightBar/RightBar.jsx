@@ -42,9 +42,8 @@ function RightBar() {
                   <span>Registrate para ver más</span>
                 </div>
                 <p>
-                  En Company Ranker serás capaz de consultar información de
-                  diversas empresas colombianas y sus principales valoraciones,
-                  ¡ no esperes más y registrate !
+                  Consulta información de diversas empresas colombianas y sus
+                  principales valoraciones, ¡ no esperes más y registrate !
                 </p>
               </div>
               <div className="item">
@@ -53,8 +52,8 @@ function RightBar() {
                   <span>Suscripción</span>
                 </div>
                 <p>
-                  Ahora puedes suscribirte a nuestra plataforma y obtener todos
-                  los beneficios de ser miembro.
+                  Suscríbete a nuestra plataforma y obtén todos los beneficios
+                  de ser miembro.
                 </p>
               </div>
             </>
