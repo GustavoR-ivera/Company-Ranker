@@ -21,6 +21,10 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (inputs.email === "" || inputs.password === "") {
+      setErr("Por favor, rellena todos los campos");
+      return;
+    }
     try {
       await login(inputs);
       //si el login es exitoso se redirige a la pagina de inicio
@@ -41,18 +45,20 @@ const Login = () => {
           <h1>Company Ranker</h1>
           <form>
             <input
-              type="text"
+              type="email"
               placeholder="E-mail"
               name="email"
               onChange={handleChange}
+              required={true}
             />
             <input
               type="password"
               placeholder="Contraseña"
               name="password"
               onChange={handleChange}
+              required={true}
             />
-            {err && err}
+            <span>{err}</span>
             <button onClick={handleLogin}>Iniciar sesión</button>
           </form>
           <a href="recovery">¿Has olvidado tu contraseña?</a>

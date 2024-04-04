@@ -1,14 +1,17 @@
 import "./about.scss";
 import NavBar from "../../components/navBar/NavBar.jsx";
 import fotoGustavo from "../../images/fotoAboutGustavo.jpg";
+import fotoDaniel from "../../images/fotoAboutDaniel.jpg";
+import fotoJavier from "../../images/fotoAboutJavier.jpg";
+import fotoCarlos from "../../images/fotoAboutCarlos.jpg";
 import linkedin_logo from "../../images/linkedin.png";
 import Footer from "../../components/footer/Footer.jsx";
 
-function About(props) {
+function About() {
   return (
     <div className="about">
       {/*enviamos user como parametro a navbar*/}
-      <NavBar user={props.user} />
+      <NavBar />
 
       <div className="container">
         <div className="item">
@@ -47,7 +50,7 @@ function About(props) {
             </a>
           </div>
           <div className="member">
-            <img src="" className="foto_member" />
+            <img src={fotoDaniel} className="foto_member" />
             <span>Daniel</span>
             <p>Desarrollador de software</p>
             <a href="https://www.linkedin.com/" target="_blank">
@@ -55,7 +58,7 @@ function About(props) {
             </a>
           </div>
           <div className="member">
-            <img src="" className="foto_member" />
+            <img src={fotoCarlos} className="foto_member" />
             <span>Carlos</span>
             <p>Desarrollador de software</p>
             <a href="https://www.linkedin.com/" target="_blank">
@@ -63,7 +66,7 @@ function About(props) {
             </a>
           </div>
           <div className="member">
-            <img src="" className="foto_member" />
+            <img src={fotoJavier} className="foto_member" />
             <span>Javier</span>
             <p>Desarrollador de software</p>
             <a href="https://www.linkedin.com/" target="_blank">
