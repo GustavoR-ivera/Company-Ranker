@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
     setCurrentUser(res.data);
   };
 
-  //guardar datos del usuario en el local storage del navegador
+  //guardar datos del usuario en el local storage del navegador -> user: {}
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);

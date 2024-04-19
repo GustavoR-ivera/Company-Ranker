@@ -9,7 +9,7 @@ import { useContext } from "react";
 // si se muestra el boton de login-registro o el nombre del usuario
 function NavBar() {
   const { currentUser } = useContext(AuthContext);
-  let session = false;
+  let session = true;
 
   //validacion ruta "home"
   let path_home = "";
@@ -85,7 +85,7 @@ function NavBar() {
           <>
             <div className="right">
               <div className="user">
-                <span>{currentUser.Name}</span>
+                <span>{currentUser==null? "user" :currentUser.Name}</span>
               </div>
               <Link to="/" style={{ textDecoration: "none" }}>
                 Perfil
