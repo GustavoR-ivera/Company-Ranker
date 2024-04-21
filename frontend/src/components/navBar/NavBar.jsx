@@ -9,12 +9,10 @@ import { useContext } from "react";
 // si se muestra el boton de login-registro o el nombre del usuario
 function NavBar() {
   const { currentUser } = useContext(AuthContext);
-  let session = true;
 
   //validacion ruta "home"
   let path_home = "";
-  //currentUser.access_token
-  if (session) {
+  if (currentUser) {
     path_home = "/home";
   } else {
     path_home = "/";
@@ -22,8 +20,7 @@ function NavBar() {
 
   //validacion redireccionamiento "logo"
   let path_logo = "";
-  //currentUser.access_token
-  if (session) {
+  if (currentUser) {
     path_logo = "/home";
   } else {
     path_logo = "/";
@@ -47,8 +44,7 @@ function NavBar() {
 
         {/*si el usuario inicia sesion podra ver estas dos secciones*/}
         {
-          //currentUser.access_token
-          session && (
+          currentUser && (
             <>
               <div className="left">
                 <Link to="/" style={{ textDecoration: "none" }}>
@@ -80,8 +76,7 @@ function NavBar() {
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una
       sesion activa*/}
       {
-        //currentUser.access_token
-        session ? (
+        currentUser ? (
           <>
             <div className="right">
               <div className="user">

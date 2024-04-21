@@ -7,15 +7,13 @@ import { useContext } from "react";
 
 function RightBar() {
   const { currentUser } = useContext(AuthContext);
-  let session = false;
 
   return (
     <div className="rightBar">
       <div className="container">
         {/**validar si el usuario tiene sesion activa */}
         {
-          //currentUser.access_token
-          session ? (
+          currentUser ? (
             <>
               <div className="item">
                 <div className="header">
