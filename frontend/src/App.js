@@ -20,7 +20,6 @@ import { AuthContext } from "./context/authContext.js";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
-  let session = true;
 
   // plantilla para usar las diferentes barras de navegacion en diferentes paginas
   function Layout() {
@@ -43,7 +42,7 @@ function App() {
 
   //validacion de usuario para rutas protegidas
   function ProtectedRoute({ children }) {
-    if (session) {
+    if (currentUser) {
       return children;
     } else {
       return <Navigate to="/login" />;
