@@ -68,12 +68,14 @@ export const login = (req, res) => {
       req.body.password,
       data[0].Password
     );
-    console.log(checkPassword);
+    //console.log(checkPassword);
 
     if (!checkPassword) return res.status(400).send("Contraseña incorrecta");
 
+    //definir token
     const token = jwt.sign({ id: data[0].idUser }, "secretkey");
 
+    //campos que no se muestran
     const { Rol, Suscription_idSuscription, Password, Available, ...others } =
       data[0];
 
