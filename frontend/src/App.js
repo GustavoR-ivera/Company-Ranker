@@ -14,6 +14,7 @@ import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
+import My_reviews from "./pages/my_reviews/My_reviews";
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
@@ -91,6 +92,10 @@ function App() {
         {
           path: "/profile",
           element: <h3>profile for user x</h3>,
+        },
+        {
+          path: "/reseñas/mis_reseñas",
+          element: <My_reviews />,
         },
       ],
     },
