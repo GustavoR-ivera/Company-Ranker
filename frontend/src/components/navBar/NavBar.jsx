@@ -60,60 +60,98 @@ function NavBar() {
           Inicio
         </Link>
 
-        {/*si el usuario inicia sesion podra ver estas dos secciones*/}
+        {/*si el usuario que inicia sesion es admin o moderador podra ver estas dos secciones*/}
         {
-          currentUser && (
-            <>
-            <div className="left">
-              <div className="seccion_reseñas"
-                onMouseEnter={() => setViewDropdown(true)}
-                onMouseLeave={() => setViewDropdown(false)}>
-
-                <Dropdown show={viewDropdown} >
-                  <Dropdown.Toggle className="titulo_reseñas" variant="success" id="dropdown-basic">
-                    Reseñas
-                  </Dropdown.Toggle>
-
-                {viewDropdown && (
-                  <>
-                  <div className="menu_reseñas">
-
-                  <Dropdown.Menu >
-                    <div className="menu_item">
-                    <Dropdown.Item  href="/reseñas/mis_reseñas">Mis reseñas</Dropdown.Item>
-                    </div>
-                    <div className="menu_item">
-                    <Dropdown.Item  href="/reseñas/reseñas_de_productos">Reseñas de productos</Dropdown.Item>
-                    </div>
-                    <div className="menu_item">
-                    <Dropdown.Item  href="/reseñas/reseñas_laborales">Reseñas laborales</Dropdown.Item>
-                    </div>
-                  </Dropdown.Menu>
-                  
-                  </div>
-                  </>
-                )}
-
-                </Dropdown>
-
-              </div>
-              
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  Empresas
+          currentUser == null ?  (<> </>) :  (
+            currentUser && (currentUser.Rol === "admin" || currentUser.Rol === "moderator") && (
+              <>
+                <Link to="#" style={{ textDecoration: "none" }}>
+                  Gestionar Reseñas
                 </Link>
+  
+                <Link to="#" style={{ textDecoration: "none" }}>
+                  Gestionar empresas
+                </Link>
+              </>
+            )
+          )
+          
+        }
+
+        {
+          currentUser == null ?  (<> </>) :  (
+
+          currentUser && (currentUser.Rol === "basic" || currentUser.Rol === "premium") && (
+          <>
+          <div className="left">
+            <div className="seccion_reseñas"
+              onMouseEnter={() => setViewDropdown(true)}
+              onMouseLeave={() => setViewDropdown(false)}>
+
+              <Dropdown show={viewDropdown} >
+                <Dropdown.Toggle className="titulo_reseñas" variant="success" id="dropdown-basic">
+                  Reseñas
+                </Dropdown.Toggle>
+
+              {viewDropdown && (
+                <>
+                <div className="menu_reseñas">
+
+                <Dropdown.Menu >
+                  <div className="menu_item">
+                  <Dropdown.Item  href="/reseñas/mis_reseñas">Mis reseñas</Dropdown.Item>
+                  </div>
+                  <div className="menu_item">
+                  <Dropdown.Item  href="/reseñas/reseñas_de_productos">Reseñas de productos</Dropdown.Item>
+                  </div>
+                  <div className="menu_item">
+                  <Dropdown.Item  href="/reseñas/reseñas_laborales">Reseñas laborales</Dropdown.Item>
+                  </div>
+                </Dropdown.Menu>
+                
+                </div>
+                </> 
+              )}
+              </Dropdown>
+
             </div>
-            </>
+            
+              <Link to="/" style={{ textDecoration: "none" }}>
+                Empresas
+              </Link>
+          </div>
+          </>)
           )
         }
 
-        {/*Suscription*/}
-        <Link to="/" style={{ textDecoration: "none" }}>
-          Suscripción
-        </Link>
-        {/*About*/}
-        <Link to="/about" style={{ textDecoration: "none" }}>
-          Quiénes somos
-        </Link>
+
+        { 
+          currentUser == null ?  (
+          <> 
+          {/*Suscription*/}
+          <Link to="/" style={{ textDecoration: "none" }}>
+                Suscripción
+              </Link>
+              {/*About*/}
+              <Link to="/about" style={{ textDecoration: "none" }}>
+                Quiénes somos
+              </Link>
+          </>) : (
+            (currentUser.Rol === "basic" || currentUser.Rol === "premium") && (
+              <>
+              {/*Suscription*/}
+              <Link to="/" style={{ textDecoration: "none" }}>
+                Suscripción
+              </Link>
+              {/*About*/}
+              <Link to="/about" style={{ textDecoration: "none" }}>
+                Quiénes somos
+              </Link>
+              </>
+              )
+          )
+        }
+        
         {/*search*/}
         <div className="search">
           <SearchIcon />

@@ -78,7 +78,7 @@ export const login = (req, res) => {
     const token = jwt.sign({ id: data[0].idUser }, "secretkey");
 
     //campos que no se muestran
-    const { Rol, Suscription_idSuscription, Password, Available, ...others } =
+    const { Suscription_idSuscription, Password, Available, ...others } =
       data[0];
 
     res
