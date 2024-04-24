@@ -18,13 +18,15 @@ export const register = (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
 
     const q =
-      "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Suscription_idSuscription` ) VALUES (?)";
+      "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Suscription_idSuscription`, `Available`, `Rol` ) VALUES (?)";
     const values = [
       req.body.Email,
       hashedPassword,
       req.body.Name,
       req.body.Last_Name,
       10,
+      1,      //available por defecto = 1
+      "basic", //rol por defecto = basic
     ];
 
     db.query(q, [values], (err, data) => {
