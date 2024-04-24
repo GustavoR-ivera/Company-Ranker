@@ -25,7 +25,7 @@ export const register = (req, res) => {
       req.body.Name,
       req.body.Last_Name,
       10,
-      1,       //available por defecto = 1
+      1,      //available por defecto = 1
       "basic", //rol por defecto = basic
     ];
 
