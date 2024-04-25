@@ -1,9 +1,6 @@
-import styles from './jobReview.scss';
+import './jobReview.scss';
 import React from 'react';
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/authContext";
-import { useContext } from "react";
-import { useState } from 'react';
+
 
 //const [jobReview, setJobReview] = useState([]);
 
@@ -13,15 +10,14 @@ import { useState } from 'react';
     return data;
 };*/
 //const  job_review = () => ({review})
+//const JobReview = ({ id, company, jobTitle, description, workEnvironment, growthOpportunities, salary }) => {
 const JobReview = ({ jobReview }) => {
-
     return (
         <div className="job-review-card">
             <div className="header">
-                <div className="id">{jobReview.id}</div>
+                
                 <div className="company">{jobReview.company}</div>
             </div>
-            <hr />
             <div className="content">
                 <div className="job-title">{jobReview.jobTitle}</div>
                 <div className="description">{jobReview.description}</div>
@@ -38,7 +34,7 @@ const JobReview = ({ jobReview }) => {
             <div className="buttons">
                 <button className="agree-button">De acuerdo</button>
                 <button className="disagree-button">En desacuerdo</button>
-            </div>
+            </div> 
 
         </div>
     );

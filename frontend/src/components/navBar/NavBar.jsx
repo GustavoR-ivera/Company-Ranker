@@ -31,10 +31,10 @@ function NavBar() {
   } else {
     path_logo = "/";
   }
-  
+
   const navigate = useNavigate();
 
-  const logout = async() => {
+  const logout = async () => {
     //e.preventDefault();
 
     try {
@@ -66,46 +66,46 @@ function NavBar() {
 
         {/*si el usuario inicia sesion podra ver estas dos secciones*/}
 
-            <div className="left">
-              <div className="seccion_resenas"
-                onMouseEnter={() => setViewDropdown(true)}
-                onMouseLeave={() => setViewDropdown(false)}>
+        <div className="left">
+          <div className="seccion_resenas"
+            onMouseEnter={() => setViewDropdown(true)}
+            onMouseLeave={() => setViewDropdown(false)}>
 
-                <Dropdown show={viewDropdown} >
-                  <Dropdown.Toggle className="titulo_resenas" variant="success" id="dropdown-basic">
-                    Reseñas
-                  </Dropdown.Toggle>
+            <Dropdown show={viewDropdown} >
+              <Dropdown.Toggle className="titulo_resenas" variant="success" id="dropdown-basic">
+                Reseñas
+              </Dropdown.Toggle>
 
-                {viewDropdown && (
-                  <>
+              {viewDropdown && (
+                <>
                   <div className="menu_resenas">
 
-                  <Dropdown.Menu >
-                  <div className="menu_item">
-                    <Dropdown.Item as={Link} to="/misResenas">Mis reseñas</Dropdown.Item>
+                    <Dropdown.Menu >
+                      <div className="menu_item">
+                        <Dropdown.Item as={Link} to="/misResenas">Mis reseñas</Dropdown.Item>
+                      </div>
+                      <div className="menu_item">
+                        <Dropdown.Item href="/resenas/resenas_de_productos">resenas de productos</Dropdown.Item>
+                      </div>
+                      <div className="menu_item">
+                        <Dropdown.Item href="/resenas/resenas_laborales">resenas laborales</Dropdown.Item>
+                      </div>
+                    </Dropdown.Menu>
                   </div>
-                <div className="menu_item">
-                <Dropdown.Item  href="/resenas/resenas_de_productos">resenas de productos</Dropdown.Item>
-                </div>
-                <div className="menu_item">
-                <Dropdown.Item  href="/resenas/resenas_laborales">resenas laborales</Dropdown.Item>
-                </div>
-              </Dropdown.Menu>
-                  </div>
-                  </>
-                )}
+                </>
+              )}
 
-                </Dropdown>
+            </Dropdown>
 
-              </div>
-              
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  Empresas
-                </Link>
-            </div>
-          
-          
-        
+          </div>
+
+          <Link to="/" style={{ textDecoration: "none" }}>
+            Empresas
+          </Link>
+        </div>
+
+
+
 
         {/*Suscription*/}
         <Link to="/" style={{ textDecoration: "none" }}>
@@ -121,7 +121,6 @@ function NavBar() {
           <input type="text" placeholder="Buscar" />
         </div>
       </div>
-  )
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una
       sesion activa*/}
       {
@@ -129,14 +128,14 @@ function NavBar() {
           <>
             <div className="right">
               <div className="user">
-                <span>{currentUser==null? "user" :currentUser.Name}</span>
+                <span>{currentUser == null ? "user" : currentUser.Name}</span>
               </div>
               <Link to="/" style={{ textDecoration: "none" }}>
                 Perfil
               </Link>
               <Link onClick={logout} style={{ textDecoration: "none" }}>
                 Salir
-                </Link>
+              </Link>
             </div>
           </>
         ) : (
