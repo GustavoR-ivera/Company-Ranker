@@ -15,6 +15,9 @@ import About from "./pages/about/About.jsx";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import My_reviews from "./pages/my_reviews/My_reviews";
+import ManageProductReviews from "./pages/manage_product_reviews/ManageProductReviews";
+import ManageJobReviews from "./pages/manage_job_reviews/ManageJobReviews";
+
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
@@ -96,6 +99,14 @@ function App() {
         {
           path: "/reseñas/mis_reseñas",
           element: <My_reviews />,
+        },
+        {
+          path: "/gestionar_reseñas/reseñas_productos",
+          element: <ManageProductReviews />,
+        },
+        {
+          path: "/gestionar_reseñas/reseñas_laborales",
+          element: < ManageJobReviews />,
         },
       ],
     },

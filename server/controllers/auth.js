@@ -18,13 +18,13 @@ export const register = (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
 
     const q =
-      "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Suscription_idSuscription`, `Available`, `Rol` ) VALUES (?)";
+      "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Subscription_idSubscription`, `Available`, `Role` ) VALUES (?)";
     const values = [
       req.body.Email,
       hashedPassword,
       req.body.Name,
       req.body.Last_Name,
-      10,
+      1,     // suscripcion por defecto para indicar gratuidad
       1,      //available por defecto = 1
       "basic", //rol por defecto = basic
     ];
@@ -40,7 +40,7 @@ export const register = (req, res) => {
   //create new user
 };
 function NewSuscription() {
-  db.query("INSERT Suscription (`Status`) VALUES (0)", (err, result) => {
+  db.query("INSERT Subscription (`Status`) VALUES (0)", (err, result) => {
     if (err) {
       return err;
     }

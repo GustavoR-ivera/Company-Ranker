@@ -1,5 +1,6 @@
 import express from "express";
 import authRoutes from "./routes/auth.js";
+import manageReviewsRoutes from "./routes/manageReviews.js"
 // import userRoutes from "./routes/users.js"
 // import dislikeRoutes from "./routes/dislikes.js"
 // import likeRoutes from "./routes/likes.js"
@@ -26,6 +27,7 @@ app.use(
 app.use(cookieParser());
 
 app.use("/server/auth", authRoutes);
+app.use("/server/manage-reviews", manageReviewsRoutes);
 // app.use("/server/users" , userRoutes)
 // app.use("/server/dislikes" , dislikeRoutes)
 // app.use("/server/likes" , likeRoutes)

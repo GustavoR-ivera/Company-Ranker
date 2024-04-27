@@ -1,8 +1,25 @@
 import mysql from 'mysql';
 
 export const db = mysql.createConnection({
-    host:"us-cluster-east-01.k8s.cleardb.net",
-    user:"b4afbe7c267657",
-    password:"d278a37b",
-    database:"heroku_f1a0fd996d0a269"
+    host:"db-mysql-company-ranker-ingesoft2-do-user-16456416-0.c.db.ondigitalocean.com",
+    user:"doadmin",
+    password:"AVNS_xlUoFhIl5QvNA3197Mb",
+    database:"defaultdb",
+    port: 25060
   })
+
+
+  db.connect(err => {
+    if (err) {
+      console.error('Error connecting to the database:', err);
+      return;
+    }
+  
+    db.query('SELECT 1', (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+      } else {
+        console.log('Database connection successfully tested');
+      }
+    });
+  });

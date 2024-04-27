@@ -63,25 +63,54 @@ function NavBar() {
         {/*si el usuario que inicia sesion es admin o moderador podra ver estas dos secciones*/}
         {
           currentUser == null ?  (<> </>) :  (
-            currentUser && (currentUser.Rol === "admin" || currentUser.Rol === "moderator") && (
+            currentUser && (currentUser.Role === "admin" || currentUser.Role === "moderator") && (
               <>
-                <Link to="#" style={{ textDecoration: "none" }}>
-                  Gestionar Reseñas
-                </Link>
-  
-                <Link to="#" style={{ textDecoration: "none" }}>
-                  Gestionar empresas
-                </Link>
+
+            <div className="left">
+              <div className="seccion_reseñas"
+                onMouseEnter={() => setViewDropdown(true)}
+                onMouseLeave={() => setViewDropdown(false)}>
+
+                <Dropdown show={viewDropdown} >
+                  <Dropdown.Toggle className="titulo_reseñas" variant="success" id="dropdown-basic">
+                    Gestionar reseñas
+                  </Dropdown.Toggle>
+
+                {viewDropdown && (
+                  <>
+                  <div className="menu_reseñas">
+
+                  <Dropdown.Menu >
+                    <div className="menu_item">
+                    <Dropdown.Item  href="/gestionar_reseñas/reseñas_productos">Reseñas productos</Dropdown.Item>
+                    </div>
+                    <div className="menu_item">
+                    <Dropdown.Item  href="/gestionar_reseñas/reseñas_laborales">Reseñas laborales</Dropdown.Item>
+                    </div>
+                  </Dropdown.Menu>
+                  
+                  </div>
+                  </> 
+                )}
+                </Dropdown>
+
+              </div>
+    
+                  <Link to="#" style={{ textDecoration: "none" }}>
+                    Gestionar empresas
+                  </Link>
+
+            </div>
               </>
             )
           )
           
         }
 
-        {
+        {//si el usuario que inicia sesion es basico o premium podra ver esta seccion
           currentUser == null ?  (<> </>) :  (
 
-          currentUser && (currentUser.Rol === "basic" || currentUser.Rol === "premium") && (
+          currentUser && (currentUser.Role === "basic" || currentUser.Role === "premium") && (
           <>
           <div className="left">
             <div className="seccion_reseñas"
@@ -137,7 +166,7 @@ function NavBar() {
                 Quiénes somos
               </Link>
           </>) : (
-            (currentUser.Rol === "basic" || currentUser.Rol === "premium") && (
+            (currentUser.Role === "basic" || currentUser.Role === "premium") && (
               <>
               {/*Suscription*/}
               <Link to="/" style={{ textDecoration: "none" }}>
