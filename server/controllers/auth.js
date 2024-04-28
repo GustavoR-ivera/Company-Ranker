@@ -8,8 +8,10 @@ export const register = (req, res) => {
   const q = "SELECT idUser, Name, Email FROM User where Email = ?";
 
   db.query(q, [req.body.Email], (err, data) => {
-    if (err)
+    if (err){
+      console.log(err);
       return res.status(500).send("Algo salió mal al crear tu usuario_1");
+    }
     if (data.length) return res.status(409).send("El email ya está registrado");
     //json(data[0].Email);
     //Crear nuevo usuario
@@ -18,13 +20,14 @@ export const register = (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
 
     const q =
-      "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Suscription_idSuscription` ) VALUES (?)";
+      "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Suscription_idSuscription`, `Role`, `Available`) VALUES (?)"; 
     const values = [
       req.body.Email,
       hashedPassword,
       req.body.Name,
       req.body.Last_Name,
       10,
+      "basic"
     ];
 
     db.query(q, [values], (err, data) => {
