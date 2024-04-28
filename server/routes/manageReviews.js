@@ -21,9 +21,9 @@ router.get("/reject-customer-review", rejectCustomerReview);
 //home page de la seccion gestionar reseñas laborales, lista las reseñas pendientes
 router.get("/manage-job-reviews", getPendingJobReviews);
 //ruta invocada al accionar la opcion "aceptar reseña" 
-router.get("/accept-job-review", acceptJobReview);
+router.get("/accept-job-review/:idReview/:comments", acceptJobReview);
 //ruta invocada al accionar la opcion "rechazar reseña" 
-router.get("/reject-job-review", rejectJobReview);
+router.get("/reject-job-review/:idReview/:comments", rejectJobReview);
 
 
 export default router
