@@ -14,13 +14,14 @@ import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
+import MisResenas from "./pages/misResenas/MisResenas";
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
+import JobReview from "./components/jobReview/JobReview.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
-  let session = true;
 
   // plantilla para usar las diferentes barras de navegacion en diferentes paginas
   function Layout() {
@@ -43,7 +44,7 @@ function App() {
 
   //validacion de usuario para rutas protegidas
   function ProtectedRoute({ children }) {
-    if (session) {
+    if (currentUser) {
       return children;
     } else {
       return <Navigate to="/login" />;
@@ -76,12 +77,12 @@ function App() {
 
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
-      path: "/",
+      /*path: "/",
       element: (
         <ProtectedRoute>
           <Layout />
         </ProtectedRoute>
-      ),
+      ),*/
       children: [
         //direccion al home de un usuario especifico
         {
@@ -92,6 +93,10 @@ function App() {
         {
           path: "/profile",
           element: <h3>profile for user x</h3>,
+        },
+        {
+          path: "/misResenas",
+          element: <MisResenas />,
         },
       ],
     },
