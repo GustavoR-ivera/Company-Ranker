@@ -1,24 +1,17 @@
-import './jobReview.scss';
+import "./customerReview.scss";
 import React from 'react';
 
 
-
-//const [productReview, setproductReview] = useState([]);
+//const [jobReview, setJobReview] = useState([]);
 
 /*const fetchData = async () => {
     const response = await fetch('https://your-api-domain.com/api/rappi-feedback');
     const data = await response.json();
     return data;
 };*/
-//const  product_review = () => ({review})
+//const  job_review = () => ({review})
+//const JobReview = ({ id, company, jobTitle, description, workEnvironment, growthOpportunities, salary }) => {
 const JobReview = ({ jobReview }) => {
-    //const company = jobReview.company;
-    const jobTitle = jobReview.jobTitle;
-    const description = jobReview.description;
-    const workEnvironment = jobReview.workEnvironment;
-    const growthOpportunities = jobReview.growthOpportunities;
-    const salary = jobReview.salary;
-
     return (
         <div className="job-review-card">
             <div className="header">
@@ -46,4 +39,4 @@ const JobReview = ({ jobReview }) => {
         </div>
     );
 };
-export default JobReview;
+export default CustomerReview;

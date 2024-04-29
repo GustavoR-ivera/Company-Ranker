@@ -1,0 +1,6 @@
+.productReviews{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%; // Añadido para hacer que el contenedor ocupe todo el ancho disponible
+}

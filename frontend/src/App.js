@@ -14,12 +14,12 @@ import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
-import MisResenas from "./pages/misResenas/MisResenas";
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
-import JobReview from "./components/jobReview/JobReview.jsx";
-
+import JobReviews from "./pages/jobReviews/JobReviews.jsx";
+import ProductReviews from "./components/productReviews/ProductReviews.jsx";
+import ProductsReviews from "./pages/productsReviews/ProductsReviews.jsx";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -74,6 +74,10 @@ function App() {
       path: "/about",
       element: <About />,
     },
+    {
+      path: "/productsReviews",
+      element: <ProductsReviews />,
+    },
 
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
@@ -95,8 +99,13 @@ function App() {
           element: <h3>profile for user x</h3>,
         },
         {
-          path: "/misResenas",
-          element: <MisResenas />,
+          path: "/jobReviews",
+          element: <JobReviews />,
+        },
+        
+        {
+          path: "/productReviews",
+          element: <ProductReviews />,
         },
       ],
     },

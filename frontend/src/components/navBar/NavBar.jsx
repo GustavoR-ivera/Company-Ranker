@@ -72,7 +72,7 @@ function NavBar() {
             onMouseLeave={() => setViewDropdown(false)}>
 
             <Dropdown show={viewDropdown} >
-              <Dropdown.Toggle className="titulo_resenas" variant="success" id="dropdown-basic">
+              <Dropdown.Toggle className="titulo_resenas" variant="none" id="dropdown-basic">
                 Reseñas
               </Dropdown.Toggle>
 
@@ -85,10 +85,10 @@ function NavBar() {
                         <Dropdown.Item as={Link} to="/misResenas">Mis reseñas</Dropdown.Item>
                       </div>
                       <div className="menu_item">
-                        <Dropdown.Item href="/resenas/resenas_de_productos">resenas de productos</Dropdown.Item>
+                        <Dropdown.Item href="/productsReviews">Resenas de productos</Dropdown.Item>
                       </div>
                       <div className="menu_item">
-                        <Dropdown.Item href="/resenas/resenas_laborales">resenas laborales</Dropdown.Item>
+                        <Dropdown.Item href="/jobReviews">Resenas laborales</Dropdown.Item>
                       </div>
                     </Dropdown.Menu>
                   </div>
