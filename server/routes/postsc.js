@@ -1,8 +1,10 @@
 import express  from "express";
-import { } from "../controllers/postc.js";
+import { addPost, deletePost, getPosts } from "../controllers/postc.js";
 
 const router = express.Router()
 
-router.get("")
+router.get("/", getPosts)   
+router.post("/", addPost)
+router.delete("/:id", deletePost)
 
 export default router
