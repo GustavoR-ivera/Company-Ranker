@@ -25,7 +25,7 @@ const ProductReviews = () => {
             comments: ["Good work environment", "Good salary"],
             quality_score: <h1>{generateStars(4)}</h1>,
             price_score: <h1>{generateStars(3)}</h1>,
-            attention_score: <h1>{generateStars(5)}</h1>
+            attention_score: <h1>{generateStars(4.3)}</h1>
         },
         {
             id: 2,

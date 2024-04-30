@@ -1,8 +1,8 @@
 import mysql from 'mysql';
 
 export const db = mysql.createConnection({
-    host:"us-cluster-east-01.k8s.cleardb.net",
-    user:"b4afbe7c267657",
-    password:"d278a37b",
-    database:"heroku_f1a0fd996d0a269"
+    host:"db-mysql-company-ranker-ingesoft2-do-user-16456416-0.c.db.ondigitalocean.com",
+    user:"daniel-cr",
+    password:"AVNS_NhRyc-pFhmYfvdTJfsa",
+    database:"defaultdb"
   })

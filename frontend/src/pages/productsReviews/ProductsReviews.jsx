@@ -20,7 +20,7 @@ function ProductsReviews() {
     <NavBar/>
 
     <div style={{ display: "flex" }}>
-        <LeftBar />
+        
     <div className="productsReviews">
       
     <div className="container">
@@ -29,7 +29,7 @@ function ProductsReviews() {
 
       </div>
     </div>
-    <RightBar />
+   
   </div>
   <Footer />
   </div>
