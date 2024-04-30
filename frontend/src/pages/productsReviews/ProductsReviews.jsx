@@ -17,22 +17,19 @@ function ProductsReviews() {
 
   return (
     <div>
-    <NavBar/>
-
-    <div style={{ display: "flex" }}>
-        
-    <div className="productsReviews">
-      
-    <div className="container">
-      <h3>Reseñas de Productos</h3>
-      <ProductReviews />
-
+      <NavBar/>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <LeftBar />
+        <div className="productsReviews">
+          <div className="container">
+            <h3>Reseñas de productos</h3>
+            <ProductReviews />
+          </div>
+        </div>
+        <RightBar />
       </div>
+      <Footer />
     </div>
-   
-  </div>
-  <Footer />
-  </div>
   );
 }
 

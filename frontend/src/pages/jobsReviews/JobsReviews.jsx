@@ -19,22 +19,19 @@ function JobsReviews() {
 
   return (
     <div>
-    <NavBar/>
-
-    <div style={{ display: "flex" }}>
-        
-    <div className="productsReviews">
-      
-    <div className="container">
-      <h3>Reseñas laborales</h3>
-      <JobReviews />
-
+      <NavBar/>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <LeftBar />
+        <div className="productsReviews">
+          <div className="container">
+            <h3>Reseñas laborales</h3>
+            <JobReviews />
+          </div>
+        </div>
+        <RightBar />
       </div>
+      <Footer />
     </div>
-   
-  </div>
-  <Footer />
-  </div>
   );
 }
 

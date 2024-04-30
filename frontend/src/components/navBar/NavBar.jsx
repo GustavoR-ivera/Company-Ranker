@@ -88,7 +88,7 @@ function NavBar() {
                         <Dropdown.Item href="/productsReviews">Resenas de productos</Dropdown.Item>
                       </div>
                       <div className="menu_item">
-                        <Dropdown.Item href="/jobReviews">Resenas laborales</Dropdown.Item>
+                        <Dropdown.Item href="/jobsReviews">Resenas laborales</Dropdown.Item>
                       </div>
                     </Dropdown.Menu>
                   </div>

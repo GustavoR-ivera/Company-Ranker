@@ -75,14 +75,7 @@ function App() {
       path: "/about",
       element: <About />,
     },
-    {
-      path: "/productsReviews",
-      element: <ProductsReviews />,
-    },
-    {
-      path: "/productsReviews",
-      element: <JobsReviews />,
-    },
+
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
       /*path: "/",
@@ -103,13 +96,13 @@ function App() {
           element: <h3>profile for user x</h3>,
         },
         {
-          path: "/jobReviews",
-          element: <JobReviews />,
+          path: "/jobsReviews",
+          element: <JobsReviews />,
         },
         
         {
-          path: "/productReviews",
-          element: <ProductReviews />,
+          path: "/productsReviews",
+          element: <ProductsReviews />,
         },
       ],
     },
