@@ -3,7 +3,7 @@ import mysql from 'mysql';
 export const db = mysql.createConnection({
     host:"db-mysql-company-ranker-ingesoft2-do-user-16456416-0.c.db.ondigitalocean.com",
     user:"doadmin",
-    password:"AVNS_xlUoFhIl5QvNA3197Mb",
+    password:"AVNS_q8dQArKuA_hj5UcO1PZ",
     database:"defaultdb",
     port: 25060
   })
