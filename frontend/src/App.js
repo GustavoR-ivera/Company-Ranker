@@ -17,9 +17,10 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
-import JobReviews from "./pages/jobReviews/JobReviews.jsx";
+import JobReviews from "./pages/jobsReviews/JobsReviews.jsx";
 import ProductReviews from "./components/productReviews/ProductReviews.jsx";
 import ProductsReviews from "./pages/productsReviews/ProductsReviews.jsx";
+import JobsReviews from "./pages/jobsReviews/JobsReviews.jsx";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -78,7 +79,10 @@ function App() {
       path: "/productsReviews",
       element: <ProductsReviews />,
     },
-
+    {
+      path: "/productsReviews",
+      element: <JobsReviews />,
+    },
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
       /*path: "/",

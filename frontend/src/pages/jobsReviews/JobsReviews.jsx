@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
-import "./jobReviews.scss";
+import "./jobsReviews.scss";
 import NavBar from "../../components/navBar/NavBar";
 import LeftBar from "../../components/leftBar/LeftBar";
 import RightBar from "../../components/rightBar/RightBar";
 import Footer from "../../components/footer/Footer";
-import JobReviews from "../../components/jobReview/JobReview";
+import ProductReviews from "../../components/productReviews/ProductReviews";
+import JobReviews from "../../components/jobReviews/JobReviews.jsx"; // Asegúrate de que la capitalización sea correcta
 
-function MisResenas() {
+function JobsReviews() {
   //validar que currentUser exista antes de acceder a sus atributos
   const { currentUser } = useContext(AuthContext);
   const [bandera, setBandera] = useState(false);
@@ -21,8 +22,8 @@ function MisResenas() {
     <NavBar/>
 
     <div style={{ display: "flex" }}>
-        <LeftBar />
-    <div className="jobReviews">
+        
+    <div className="productsReviews">
       
     <div className="container">
       <h3>Reseñas laborales</h3>
@@ -30,11 +31,11 @@ function MisResenas() {
 
       </div>
     </div>
-    <RightBar />
+   
   </div>
   <Footer />
   </div>
   );
 }
 
-export default JobReviews;
+export default JobsReviews;

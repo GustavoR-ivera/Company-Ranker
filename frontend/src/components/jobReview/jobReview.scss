@@ -23,7 +23,7 @@
     }
   
     .content {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
   
       .jobtitle {
         font-weight: bold;
@@ -37,7 +37,7 @@
     .attributes {
       display: flex;
       flex-direction: column; /* Mostrar en columna */
-      gap: 10px; /* Espacio entre elementos */
+      gap: 5px; /* Espacio entre elementos */
   
       .attribute {
         text-align: left;

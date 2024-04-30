@@ -41,7 +41,7 @@ const JobReviews = () => {
 
 
     return <div className="jobReviews">
-        {jobReviews.map((jobReview) => (
+        {jobReviews.map((jobReview, index) => (
             <JobReview jobReview={jobReview} key={jobReview.id} />
         ))}
     </div>
