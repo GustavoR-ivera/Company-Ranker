@@ -33,17 +33,18 @@ const JobReview = ({ jobReview }) => {
             <hr />
             <div className="attributes">
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <div className='atribute'>Work Environment:</div>
+                    <div className='atribute'>Ambiente de trabajo:</div>
                     <span>{jobReview.workEnvironment}</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <div className="attribute">Growth Opportunities:</div>
+                    <div className="attribute">Oportunidades de crecimiento:</div>
                     <span>{jobReview.growthOpportunities}</span>
                 </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <div className="attribute1">Salary:</div>
-                <span>{jobReview.salary}</span>
+
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div className="attribute1">Salario:</div>
+                    <span>{jobReview.salary}</span>
+                </div>
             </div>
             <div className="buttons" style={{ display: "flex", justifyContent: "flex-end" }}>
                 <button className="agree-button" style={{ display: "flex", alignItems: "center" }}>
