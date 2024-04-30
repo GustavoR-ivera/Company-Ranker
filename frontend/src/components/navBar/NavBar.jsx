@@ -121,7 +121,7 @@ function NavBar() {
           <input type="text" placeholder="Buscar" />
         </div>
       </div>
-  )
+  
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una
       sesion activa*/}
       {
