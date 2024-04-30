@@ -27,8 +27,8 @@ const ProductReview = ({ productReview }) => {
                 <div className="company_name">{productReview.company_name}</div>
             </div>
             <div className="content">
-                <div className="product_name">Cargo: {productReview.product_name}</div>
-                <div className="comments">Descripción: {productReview.comments}</div>
+                <div className="product_name"><strong>Cargo: </strong>{productReview.product_name}</div>
+                <div className="comments"><strong>Descripcion: </strong>{productReview.comments}</div>
             </div>
             <hr />
             <div className="attributes">
