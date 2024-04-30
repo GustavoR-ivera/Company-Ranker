@@ -22,7 +22,7 @@ function JobsReviews() {
       <NavBar/>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <LeftBar />
-        <div className="productsReviews">
+        <div className="jobsReviews">
           <div className="container">
             <h3>Reseñas laborales</h3>
             <JobReviews />
