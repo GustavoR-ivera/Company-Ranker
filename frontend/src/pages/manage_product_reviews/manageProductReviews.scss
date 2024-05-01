@@ -1,0 +1,125 @@
+.pending-reviews{
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+
+    .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        border: 1px solid rgb(158, 153, 153);
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        //padding: 10px;
+        .titulo{
+            width: 100%;
+            background-color: rgb(8, 8, 250);
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .subtitulo{
+            width: 100%;
+            background-color: whitesmoke;   
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: 100;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    .container{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        //border: 1px solid rgb(158, 153, 153);
+        padding: 10px;
+
+        .table{
+            //border-radius: 5px;
+            //border: 1px solid rgb(158, 153, 153);
+            //padding: 10px;
+            width: 100%;
+
+            .header-table{
+                //padding: 10px;
+                width: 100%;
+
+                .titulos-tabla{
+                    border: 1px solid rgb(158, 153, 153);
+                    justify-content: center;
+                    align-items: center;
+                    display: table-row;
+                    background-color: rgb(62, 62, 243);
+                    color: white;
+                    th{
+                        //padding: 5px;
+                        border: 1px solid rgb(158, 153, 153);
+                    }
+                }
+
+            }
+            .body-table{
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+
+                .filas-tabla{
+                    justify-content: center;
+                    align-items: center;
+                    display: table-row;
+                    border: 1px solid rgb(158, 153, 153);
+                    gap: 5px;
+                    td{
+                        border: 1px solid rgb(158, 153, 153);
+                    }
+                    .acctions{
+                        display: flex;
+                        flex-direction: column;
+                        font-family: "Lato", sans-serif;
+                        font-style: normal;
+                        font-weight: 600;
+                        
+                        .accept{
+                            color: green;
+                            text-decoration: none;
+                        }
+                        .reject{
+                            color: red;
+                            text-decoration: none;
+
+                        }
+                        .link-company{
+                            color: blue;
+                            text-decoration: none;
+
+                        }
+                    }
+                }
+
+                
+                
+
+            }
+
+        }
+
+        
+    }
+
+    .no-reviews{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+}

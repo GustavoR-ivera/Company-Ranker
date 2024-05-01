@@ -1,0 +1,63 @@
+.leftBar {
+  flex: 2;
+  position: sticky;
+  top: 70px;
+  z-index: 1;
+  //menos 70px de navbar menos 70px de footer
+  height: calc(100vh - 70px);
+  //background-color: white;
+  overflow: scroll;
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .container {
+    padding: 20px;
+    border-right: 1px solid lightgray;
+
+    hr {
+      margin: 20px 0px;
+      border: none;
+      height: 1px;
+      background-color: rgb(173, 166, 166);
+    }
+
+    h3 {
+      font-size: 23px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      span {
+        font-size: 19px;
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 17px;
+        }
+        img {
+          width: 40px;
+          height: 40px;
+        }
+        span {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
