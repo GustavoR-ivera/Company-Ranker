@@ -1,7 +1,13 @@
+import JobReviews from "../../components/jobReviews/JobReviews";
+import ProductReviews from "../../components/productReviews/ProductReviews";
+import "./my_reviews.scss";
+
 function My_reviews() {
   return (
-    <div>
-      <h1>My Reviews</h1>
+    <div className="my-reviews">
+      <h2>Aqui podras encontrar tus reseñas publicadas</h2>
+      <ProductReviews />
+      <JobReviews />
     </div>
   );
 }

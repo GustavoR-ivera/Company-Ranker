@@ -1,0 +1,110 @@
+.job-review-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    //padding: 10px;
+    margin-left: 140px;
+    margin-right: 140px;
+    //margin-bottom: 5px;
+    font-family: "Lato", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    //height: 50%;
+
+    //width: 100%;  
+    .user-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: rgb(8, 8, 250);
+        color: #fff;
+        text-align: center;
+        font-size: 17px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        .left{
+
+        }
+        .right{
+
+        }
+
+    }
+    hr{
+
+        border-top: 1px solid rgb(179, 179, 179);
+        width: 100%;
+    }
+  
+    .content {
+        //margin-bottom: 20px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        
+      .company{
+        font-size: 22px;
+        font-weight: 400;
+        padding: 5px;
+
+      }
+      .jobtitle {
+        //font-weight: bold;
+        //display: flex;
+        font-size: 17px;
+        //justify-content: left;
+        //text-align: left;
+
+      }
+      .description {
+        //font-weight: bold;
+        font-size: 17px;
+      }
+
+    .attributes {
+        display: flex;
+        flex-direction: column; /* Mostrar en columna */
+        //gap: 10px; /* Espacio entre elementos */
+        //justify-content: center;
+        align-items: center;
+
+        .attribute {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+      }
+    }
+  
+    .buttons {
+        display: flex;
+        justify-content: right;
+        padding: 10px;
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        gap: 5px;
+        .agree-button{
+            padding: 5px;
+            font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        border-radius: 5px;
+        
+        }
+        .disagree-button{
+            padding: 5px;
+            font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        border-radius: 5px;
+
+
+
+        }
+      }
+  }
+  
