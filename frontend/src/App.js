@@ -17,6 +17,8 @@ import Login from "./pages/login/Login";
 import My_reviews from "./pages/my_reviews/My_reviews";
 import ManageProductReviews from "./pages/manage_product_reviews/ManageProductReviews";
 import ManageJobReviews from "./pages/manage_job_reviews/ManageJobReviews";
+import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
+import CustomerReviewsPage from "./pages/customer_reviews/CustomerReviewsPage";
 
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
@@ -108,6 +110,15 @@ function App() {
           path: "/gestionar_reseñas/reseñas_laborales",
           element: < ManageJobReviews />,
         },
+        {
+          path: "/reseñas/reseñas_laborales",
+          element: < JobReviewsPage/>,
+        },
+        {
+          path: "/reseñas/reseñas_de_productos",
+          element: < CustomerReviewsPage/>,
+        },
+        
       ],
     },
   ]);

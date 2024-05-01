@@ -1,8 +1,13 @@
+
 import express  from "express";
-import { } from "../controllers/postj";
+import { getPosts, getUserReviews } from "../controllers/postj.js";
 
 const router = express.Router()
 
-router.get("")
+//obtener las reseñas laborales
+router.get("/", getPosts)   
 
-export default router
+//obtener las reseñas laborales de un usuario
+router.get("/getUserReviews/:id", getUserReviews)
+
+export default router 

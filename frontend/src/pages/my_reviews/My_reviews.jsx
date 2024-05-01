@@ -6,8 +6,6 @@ function My_reviews() {
   return (
     <div className="my-reviews">
       <h2>Aqui podras encontrar tus reseñas publicadas</h2>
-      <ProductReviews />
-      <JobReviews />
     </div>
   );
 }

@@ -1,15 +1,44 @@
 import "./jobReview.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-//const [productReview, setproductReview] = useState([]);
-
-/*const fetchData = async () => {
-    const response = await fetch('https://your-api-domain.com/api/rappi-feedback');
-    const data = await response.json();
-    return data;
-};*/
-//const  product_review = () => ({review})
 const JobReview = ({ jobReview }) => {
+  const generateStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(
+          <span key={i} style={{ color: "yellow" }}>
+            &#9733;
+          </span>
+        );
+      } else {
+        stars.push(
+          <span key={i} className="star">
+            &#9734;
+          </span>
+        );
+      }
+    }
+    return stars;
+  };
+
+  const [Work_Env_Score, setWork_Env_Score] = useState(null);
+  const [Salary_Score, setSalary_Score] = useState(null);
+  const [Growth_Opp_Score, setGrowth_Opp_Score] = useState(null);
+
+  useEffect(() => {
+    const stars = () => {
+      const Work_Env_Score = generateStars(jobReview.Work_Env_Score);
+      const Salary_Score = generateStars(jobReview.Salary_Score);
+      const Growth_Opp_Score = generateStars(jobReview.Growth_Opp_Score);
+      setWork_Env_Score(Work_Env_Score);
+      setSalary_Score(Salary_Score);
+      setGrowth_Opp_Score(Growth_Opp_Score);
+    };
+
+    stars();
+  }, []);
+
   return (
     <div className="job-review-card">
       <div className="user-info">
@@ -18,33 +47,35 @@ const JobReview = ({ jobReview }) => {
           <span>username</span>
         </div>
         <div className="right">
-          <span>fecha</span>
+          <span>
+            {jobReview.Created_At == null ? "fecha" : jobReview.Created_At}
+          </span>
         </div>
       </div>
       <div className="content">
-        <div className="company">Empresa: {jobReview.company}</div>
+        <div className="company">Empresa: {jobReview.Company_Name}</div>
         <hr />
 
         <div className="job-title">
-          <p>Cargo: {jobReview.jobTitle}</p>
+          <p>Cargo: {jobReview.Occupation}</p>
         </div>
         <div className="description">
-          <p>Descripcion: {jobReview.description}</p>
+          <p>Descripcion: {jobReview.Review_J}</p>
         </div>
 
         <hr />
         <div className="attributes">
           <div className="attribute">
-            <div>Work Environment: </div>
-            <div>{jobReview.workEnvironment}</div>
+            <div>Ambiente laboral: </div>
+            <div>{Work_Env_Score}</div>
           </div>
           <div className="attribute">
-            <div>Growth Opportunities:</div>
-            <div>{jobReview.growthOpportunities}</div>
+            <div>Oportunidades de crecimiento:</div>
+            <div>{Growth_Opp_Score}</div>
           </div>
           <div className="attribute">
-            <div>Salary:</div>
-            <div>{jobReview.salary}</div>
+            <div>Salario:</div>
+            <div>{Salary_Score}</div>
           </div>
         </div>
       </div>
