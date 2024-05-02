@@ -1,3 +1,4 @@
+import {PORT, DB_USER} from "./config.js"
 import express from "express";
 import authRoutes from "./routes/auth.js";
 import manageReviewsRoutes from "./routes/manageReviews.js"
@@ -6,7 +7,6 @@ import manageReviewsRoutes from "./routes/manageReviews.js"
 // import likeRoutes from "./routes/likes.js"
 import postjsRoutes from "./routes/postsj.js"
 import postscRoutes from "./routes/postsc.js"
-
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -34,6 +34,6 @@ app.use("/server/manage-reviews", manageReviewsRoutes);
 app.use("/server/postsj" , postjsRoutes)
 app.use("/server/postsc" , postscRoutes)
 
-app.listen(8800, () => {
-  console.log("Server is running on port 8800");
+app.listen(PORT, () => {
+  console.log("Server is running on port", PORT);
 });
