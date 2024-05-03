@@ -17,28 +17,33 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 //middleware
-// Convertir import.meta.url en una ruta de directorio
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-// Middleware para servir archivos estáticos
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-// Ruta principal que sirve tu app React
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
-});
+// // Convertir import.meta.url en una ruta de directorio
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// // Middleware para servir archivos estáticos
+// app.use(express.static(path.join(__dirname, '../frontend/build')));
+// // Ruta principal que sirve tu app React
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+// });
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", true);
 
-  next();
-});
+
 app.use(express.json());
+
+app.options("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.sendStatus(204);
+});
+
 //habilitar recepcion de peticiones desde el servidor de frontend
-app.use(
-  cors({
-    origin: FRONTEND_URL,
-  })
-);
+app.use(cors({
+  origin: FRONTEND_URL,
+  credentials: true
+}));
+
 app.use(cookieParser());
 
 app.use("/server/auth", authRoutes);
