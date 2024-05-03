@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import ProductReviews from "../../components/productReviews/ProductReviews";
 
 function CustomerReviewsPage() {
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
   //definicion de funcion para realizar la peticion y listar las reseñas de productos
   const getCustomerReviews = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/server/postsc/");
+      const res = await axiosInstance.get("/server/postsc/");
       return res.data;
     } catch (err) {
       console.log(err);

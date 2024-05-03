@@ -1,13 +1,17 @@
 import axios from "axios";
+
 import { useEffect, useState } from "react";
 import "./manageProductReviews.scss";
 
 function ManageProductReviews() {
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
   //definicion de funcion para realizar la peticion y listar las reseñas de productos pendientes
   const getPendingCustomerReviews = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:8800/server/manage-reviews/manage-customer-reviews"
+      const res = await axiosInstance.get(
+        "/server/manage-reviews/manage-customer-reviews"
       );
       return res.data;
     } catch (err) {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -27,6 +28,10 @@ const Register = () => {
     setFocused(true);
   };
 
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
+
   const handleClick = async (e) => {
     e.preventDefault();
     if (
@@ -39,7 +44,7 @@ const Register = () => {
       return;
     }
     try {
-      await axios.post("http://localhost:8800/server/auth/register", inputs);
+      await axiosInstance.post("/server/auth/register", inputs);
       //si el registro es exitoso se redirige a la pagina de inicio
       //apartir de este punto, con que datos de usuario funciona la pagina?
       //al redireccionar a login, actualizamos el estado de currentUser el cual podra ser usado
