@@ -91,13 +91,17 @@ function NavBar() {
                         <div className="menu_reseñas">
                           <Dropdown.Menu>
                             <div className="menu_item">
-                              <Dropdown.Item href="/gestionar_resenas/resenas_productos">
-                                Reseñas productos
+                              <Dropdown.Item>
+                                <Link to="/gestionar_resenas/resenas_productos">
+                                  Reseñas productos
+                                </Link>
                               </Dropdown.Item>
                             </div>
                             <div className="menu_item">
-                              <Dropdown.Item href="/gestionar_resenas/resenas_laborales">
-                                Reseñas laborales
+                              <Dropdown.Item>
+                                <Link to="/gestionar_resenas/resenas_laborales">
+                                  Reseñas laborales
+                                </Link>
                               </Dropdown.Item>
                             </div>
                           </Dropdown.Menu>
@@ -144,18 +148,24 @@ function NavBar() {
                           <div className="menu_reseñas">
                             <Dropdown.Menu>
                               <div className="menu_item">
-                                <Dropdown.Item href="/resenas/mis_resenas">
-                                  Mis reseñas
+                                <Dropdown.Item>
+                                  <Link to="/resenas/mis_resenas">
+                                    Mis reseñas
+                                  </Link>
                                 </Dropdown.Item>
                               </div>
                               <div className="menu_item">
-                                <Dropdown.Item href="/resenas/resenas_de_productos">
-                                  Reseñas de productos
+                                <Dropdown.Item>
+                                  <Link to="/resenas/resenas_de_productos">
+                                    Reseñas de productos
+                                  </Link>
                                 </Dropdown.Item>
                               </div>
                               <div className="menu_item">
-                                <Dropdown.Item href="/resenas/resenas_laborales">
-                                  Reseñas laborales
+                                <Dropdown.Item>
+                                  <Link to="/resenas/resenas_laborales">
+                                    Reseñas laborales
+                                  </Link>
                                 </Dropdown.Item>
                               </div>
                             </Dropdown.Menu>

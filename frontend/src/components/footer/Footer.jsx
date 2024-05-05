@@ -9,8 +9,9 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <Link to="/about">Sobre nosotros</Link>
+        <Link to="/contact_us">Contáctanos</Link>
         {/* <a href="/about">Sobre nosotros</a> */}
-        <a href="#">Contáctanos</a>
+        {/* <a href="#">Contáctanos</a> */}
       </div>
       <div className="social-media">
         <a href="https://x.com/CompanyRanker?s=20" target="_blank">
