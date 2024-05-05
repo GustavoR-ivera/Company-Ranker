@@ -2,6 +2,7 @@ import "./footer.scss";
 import XIcon from "@mui/icons-material/X";
 import EmailIcon from "@mui/icons-material/Email";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
