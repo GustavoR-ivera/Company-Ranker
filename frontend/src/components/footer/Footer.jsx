@@ -7,7 +7,8 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <a href="/about">Sobre nosotros</a>
+        <Link to="/about">Sobre nosotros</Link>
+        {/* <a href="/about">Sobre nosotros</a> */}
         <a href="#">Contáctanos</a>
       </div>
       <div className="social-media">
