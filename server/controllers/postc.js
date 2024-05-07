@@ -27,34 +27,36 @@ export const getPosts = (req, res) => {
   };
 
 export const addPost = (req, res) => {
-  const token = req.cookies.accessToken;
-  if (!token) return res.status(401).json("Not logged in!");
 
-  jwt.verify(token, "secretkey", (err, userInfo) => {
-    if (err) return res.status(403).json("Token is not valid!");
+    //establecer fecha de creacion yy/mm/dd hh:mm:ss
+    const d = Date.now();
+    const date = new Date(d); 
+    const created_at = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate()
+    +" " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
 
     const q =
-      "INSERT INTO Costumer_review(`Review_C`, `Score_R`, `Likes`, `Dislikes`, 'Available', 'User_idUser', 'Company_idCompany', 'Costumer_Reviewcol', 'Price_1_5', 'Service_1_5', 'Product_name') VALUES (?)";
+      "INSERT INTO Customer_Review (`Created_At`, `Company_Name`, `Product_Name` , `Review_C`, `Quality_Score`, `Price_Score`,`Service_Score`, `Available`, `User_idUser`, `Company_idCompany`) VALUES (?)";
     const values = [
-      req.body.Review_C,
-      req.body.Score_R,
+      created_at,
+      req.body.company_name,
+      req.body.product_name,
+      req.body.review_c,
+      req.body.quality_score,
+      req.body.price_score,
+      req.body.service_score,
       0,
-      0,
-      0,
-      req.body.User_idUser,
-      userInfo.idCompany,
-      req.body.Costumer_Reviewcol,  
-      req.body.Price_1_5,
-      req.body.Service_1_5,
-      req.body.Product_name
+      req.body.idUser,
+      1,
     ];
 
     db.query(q, [values], (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("La reseña ha sido agregada.");
     });
-  });
 };
+
+
 export const deletePost = (req, res) => {
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("No estas logeado!");

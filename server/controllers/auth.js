@@ -74,7 +74,7 @@ export const login = (req, res) => {
 
     if (!checkPassword) return res.status(400).send("Contraseña incorrecta");
 
-    //definir token
+    //definir token 
     const token = jwt.sign({ id: data[0].idUser }, "secretkey");
 
     //campos que no se muestran
