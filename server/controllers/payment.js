@@ -16,9 +16,9 @@ export const createOrder = async (req, res) => {
         
         items: [
           {
-            title: 'My product',
+            title: 'Suscripcion 1 mes Company Ranker',
             quantity: 1,
-            unit_price: 2000
+            unit_price: 5000
           }
         ],
       }
