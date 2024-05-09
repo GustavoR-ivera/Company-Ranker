@@ -205,6 +205,13 @@
             .bottom{
                 display: flex;
                 justify-content: right;
+                align-items: center;
+                gap: 20px;
+                .err{
+                    color: red;
+                    font-size: 17px;
+
+                }
                 button{
                     margin-top: 5px;
                     padding: 7px;
