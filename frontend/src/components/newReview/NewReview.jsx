@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const NewReview = () => {
-  //acceder a currentUser y setCurrentUser del contexto
+  //acceder a currentUser del contexto
   const { currentUser } = useContext(AuthContext);
 
   const [bandera, setBandera] = useState(true);

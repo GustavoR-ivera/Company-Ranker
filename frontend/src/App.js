@@ -100,7 +100,7 @@ function App() {
         },
         {
           path: "/resenas/mis_resenas",
-          element: <h3>reseñas de usuario</h3>,
+          element: <My_reviews/>,
         },
         {
           path: "/gestionar_resenas/resenas_productos",

@@ -1,5 +1,7 @@
 import "./productReview.scss";
 import React, { useEffect, useState } from "react";
+import moment from "moment";
+import axios from "axios";
 
 const ProductReview = ({ productReview }) => {
   const generateStars = (rating) => {
@@ -37,18 +39,52 @@ const ProductReview = ({ productReview }) => {
     stars();
   }, []);
 
+  //def url base del servidor backend
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
+
+  //obtener informacion del usuario asociado a la reseña
+  const getUser = async () => {
+    try {
+      const res = await axiosInstance.get(
+        `/server/users/getUser/${productReview.User_idUser}`
+      );
+      //console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const [user_review, setUser_review] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getUser();
+      setUser_review(user);
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <div className="product-review-card">
       <div className="user-info">
         <div className="left">
-          <img src="" alt="" />
-          <span>username</span>
+          <span>
+            user:{" "}
+            {user_review == null
+              ? "user"
+              : user_review.length > 0
+              ? user_review[0].Name
+              : "user"}
+          </span>
         </div>
         <div className="right">
           <span>
             {productReview.Created_At == null
               ? "fecha"
-              : productReview.Created_At}
+              : moment(productReview.Created_At).fromNow()}
           </span>
         </div>
       </div>

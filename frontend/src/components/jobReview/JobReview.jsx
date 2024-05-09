@@ -1,5 +1,7 @@
 import "./jobReview.scss";
 import React, { useEffect, useState } from "react";
+import moment from "moment";
+import axios from "axios";
 
 const JobReview = ({ jobReview }) => {
   const generateStars = (rating) => {
@@ -26,11 +28,13 @@ const JobReview = ({ jobReview }) => {
   const [Salary_Score, setSalary_Score] = useState(null);
   const [Growth_Opp_Score, setGrowth_Opp_Score] = useState(null);
 
+  //invocar metodos al renderizar componente
   useEffect(() => {
     const stars = () => {
       const Work_Env_Score = generateStars(jobReview.Work_Env_Score);
       const Salary_Score = generateStars(jobReview.Salary_Score);
       const Growth_Opp_Score = generateStars(jobReview.Growth_Opp_Score);
+
       setWork_Env_Score(Work_Env_Score);
       setSalary_Score(Salary_Score);
       setGrowth_Opp_Score(Growth_Opp_Score);
@@ -39,16 +43,52 @@ const JobReview = ({ jobReview }) => {
     stars();
   }, []);
 
+  //def url base del servidor backend
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
+
+  //obtener informacion del usuario asociado a la reseña
+  const getUser = async () => {
+    try {
+      const res = await axiosInstance.get(
+        `/server/users/getUser/${jobReview.User_idUser}`
+      );
+      //console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const [user_review, setUser_review] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getUser();
+      setUser_review(user);
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <div className="job-review-card">
       <div className="user-info">
         <div className="left">
-          <img src="" alt="" />
-          <span>username</span>
+          <span>
+            user:{" "}
+            {user_review == null
+              ? "user"
+              : user_review.length > 0
+              ? user_review[0].Name
+              : "user"}
+          </span>
         </div>
         <div className="right">
           <span>
-            {jobReview.Created_At == null ? "fecha" : jobReview.Created_At}
+            {jobReview.Created_At == null
+              ? "fecha"
+              : moment(jobReview.Created_At).fromNow()}
           </span>
         </div>
       </div>

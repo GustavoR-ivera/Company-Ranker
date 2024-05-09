@@ -4,7 +4,16 @@ import jwt from "jsonwebtoken";
 
 export const getUserReviews = (req, res) => {
   //traer las reseñas de productos asociadas a un usuario especifico
-};
+    const userId = req.params.id;
+    //traer las reseñas laborales asociadas a un usuario especifico
+    const q = 'SELECT * FROM Customer_Review WHERE User_idUser = ? limit 10';
+    
+        db.query(q, [userId], (err,data) =>{
+          if (err) return res.status(500).json(err);
+          return res.status(200).json(data);
+          
+        });
+  };
 
 //listar todas reseñas de productos 
 export const getPosts = (req, res) => {

@@ -24,7 +24,15 @@ export const getPosts = (req, res) => {
 
 
 export const getUserReviews = (req, res) => {
+  const userId = req.params.id;
   //traer las reseñas laborales asociadas a un usuario especifico
+  const q = 'SELECT * FROM Job_review WHERE User_idUser = ? limit 10';
+  
+      db.query(q, [userId], (err,data) =>{
+        if (err) return res.status(500).json(err);
+        return res.status(200).json(data);
+        
+      });
 };
 
 

@@ -45,6 +45,12 @@ function ManageJobReviews() {
     );
   };
 
+  const reject = async (idReview) => {
+    await axiosInstance.get(
+      `/server/manage-reviews/reject-job-review/${idReview}/${moderatorComments[idReview]}`
+    );
+  };
+
   return (
     <div className="pending-reviews">
       <div className="header">
@@ -110,9 +116,7 @@ function ManageJobReviews() {
                       <td>
                         <a
                           className="reject"
-                          href={`http://localhost:8800/server/manage-reviews/reject-job-review/${
-                            review.idJob_review
-                          }/${moderatorComments[review.idJob_review]}`}
+                          onClick={reject(review.idJob_review)}
                         >
                           Rechazar
                         </a>
