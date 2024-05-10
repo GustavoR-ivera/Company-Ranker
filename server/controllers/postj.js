@@ -12,7 +12,7 @@ export const getPosts = (req, res) => {
   
   //     console.log(userId);
       
-      const q = 'SELECT * FROM Job_review WHERE Available=1 limit 10';
+      const q = 'SELECT * FROM Job_review WHERE Available=1 order by Created_At desc limit 10';
       //values = [userId, userInfo.idCompany];
   
       db.query(q, (err,data) =>{
@@ -26,7 +26,7 @@ export const getPosts = (req, res) => {
 export const getUserReviews = (req, res) => {
   const userId = req.params.id;
   //traer las reseñas laborales asociadas a un usuario especifico
-  const q = 'SELECT * FROM Job_review WHERE User_idUser = ? limit 10';
+  const q = 'SELECT * FROM Job_review WHERE User_idUser = ? order by Created_At desc limit 10';
   
       db.query(q, [userId], (err,data) =>{
         if (err) return res.status(500).json(err);

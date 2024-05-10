@@ -66,6 +66,25 @@ function ManageProductReviews() {
     }
   };
 
+  //metodo para asociar un id empresa a una reseña
+  const linkCompany = async (id_review, id_company) => {
+    if (isNaN(Number(id_company)) || id_company.trim() === "") {
+      console.log("campo no numerico");
+      return;
+    } else {
+      try {
+        const res = await axiosInstance.get(
+          `/server/manage-reviews/link-company-creview/${id_review}/${id_company}`
+        );
+        console.log("empresa asociada satisfactoriamente, ", res.data);
+        alert("empresa asociada satisfactoriamente");
+      } catch (err) {
+        console.error("error asociando empresa a reseña, ", err);
+        alert("error asociando empresa a reseña");
+      }
+    }
+  };
+
   return (
     <div className="pending-reviews">
       <div className="header">
@@ -125,6 +144,7 @@ function ManageProductReviews() {
                     <div className="acctions">
                       <td>
                         <button
+                          className="accept"
                           onClick={() => accept(review.idCustomer_Review)}
                         >
                           Aceptar
@@ -132,15 +152,30 @@ function ManageProductReviews() {
                       </td>
                       <td>
                         <button
+                          className="reject"
                           onClick={() => reject(review.idCustomer_Review)}
                         >
                           Rechazar
                         </button>
                       </td>
                       <td>
-                        <a className="link-company" href="">
+                        <button
+                          className="link-company"
+                          onClick={() => {
+                            const idCompany = prompt(
+                              "Ingresa el id de la empresa"
+                            );
+                            console.log(idCompany);
+                            idCompany == null
+                              ? alert("operacion cancelada")
+                              : linkCompany(
+                                  review.idCustomer_Review,
+                                  idCompany
+                                );
+                          }}
+                        >
                           Vincular empresa
-                        </a>
+                        </button>
                       </td>
                     </div>
                   </tr>
