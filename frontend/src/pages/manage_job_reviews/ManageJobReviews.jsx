@@ -40,15 +40,27 @@ function ManageJobReviews() {
   };
 
   const accept = async (idReview) => {
-    await axiosInstance.get(
-      `/server/manage-reviews/accept-job-review/${idReview}/${moderatorComments[idReview]}`
-    );
+    try {
+      const res = await axiosInstance.get(
+        `/server/manage-reviews/accept-job-review/${idReview}/${moderatorComments[idReview]}`
+      );
+      console.log("reseña aceptada", res);
+      window.location.reload();
+    } catch (err) {
+      console.error("error aceptando reseña", err);
+    }
   };
 
   const reject = async (idReview) => {
-    await axiosInstance.get(
-      `/server/manage-reviews/reject-job-review/${idReview}/${moderatorComments[idReview]}`
-    );
+    try {
+      const res = await axiosInstance.get(
+        `/server/manage-reviews/reject-job-review/${idReview}/${moderatorComments[idReview]}`
+      );
+      console.log("reseña rechazada", res);
+      window.location.reload();
+    } catch (err) {
+      console.error("error rechazando reseña", err);
+    }
   };
 
   return (
@@ -105,21 +117,14 @@ function ManageJobReviews() {
                     </td>
                     <div className="acctions">
                       <td>
-                        <a
-                          className="accept"
-                          onClick={accept(review.idJob_review)}
-                          href=""
-                        >
+                        <button onClick={() => accept(review.idJob_review)}>
                           Aceptar
-                        </a>
+                        </button>
                       </td>
                       <td>
-                        <a
-                          className="reject"
-                          onClick={reject(review.idJob_review)}
-                        >
+                        <button onClick={() => reject(review.idJob_review)}>
                           Rechazar
-                        </a>
+                        </button>
                       </td>
                       <td>
                         <a className="link-company" href="">

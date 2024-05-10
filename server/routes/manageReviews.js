@@ -14,9 +14,9 @@ const router = express.Router()
 //home page de la seccion gestionar reseñas de productos, lista las reseñas pendientes
 router.get("/manage-customer-reviews", getPendingCustomerReviews);
 //ruta invocada al accionar la opcion "aceptar reseña" 
-router.get("/accept-customer-review", acceptCustomerReview);
+router.get("/accept-customer-review/:idReview/:comments", acceptCustomerReview);
 //ruta invocada al accionar la opcion "rechazar reseña" 
-router.get("/reject-customer-review", rejectCustomerReview);
+router.get("/reject-customer-review/:idReview/:comments", rejectCustomerReview);
 
 //home page de la seccion gestionar reseñas laborales, lista las reseñas pendientes
 router.get("/manage-job-reviews", getPendingJobReviews);
