@@ -31,7 +31,7 @@ function CompanyReviewsPage() {
   return (
     <div className="company-reviews">
       <div className="header">
-        <h2>Aqui puedes ver todas las reseñas laborales</h2>
+        <h2>Aqui puedes ver todas las empresas que estan en Company Rank</h2>
       </div>
       {listJobReviews == null ? (
         <> </>
@@ -41,7 +41,7 @@ function CompanyReviewsPage() {
         </div>
       ) : (
         <div className="no-reviews">
-          <h3>En este momento no hay reseñas laborales para visualizar.</h3>
+          <h3>En este momento no hay empresas en company rank.</h3>
         </div>
       )}
     </div>
