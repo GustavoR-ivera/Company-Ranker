@@ -1,4 +1,4 @@
-import { db } from "../connect.js";
+ import { db } from "../connect.js";
 import { checkAccount} from "./accountcheck.js";
 
 
@@ -21,7 +21,11 @@ export const success = (req, res) => {
         }
 
         checkAccount();
-        return res.status(200).send("Suscripción activada");
+        if (data.affectedRows > 0) {
+            return res.status(200).send("Suscripción activada correctamente");
+        }else{
+            return res.status(500).send("Error al activar la suscripción");
+        }
         
     });
 
