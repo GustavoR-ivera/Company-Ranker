@@ -1,0 +1,57 @@
+.Company-Review-Card{
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    //padding: 10px;
+
+    margin-left: 140px;
+    margin-right: 140px;
+    //margin-bottom: 5px;
+
+    font-family: "Lato", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    //height: 50%;
+
+    //width: 100%; 
+    .user-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: rgb(8, 8, 250);
+        color: #fff;
+        text-align: center;
+        font-size: 17px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        .left{
+
+        }
+        .right{
+
+        }
+
+    }
+    .content {
+        //margin-bottom: 20px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .description {
+        //font-weight: bold;
+        font-size: 17px;
+    }
+
+      .agree-button{
+        padding: 5px;
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        border-radius: 5px;
+      }
+
+}
