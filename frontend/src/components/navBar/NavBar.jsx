@@ -145,7 +145,7 @@ function NavBar() {
 
             </div>
             
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/Empresas" style={{ textDecoration: "none" }}>
                 Empresas
               </Link>
           </div>

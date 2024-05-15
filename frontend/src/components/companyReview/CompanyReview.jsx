@@ -24,15 +24,15 @@ const CompanyReview = ({ companyReview }) => {
         <div className="Company-Review-Card">
             <div className="user-info">
                 <div className="left">
-                    <div className="company">Empresa: {companyReview.Company_Name}</div>
+                    <div className="company">Empresa: {companyReview.Name_C}</div>
                 </div> 
                 <div className="right">
-                    <div className="companyScore">EmpresaScore: {companyReview.Company_Score}{companyScore}</div>
+                    <div className="companyScore">EmpresaScore: {companyReview.Avg_Score}{companyScore}</div>
                 </div>                   
             </div>
             <div className="content">
                 <div className="description">
-                    <p>Descripcion: {companyReview.CompanyReview}</p>
+                    <p>Descripcion: {companyReview.Description_C}</p>
                 </div>
             </div>
             <div className="buttons">

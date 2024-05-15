@@ -6,6 +6,7 @@ import manageReviewsRoutes from "./routes/manageReviews.js"
 // import likeRoutes from "./routes/likes.js"
 import postjsRoutes from "./routes/postsj.js"
 import postscRoutes from "./routes/postsc.js"
+import CompanyRouter from "./routes/companys.js"
 
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -33,6 +34,7 @@ app.use("/server/manage-reviews", manageReviewsRoutes);
 // app.use("/server/likes" , likeRoutes)
 app.use("/server/postsj" , postjsRoutes)
 app.use("/server/postsc" , postscRoutes)
+app.use("/server/companys" , CompanyRouter)
 
 app.listen(8800, () => {
   console.log("Server is running on port 8800");
