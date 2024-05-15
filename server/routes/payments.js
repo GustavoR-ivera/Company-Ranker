@@ -4,7 +4,7 @@ import {createOrder} from "../controllers/payment.js";
 const router = Router()
 
 
-router.get('/create-order', createOrder)
+router.get('/create-order/:idSubscription', createOrder)
 router.get('/sucess', (req, res) => res.send('Order Create'))
 router.get('/webhook', (req, res) => res.send('Webhook'))
 

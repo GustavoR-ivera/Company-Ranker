@@ -10,7 +10,7 @@ export const createOrder = async (req, res) => {
     const result = await preference.create({
       body: {
         back_urls:{
-          success: 'http://localhost:8800/server/postpayment/success',
+          success: 'http://localhost:8800/server/postpayment/success/' + req.params.idSubscription,
           failure: 'http://localhost:8800/server/postpayment/failure',
           pending: 'http://localhost:8800/server/postpayment/pending'
       },
