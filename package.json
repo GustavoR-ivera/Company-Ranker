@@ -4,8 +4,10 @@
   "description": "proyecto en desarrollo para la materia Ingenieria de Software 2 del programa Ingeniería de Sistemas y Computación de la Universidad Nacional de Colombia 2024-1.",
   "main": "index.js",
   "scripts": {
+
     "start": "node index.js",
     "dev": "nodemon index.js"
+
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "mercadopago": "^2.0.9",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.9.2",
