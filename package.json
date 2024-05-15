@@ -4,8 +4,8 @@
   "description": "proyecto en desarrollo para la materia Ingenieria de Software 2 del programa Ingeniería de Sistemas y Computación de la Universidad Nacional de Colombia 2024-1.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config server/index.js",
-    "dev": "nodemon -r dotenv/config server/index.js"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "keywords": [],
   "author": "",

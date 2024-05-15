@@ -8,10 +8,12 @@ import manageReviewsRoutes from "./routes/manageReviews.js"
 import postjsRoutes from "./routes/postsj.js"
 import postscRoutes from "./routes/postsc.js"
 import paymentsRoutes from "./routes/payments.js"
+import postpaymentRoutes from "./routes/postpayment.js"
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import morgan from "morgan";
+import { repeatingFunction } from "./controllers/accountcheck.js";
 
 const app = express();
 
@@ -39,6 +41,9 @@ app.use("/server/manage-reviews", manageReviewsRoutes);
 app.use("/server/postsj" , postjsRoutes)
 app.use("/server/postsc" , postscRoutes)
 app.use("/server/payments", paymentsRoutes);
+app.use("/server/postpayment", postpaymentRoutes);
+
+repeatingFunction();
 
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);

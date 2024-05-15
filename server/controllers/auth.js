@@ -3,11 +3,11 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 //import App from "../../frontend/src/App.js"
 
-export const register = (req, res) => {
+export  const register = (req, res) => {
   //chequear si el email ya existe
   const q = "SELECT idUser, Name, Email FROM User where Email = ?";
 
-  db.query(q, [req.body.Email], (err, data) => {
+  db.query(q, [req.body.Email],  async (err, data) => {
     if (err)
       return res.status(500).send("Algo salió mal al crear tu usuario_1");
     if (data.length) return res.status(409).send("El email ya está registrado");
@@ -16,7 +16,22 @@ export const register = (req, res) => {
     //hash password
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
+    
+    // let sub = 1;
+    // db.query("INSERT Subscription (`Status_Subscription`) VALUES (0)", (err, result) => {
+    //   if (err) {
+    //     console.log("error en la insercion");
+    //     console.log(err);
+    //     return err;
+    //   }else{
+    //     console.log(result.insertId);
+    //     sub =  result.insertId;
+        
+    //   }});
+    
 
+  const sub =await insertSubscription();
+  console.log(sub);
     const q =
       "INSERT INTO User (`Email`, `Password`, `Name`, `Last_Name`, `Subscription_idSubscription`, `Available`, `Role` ) VALUES (?)";
     const values = [
@@ -24,14 +39,17 @@ export const register = (req, res) => {
       hashedPassword,
       req.body.Name,
       req.body.Last_Name,
-      1,     // suscripcion por defecto para indicar gratuidad
-      1,      //available por defecto = 1
+      sub,    // suscripcion por defecto para indicar gratuidad
+      1,      //available por defecto = 1 
       "basic", //rol por defecto = basic
     ];
 
+    console.log(values);
+
     db.query(q, [values], (err, data) => {
-      if (err)
-        return res.status(500).send("Algo salió mal al crear tu usuario_2");
+      if (err){
+        console.log(err);
+        return res.status(500).send("Algo salió mal al crear tu usuario_2");}
       //devolver el id de usuario creado
       return res.status(200).send("Usuario creado");
     });
@@ -39,22 +57,43 @@ export const register = (req, res) => {
 
   //create new user
 };
-function NewSuscription() {
-  db.query("INSERT Subscription (`Status`) VALUES (0)", (err, result) => {
-    if (err) {
-      return err;
-    }
-
-    db.query("SELECT MAX(idSuscription) FROM Suscription", (err, data) => {
-      if (err) {
-        return err;
-      }
-
-      console.log(data[0]["MAX(idSuscription)"]);
-      return data[0]["MAX(idSuscription)"];
+async function insertSubscription() {
+  try {
+    const result = await new Promise((resolve, reject) => {
+      db.query("INSERT Subscription (`Status_Subscription`) VALUES (0)", (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
     });
-  });
+
+    let sub = result.insertId;
+    console.log(sub);
+    return sub;
+    // Aquí puedes trabajar con el valor de sub
+  } catch (err) {
+    console.log("error en la insercion");
+    console.log(err);
+  }
 }
+
+
+
+    // db.query("SELECT MAX(idSubscription) FROM Subscription", (err, data) => {
+    //   if (err) {
+    //     console.log("error en la consulta");
+    //     console.log(err);
+    //     return err;
+    //   }
+
+    //   const Suscription = data[0]["MAX(idSubscription)"];
+    //   console.log(Suscription);
+    //   return Suscription ;
+    // });
+//   });
+// }
 
 export const login = (req, res) => {
   const q = "SELECT * FROM User where Email = ?";
