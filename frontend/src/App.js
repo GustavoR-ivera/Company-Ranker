@@ -20,8 +20,8 @@ import ManageJobReviews from "./pages/manage_job_reviews/ManageJobReviews";
 import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
 import CustomerReviewsPage from "./pages/customer_reviews/CustomerReviewsPage";
 import CompanyReviewsPage from "./pages/Companys_reviesw/CompanyReviewsPage.jsx";
-import Suscription from "./pages/suscription/suscription.jsx";
-
+import Questions from "./pages/Questions/Questions.jsx";
+import Suscription from "./pages/suscription/suscription.jsx"
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
@@ -80,6 +80,10 @@ function App() {
     {
       path: "/about",
       element: <About />,
+    },
+    {
+      path: "/Questions",
+      element: <Questions />,
     },
 
     //rutas protegidas que usan la plantilla de barras de navegacion

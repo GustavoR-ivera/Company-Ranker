@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+.faq-container {
+  font-family: 'Helvetica', sans-serif;
+  padding: 20px;
+}
+
+.faq-list {
+  padding: 0;
+}
+
+.accordion {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.accordion-title {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none; /* Inicialmente oculto */
+  padding: 15px;
+}
+
+.accordion-content p {
+  margin: 0;
+}
+
+.accordion.open .accordion-content {
+  display: block; /* Mostrar cuando la clase 'open' está presente */
+}
+
+.footer-message {
+  margin-top: 20px;
+  font-style: italic;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+}

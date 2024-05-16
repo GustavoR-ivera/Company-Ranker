@@ -67,6 +67,10 @@ function LeftBar() {
             <img src={about} alt="salary" />
             <Link to={"/about"}>Quiénes somos</Link>
           </div>
+          <div className="item">
+            <img src={about} alt="salary" />
+            <Link to={"/Questions"}>Preguntas Frecuentes</Link>
+          </div>
         </div>
       </div>
     </div>
