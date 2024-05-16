@@ -15,23 +15,11 @@ export  const register = (req, res) => {
     //Crear nuevo usuario
     //hash password
 
-    //crear subscription
-    NewSuscription
+    //encriptacion contreseña
+    
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
-    
-    // let sub = 1;
-    // db.query("INSERT Subscription (`Status_Subscription`) VALUES (0)", (err, result) => {
-    //   if (err) {
-    //     console.log("error en la insercion");
-    //     console.log(err);
-    //     return err;
-    //   }else{
-    //     console.log(result.insertId);
-    //     sub =  result.insertId;
-        
-    //   }});
-    
+       
 
   const sub =await insertSubscription();
   console.log(sub);
