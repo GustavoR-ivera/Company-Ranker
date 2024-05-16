@@ -21,7 +21,7 @@ import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
 import CustomerReviewsPage from "./pages/customer_reviews/CustomerReviewsPage";
 import CompanyReviewsPage from "./pages/Companys_reviesw/CompanyReviewsPage.jsx";
 import Questions from "./pages/Questions/Questions.jsx";
-
+import Suscription from "./pages/suscription/suscription.jsx"
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
