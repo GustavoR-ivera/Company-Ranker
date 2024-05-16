@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { useEffect, useState } from "react";
 import "./manageJobReviews.scss";
+import { useNavigate } from "react-router-dom";
 
 function ManageJobReviews() {
   const axiosInstance = axios.create({
@@ -39,13 +40,16 @@ function ManageJobReviews() {
     //console.log(moderatorComments);
   };
 
+  const navigate = useNavigate();
+
   const accept = async (idReview) => {
     try {
       const res = await axiosInstance.get(
         `/server/manage-reviews/accept-job-review/${idReview}/${moderatorComments[idReview]}`
       );
       console.log("reseña aceptada", res);
-      window.location.reload();
+      //window.location.reload();
+      navigate("/gestionar_resenas/resenas_laborales");
     } catch (err) {
       console.error("error aceptando reseña", err);
     }
@@ -57,7 +61,7 @@ function ManageJobReviews() {
         `/server/manage-reviews/reject-job-review/${idReview}/${moderatorComments[idReview]}`
       );
       console.log("reseña rechazada", res);
-      window.location.reload();
+      navigate("/gestionar_resenas/resenas_laborales");
     } catch (err) {
       console.error("error rechazando reseña", err);
     }

@@ -9,7 +9,7 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <Link to="/about">Sobre nosotros</Link>
-        <Link to="/contact_us">Contáctanos</Link>
+        <Link to="/registrar_comentario_soporte">Contáctanos</Link>
         {/* <a href="/about">Sobre nosotros</a> */}
         {/* <a href="#">Contáctanos</a> */}
       </div>

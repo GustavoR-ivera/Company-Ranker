@@ -40,6 +40,8 @@ function ManageProductReviews() {
     //console.log(moderatorComments);
   };
 
+  const navigate = useNavigate();
+
   const accept = async (idReview) => {
     //console.log("mensaje0");
 
@@ -48,7 +50,9 @@ function ManageProductReviews() {
         `/server/manage-reviews/accept-customer-review/${idReview}/${moderatorComments[idReview]}`
       );
       console.log("reseña aceptada", res);
-      window.location.reload();
+      navigate("gestionar_resenas/resenas_productos");
+
+      //window.location.reload();
     } catch (err) {
       console.error("error aceptando reseña", err);
     }
@@ -60,7 +64,9 @@ function ManageProductReviews() {
         `/server/manage-reviews/reject-customer-review/${idReview}/${moderatorComments[idReview]}`
       );
       console.log("reseña rechazada", res);
-      window.location.reload();
+      navigate("gestionar_resenas/resenas_productos");
+
+      //window.location.reload();
     } catch (err) {
       console.error("error al rechazar reseña", err);
     }

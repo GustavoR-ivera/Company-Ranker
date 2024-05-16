@@ -100,6 +100,7 @@ const NewReview = () => {
             quality_score: "",
             price_score: "",
             service_score: "",
+            idUser: currentUser.idUser,
           });
           setErr(null);
           //window.location.reload();
@@ -157,6 +158,7 @@ const NewReview = () => {
             work_environment: "",
             growth_opp: "",
             salary: "",
+            idUser: currentUser.idUser,
           });
           setErr2(null);
           navigate("/home");
