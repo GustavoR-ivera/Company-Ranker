@@ -143,34 +143,38 @@ function NavBar() {
                         Reseñas
                       </Dropdown.Toggle>
 
-              {viewDropdown && (
-                <>
-                <div className="menu_reseñas">
+                      {viewDropdown && (
+                        <>
+                          <div className="menu_reseñas">
+                            <Dropdown.Menu>
+                              <div className="menu_item">
+                                <Dropdown.Item href="/resenas/mis_resenas">
+                                  Mis reseñas
+                                </Dropdown.Item>
+                              </div>
+                              <div className="menu_item">
+                                <Dropdown.Item href="/resenas/resenas_de_productos">
+                                  Reseñas de productos
+                                </Dropdown.Item>
+                              </div>
+                              <div className="menu_item">
+                                <Dropdown.Item href="/resenas/resenas_laborales">
+                                  Reseñas laborales
+                                </Dropdown.Item>
+                              </div>
+                            </Dropdown.Menu>
+                          </div>
+                        </>
+                      )}
+                    </Dropdown>
+                  </div>
 
-                <Dropdown.Menu >
-                  <div className="menu_item">
-                  <Dropdown.Item  href="/reseñas/mis_reseñas">Mis reseñas</Dropdown.Item>
-                  </div>
-                  <div className="menu_item">
-                  <Dropdown.Item  href="/reseñas/reseñas_de_productos">Reseñas de productos</Dropdown.Item>
-                  </div>
-                  <div className="menu_item">
-                  <Dropdown.Item  href="/reseñas/reseñas_laborales">Reseñas laborales</Dropdown.Item>
-                  </div>
-                </Dropdown.Menu>
-                
+                  <Link to="/Empresas" style={{ textDecoration: "none" }}>
+                    Empresas
+                  </Link>
                 </div>
-                </> 
-              )}
-              </Dropdown>
-
-            </div>
-            
-              <Link to="/Empresas" style={{ textDecoration: "none" }}>
-                Empresas
-              </Link>
-          </div>
-          </>)
+              </>
+            )
           )
         }
 
