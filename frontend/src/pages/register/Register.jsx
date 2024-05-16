@@ -34,6 +34,11 @@ const Register = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    const form = e.target.form;
+    if (!form.checkValidity()) {
+      setErr("Por favor, rellena todos los campos correctamente");
+      return;
+    }
     if (
       inputs.Name === "" ||
       inputs.Last_Name === "" ||
@@ -43,6 +48,7 @@ const Register = () => {
       setErr("Por favor, rellena todos los campos");
       return;
     }
+
     try {
       await axiosInstance.post("/server/auth/register", inputs);
       //si el registro es exitoso se redirige a la pagina de inicio
@@ -54,7 +60,7 @@ const Register = () => {
       setErr(err.response.data);
     }
   };
-  console.log(err);
+  //console.log(err);
 
   return (
     <div className="register">

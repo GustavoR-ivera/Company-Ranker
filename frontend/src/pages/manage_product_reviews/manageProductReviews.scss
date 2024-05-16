@@ -87,19 +87,23 @@
                         font-family: "Lato", sans-serif;
                         font-style: normal;
                         font-weight: 600;
+                        padding: 2px;
                         
                         .accept{
                             color: green;
                             text-decoration: none;
+                            width: 100%;
                         }
                         .reject{
                             color: red;
                             text-decoration: none;
+                            width: 100%;
 
                         }
                         .link-company{
                             color: blue;
                             text-decoration: none;
+                            width: 100%;
 
                         }
                     }

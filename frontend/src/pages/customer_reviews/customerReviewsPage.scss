@@ -5,4 +5,30 @@
     font-style: normal;
     text-align: center;
     }
+    .search_input{
+    width: 100%;
+    //border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+        input{
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+        button{
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    .no-reviews{
+        font-family: "Lato", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+        text-align: center;
+    }
 }

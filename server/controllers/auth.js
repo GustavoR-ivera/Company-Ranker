@@ -14,6 +14,9 @@ export  const register = (req, res) => {
     //json(data[0].Email);
     //Crear nuevo usuario
     //hash password
+
+    //crear subscription
+    NewSuscription
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
     
@@ -113,7 +116,7 @@ export const login = (req, res) => {
 
     if (!checkPassword) return res.status(400).send("Contraseña incorrecta");
 
-    //definir token
+    //definir token 
     const token = jwt.sign({ id: data[0].idUser }, "secretkey");
 
     //campos que no se muestran
