@@ -33,6 +33,20 @@ export const createOrder = async (req, res) => {
         
     }
 
+export const getSubscription = (req, res) => {
+    const id = req.params.idSubscription;
+    db.query("SELECT * FROM Subscription WHERE idSubscription = ?", [id], (err, data) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send("Error al obtener la suscripción");
+        }
+
+        return res.status(200).send(data[0]);
+    });
+
+
+ }
+
 
 
   

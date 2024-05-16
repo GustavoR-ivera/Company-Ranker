@@ -22,7 +22,7 @@ export const success = (req, res) => {
 
         checkAccount();
         if (data.affectedRows > 0) {
-            return res.status(200).send("Suscripción activada correctamente");
+            return res.redirect("http://localhost:3000");
         }else{
             return res.status(500).send("Error al activar la suscripción");
         }

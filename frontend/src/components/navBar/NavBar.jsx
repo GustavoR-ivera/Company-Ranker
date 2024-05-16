@@ -189,7 +189,7 @@ function NavBar() {
           (currentUser.Role === "basic" || currentUser.Role === "premium") && (
             <>
               {/*Suscription*/}
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/Suscripcion" style={{ textDecoration: "none" }}>
                 Suscripción
               </Link>
               {/*About*/}
