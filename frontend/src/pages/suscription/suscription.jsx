@@ -21,27 +21,25 @@ function Suscription() {
   // if(sub.data == 0){
 
   return (
-    <div>
-      <div style={{ display: "flex" }}>
-        {/*Componente Precios*/}
-        <div className="Suscripcion">
-          <div className="banner1">
-            <h1>Una comunidad surgida a partir de tus experiencias</h1>
-          </div>
-          <div className="banner2">
-            <h3>¿Quieres ver mas?</h3>
-            <p>Consigue tu cuenta premium y accede a mas reseñas</p>
-          </div>
-          <a
-            href={
-              process.env.REACT_APP_SERVER_URL +
-              "/server/payments/create-order/" +
-              susId
-            }
-          >
-            <button>Accede</button>
-          </a>
-        </div>
+    <div className="suscripcion">
+      <div className="banner1">
+        <h1>Consulta nuestros planes mensuales</h1>
+      </div>
+      <div className="banner2">
+        <h3>¿Quieres ver mas?</h3>
+        <p>Consigue tu cuenta premium y accede a mas reseñas</p>
+      </div>
+
+      <div className="redirect">
+        <a
+          href={
+            process.env.REACT_APP_SERVER_URL +
+            "/server/payments/create-order/" +
+            susId
+          }
+        >
+          Suscribirse
+        </a>
       </div>
     </div>
   );

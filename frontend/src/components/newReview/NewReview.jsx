@@ -61,7 +61,7 @@ const NewReview = () => {
   const handleClickCustomerReview = async (e) => {
     e.preventDefault();
     //validar existencia del obj currentUser
-    if (currentUser === null) {
+    if (currentUser === null || currentUser.idUser === null) {
       if (window.confirm("Debes iniciar sesión para publicar una reseña")) {
         navigate("/login");
       }
@@ -102,9 +102,12 @@ const NewReview = () => {
             service_score: "",
           });
           setErr(null);
+          window.location.reload();
         }
       } catch (err) {
         console.log(err);
+        alert("Se produjo un error al registrar la reseña, intenta nuevamente");
+        window.location.reload();
         //setErr(err.response.data);
       }
     }
@@ -117,7 +120,7 @@ const NewReview = () => {
   const handleClickJobReview = async (e) => {
     e.preventDefault();
     //validar existencia del obj currentUser
-    if (currentUser === null) {
+    if (currentUser === null || currentUser.idUser === null) {
       if (window.confirm("Debes iniciar sesión para publicar una reseña")) {
         navigate("/login");
       }
@@ -154,10 +157,12 @@ const NewReview = () => {
             salary: "",
           });
           setErr2(null);
+          window.location.reload();
         }
       } catch (err2) {
         console.log(err2);
         //setErr(err.response.data);
+        window.location.reload();
       }
     }
   };
