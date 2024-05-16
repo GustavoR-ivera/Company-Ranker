@@ -34,7 +34,8 @@ function CustomerReviewsPage() {
 
   const handleClickSearch = () => {
     if (searchInput.search_input.trim() === "") {
-      setListProductReviews_filtrada(null);
+      const l = [];
+      setListProductReviews_filtrada(l);
       return;
     }
     //tratamiento a la entrada del usuario
@@ -43,15 +44,15 @@ function CustomerReviewsPage() {
     const filteredReviews = listProductReviews_original.filter((review) =>
       review.Product_Name.trim().toLowerCase().includes(product_name)
     );
-    //si la lista de reseñas filtradas es vacia no actualizar la respectiva variable
-    if (filteredReviews.length == 0) {
-      console.log(
-        "no se encontraron reseñas con el nombre de producto ingresado"
-      );
-      //setListProductReviews_filtrada(null);
-      return;
-    }
-    //console.log("lista reseñas filtradas: ", filteredReviews);
+    // //si la lista de reseñas filtradas es vacia no actualizar la respectiva variable
+    // if (filteredReviews.length == 0) {
+    //   console.log(
+    //     "no se encontraron reseñas con el nombre de producto ingresado"
+    //   );
+    //   //setListProductReviews_filtrada(null);
+    //   return;
+    // }
+    console.log("lista reseñas filtradas: ", filteredReviews);
     //actualizar variable con las reseñas filtradas
     setListProductReviews_filtrada(filteredReviews);
   };
@@ -69,14 +70,16 @@ function CustomerReviewsPage() {
     <div className="customer-reviews-page">
       <div className="header">
         <h2>Aqui puedes ver todas las reseñas de productos</h2>
-        <input
-          type="text"
-          name="search_input"
-          value={searchInput.search_input}
-          placeholder="filtra por nombre de producto"
-          onChange={handleChange}
-        />
-        <button onClick={handleClickSearch}>buscar</button>
+        <div className="search_input">
+          <input
+            type="text"
+            name="search_input"
+            value={searchInput.search_input}
+            placeholder="filtra por nombre de producto"
+            onChange={handleChange}
+          />
+          <button onClick={handleClickSearch}>buscar</button>
+        </div>
         {console.log(searchInput.search_input)}
       </div>
 

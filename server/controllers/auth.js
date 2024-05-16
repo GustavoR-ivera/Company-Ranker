@@ -14,6 +14,9 @@ export const register = (req, res) => {
     //json(data[0].Email);
     //Crear nuevo usuario
     //hash password
+
+    //crear subscription
+    NewSuscription
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt);
 
@@ -42,17 +45,10 @@ export const register = (req, res) => {
 function NewSuscription() {
   db.query("INSERT Subscription (`Status`) VALUES (0)", (err, result) => {
     if (err) {
-      return err;
+      return result.status(500).send(err);
+    }else{
+      return result.status(200).json(result.insertId);
     }
-
-    db.query("SELECT MAX(idSuscription) FROM Suscription", (err, data) => {
-      if (err) {
-        return err;
-      }
-
-      console.log(data[0]["MAX(idSuscription)"]);
-      return data[0]["MAX(idSuscription)"];
-    });
   });
 }
 
