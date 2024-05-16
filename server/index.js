@@ -21,6 +21,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import morgan from "morgan";
+
 import { repeatingFunction } from "./controllers/accountcheck.js";
 
 const app = express();

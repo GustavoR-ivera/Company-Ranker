@@ -17,22 +17,18 @@ function About() {
         <div className="item">
           <span>¿Quiénes somos?</span>
           <p>
-            En Company Ranker mostramos la actualidad del pensamiento de la
-            gente sobre empresas colombianas. Desde los clientes hasta los
-            ex-empleados y trabajadores actuales de las diversas empresas
-            registradas hacen parte de esta comunidad cuyos aportes son nuestro
-            punto de partida para ofrecer información de calidad sobre
-            productos, servicios y contexto laboral en general{" "}
+            En el año 2026, Company Ranker se consolidará como el sitio web de reseñas
+            preferido para las personas que busquen información sobre empresas colombianas, 
+            Nuestro liderazgo se basará en una comunidad sincera, 
+            ya que creemos firmemente en un mercado laboral transparente y honesto.{" "}
           </p>
         </div>
         <div className="item">
           <span>Visión</span>
           <p>
-            Para el 2026 seremos la primera elección para cualquier persona que
-            busca información sobre empresas colombianas porque seremos el
-            destino principal cuando una persona quiere tener una información
-            objetiva y clara, lideraremos una comunidad basada en la sinceridad
-            porque creemos en un mercado laboral transparente y honesto.
+          En company ranker agrupamos y validamos por medio de una plataforma las reseñas de los usuarios para la toma de decisiones
+          con base en la experiencia de los trabajadores y compradores, y así ajustandonos a las tendencias
+          y visibilidad de las pymes en el mercado laboral colombiano
           </p>
         </div>
 
