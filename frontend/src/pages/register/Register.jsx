@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import GoBack from "../../components/goBack/GoBack";
+import GoBack from "../../components/goBack/GoBack.jsx";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -125,10 +125,10 @@ const Register = () => {
             focused={focused.toString()}
           />
           <span>Las contraseñas no coinciden</span>
-          <p>
-            Al dar click en registrarte estás aceptando nuestros términos y
-            condiciones, políticas de privacidad y manejo de cookies{" "}
-          </p>
+          <p2>
+            Al dar click en registrarte estás aceptando nuestros <a href="/tyc">términos y
+            condiciones</a> políticas de privacidad y manejo de cookies{" "}
+          </p2>
           <p className="error_general">{err}</p>
           <button onClick={handleClick}>Regístrate</button>
           <p>

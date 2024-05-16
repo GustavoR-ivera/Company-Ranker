@@ -21,6 +21,7 @@ import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
 import CustomerReviewsPage from "./pages/customer_reviews/CustomerReviewsPage";
 import CompanyReviewsPage from "./pages/Companys_reviesw/CompanyReviewsPage.jsx";
 //import ProductReviewsPage from "./pages/product_reviews/ProductReviewsPage.jsx";
+import Tyc from "./pages/tyc/Tyc.jsx";
 
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
@@ -80,6 +81,10 @@ function App() {
       path: "/about",
       element: <About />,
     },
+    {
+      path: "/tyc",
+      element: < Tyc/>,
+    },
 
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
@@ -124,6 +129,7 @@ function App() {
           path: "/Empresas",
           element: < CompanyReviewsPage/>,
         },
+
 
         
       ],
