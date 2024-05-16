@@ -1,0 +1,92 @@
+.error_form {
+    height: 100vh;
+    background-color: #021f75;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card {
+      font-family: "JejuGothic", sans-serif;
+      width: 40%;
+      display: flex;
+      background-color: white;
+      border-radius: 10px;
+      min-height: 600px;
+  
+      .right {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        img {
+          width: 58px;
+          height: 50px;
+          object-fit: cover;
+        }
+        h1 {
+          text-align: center;
+          font-size: 30px;
+          font-family: "Lato", sans-serif;
+          font-weight: 700;
+          font-style: normal;
+        }
+        form {
+          margin-top: 10px;
+          max-width: 350px;
+          display: flex;
+          margin-left: auto;
+          margin-right: auto;
+          flex-direction: column;
+          gap: 30px;
+          input {
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-bottom: 1px solid lightgray;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+          }
+          span {
+            font-size: 16px;
+            color: red;
+          }
+          button {
+            width: 100px, 33.33%;
+            padding: 10px;
+            border: none;
+            background-color: #009bec;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+          }
+        }
+        a {
+          font-family: "Lato", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 17px;
+          text-align: center;
+          color: #009bec;
+        }
+        p {
+          font-family: "Lato", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 17px;
+          text-align: center;
+          a1 {
+            font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+            padding-left: 10px;
+            font-size: 18px;
+            color: #021f75;
+          }
+        }
+        .login-container {
+          position: relative;
+        }
+      }
+    }
+  }
+  

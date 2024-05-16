@@ -143,44 +143,34 @@ function NavBar() {
                         Reseñas
                       </Dropdown.Toggle>
 
-                      {viewDropdown && (
-                        <>
-                          <div className="menu_reseñas">
-                            <Dropdown.Menu>
-                              <div className="menu_item">
-                                <Dropdown.Item>
-                                  <Link to="/resenas/mis_resenas">
-                                    Mis reseñas
-                                  </Link>
-                                </Dropdown.Item>
-                              </div>
-                              <div className="menu_item">
-                                <Dropdown.Item>
-                                  <Link to="/resenas/resenas_de_productos">
-                                    Reseñas de productos
-                                  </Link>
-                                </Dropdown.Item>
-                              </div>
-                              <div className="menu_item">
-                                <Dropdown.Item>
-                                  <Link to="/resenas/resenas_laborales">
-                                    Reseñas laborales
-                                  </Link>
-                                </Dropdown.Item>
-                              </div>
-                            </Dropdown.Menu>
-                          </div>
-                        </>
-                      )}
-                    </Dropdown>
-                  </div>
+              {viewDropdown && (
+                <>
+                <div className="menu_reseñas">
 
-                  <Link to="/" style={{ textDecoration: "none" }}>
-                    Empresas
-                  </Link>
+                <Dropdown.Menu >
+                  <div className="menu_item">
+                  <Dropdown.Item  href="/reseñas/mis_reseñas">Mis reseñas</Dropdown.Item>
+                  </div>
+                  <div className="menu_item">
+                  <Dropdown.Item  href="/reseñas/reseñas_de_productos">Reseñas de productos</Dropdown.Item>
+                  </div>
+                  <div className="menu_item">
+                  <Dropdown.Item  href="/reseñas/reseñas_laborales">Reseñas laborales</Dropdown.Item>
+                  </div>
+                </Dropdown.Menu>
+                
                 </div>
-              </>
-            )
+                </> 
+              )}
+              </Dropdown>
+
+            </div>
+            
+              <Link to="/Empresas" style={{ textDecoration: "none" }}>
+                Empresas
+              </Link>
+          </div>
+          </>)
           )
         }
 
@@ -199,7 +189,7 @@ function NavBar() {
           (currentUser.Role === "basic" || currentUser.Role === "premium") && (
             <>
               {/*Suscription*/}
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/Suscripcion" style={{ textDecoration: "none" }}>
                 Suscripción
               </Link>
               {/*About*/}

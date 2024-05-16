@@ -11,8 +11,17 @@ import userRoutes from "./routes/users.js"
 // import likeRoutes from "./routes/likes.js"
 import postjsRoutes from "./routes/postsj.js"
 import postscRoutes from "./routes/postsc.js"
+
+import CompanyRouter from "./routes/companys.js"
+
+import paymentsRoutes from "./routes/payments.js"
+import postpaymentRoutes from "./routes/postpayment.js"
+
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
+import morgan from "morgan";
+import { repeatingFunction } from "./controllers/accountcheck.js";
 
 const app = express();
 
@@ -46,6 +55,8 @@ app.use(cors({
 
 app.use(cookieParser());
 
+app.use(morgan("dev"));
+
 app.use("/server/auth", authRoutes);
 app.use("/server/manage-reviews", manageReviewsRoutes);
 app.use("/server/users" , userRoutes)
@@ -53,6 +64,12 @@ app.use("/server/users" , userRoutes)
 // app.use("/server/likes" , likeRoutes)
 app.use("/server/postsj" , postjsRoutes)
 app.use("/server/postsc" , postscRoutes)
+app.use("/server/companys" , CompanyRouter)
+app.use("/server/payments", paymentsRoutes);
+app.use("/server/postpayment", postpaymentRoutes);
+
+repeatingFunction();
+
 
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);

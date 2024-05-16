@@ -19,6 +19,8 @@ import ManageProductReviews from "./pages/manage_product_reviews/ManageProductRe
 import ManageJobReviews from "./pages/manage_job_reviews/ManageJobReviews";
 import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
 import CustomerReviewsPage from "./pages/customer_reviews/CustomerReviewsPage";
+import CompanyReviewsPage from "./pages/Companys_reviesw/CompanyReviewsPage.jsx";
+import Suscription from "./pages/suscription/suscription.jsx";
 
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
@@ -117,6 +119,14 @@ function App() {
         {
           path: "/resenas/resenas_de_productos",
           element: < CustomerReviewsPage/>,
+        },
+        {
+          path: "/Empresas",
+          element: < CompanyReviewsPage/>,
+        },
+        {
+          path: "/Suscripcion",
+          element: < Suscription />,
         },
         
       ],
