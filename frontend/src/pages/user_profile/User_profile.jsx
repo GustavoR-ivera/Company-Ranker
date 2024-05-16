@@ -13,8 +13,7 @@ function UserProfile() {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  
+  const [errorMessage, setErrorMessage] = useState(""); // Nuevo estado para el mensaje de error
 
   const navigate = useNavigate();
 
@@ -25,7 +24,7 @@ function UserProfile() {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
-      alert("Las contraseñas no coinciden");
+      setErrorMessage("Las contraseñas no coinciden"); // Establecer el mensaje de error
       return;
     }
     try {
@@ -42,8 +41,19 @@ function UserProfile() {
       console.error(error);
     }
   };
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+
+  const handlePasswordChange = (e) => {
+    setNewPassword(e.target.value);
+    setPasswordsMatch(e.target.value === confirmPassword);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    setPasswordsMatch(newPassword === e.target.value);
+  };
   return (
-<div className="profile-container">
+    <div className="profile-container">
       <h1>Perfil</h1>
       <div className="my-info">
         <h3>Información personal</h3>
@@ -59,40 +69,41 @@ function UserProfile() {
             <input type="text" value={currentUser.Last_Name} readOnly />
           </label>
           <label>
-          Tipo de usuario: <input type="text" value={currentUser.Role === 'basic'
-       ? '(Usuario estandar)'
-          : currentUser.Role === 'admin'
-       ? 'Usuario administrador'
-         : '(Otro tipo de usuario)'} readOnly />
+            Tipo de usuario: <input type="text" value={currentUser.Role === 'basic'
+              ? '(Usuario estandar)'
+              : currentUser.Role === 'admin'
+                ? 'Usuario administrador'
+                : '(Otro tipo de usuario)'} readOnly />
           </label>
           <label>
             Correo electrónico
-            <input type="text" value={currentUser.Email} readOnly/>
+            <input type="text" value={currentUser.Email} readOnly />
           </label>
           <label>
             Número telefónico
-            <input type="text" value={currentUser.P_Number} readOnly/>
+            <input type="text" value={currentUser.P_Number} readOnly />
           </label>
           <label>
             Suscripción
             <input type="text" value={currentUser.Subscription_idSubscription} readOnly />
           </label>
           <h3>Cambiar contraseña</h3>
-<label>
-  Contraseña antigua
-  <input type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
-</label>
-<label>
-  Nueva contraseña
-  <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
-</label>
-<label>
-  Confirmar nueva contraseña
-  <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-</label>
-<button type="submit">Cambiar contraseña</button>
-        </form>
-      </div>
+  <label>
+    Contraseña antigua
+    <input type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
+  </label>
+  <label>
+    Nueva contraseña
+    <input type="password" value={newPassword} onChange={handlePasswordChange} required />
+  </label>
+  {!passwordsMatch && <p style={{ color: "red" }}>Las contraseñas no coinciden</p>}
+  <label>
+    Confirmar nueva contraseña
+    <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
+  </label>
+  <button type="submit">Cambiar contraseña</button>
+</form>
+    </div>
     </div>
   );
 

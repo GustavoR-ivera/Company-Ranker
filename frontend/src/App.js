@@ -129,8 +129,6 @@ function App() {
           path: "/Empresas",
           element: < CompanyReviewsPage/>,
         },
-
-
         
       ],
     },
