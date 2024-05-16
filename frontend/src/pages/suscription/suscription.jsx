@@ -22,48 +22,38 @@ function Suscription() {
   // if(sub.data == 0){
 
   return (
-    <div className="suscripcion">
-      <div className="banner1">
-        <h1>Consulta nuestros planes mensuales</h1>
-      </div>
-      <div className="banner2">
-        <h3>¿Quieres ver mas?</h3>
-        <p>Consigue tu cuenta premium y accede a mas reseñas</p>
-      </div>
-
-      <div className="redirect">
-        <a
-          href={
+    <div class="price-table-wrapper">
+  <div class="pricing-table">
+    <h2 class="pricing-table__header">- BASICO -</h2>
+    <h3 class="pricing-table__price">GRATIS</h3>
+    <a class="pricing-table__actual">Plan Actual</a>
+    <ul class="pricing-table__list">
+      <li>Visualisaciones Limitadas</li>
+      <li>3 Reseñas por Perfil</li>
+      <li>ᵃ</li>
+      <li>ᵃ</li>
+    </ul>
+  </div>
+  <div class="pricing-table featured-table">
+    <h2 class="pricing-table__header">- PREMIUM -</h2>
+    <h3 class="pricing-table__price">$5000COP</h3>
+    <a target="_blank" class="pricing-table__button" href={
             process.env.REACT_APP_SERVER_URL +
             "/server/payments/create-order/" +
-            susId
-          }
-        >
-          Suscribirse
-        </a>
-      </div>
-    </div>
-  );
+            susId}>
+      Join Now!
+    </a>
+    <ul class="pricing-table__list">
+      <li>Visuaizaciones Ilimitadas</li>
+      <li>ᵃ</li>
+      <li>ᵃ</li>
+      <li>ᵃ</li>
+    </ul>
+  </div>
 
-  // }if (sub.data == 1){
+   </div>
+   )};   
 
-  //   return (
-  //     <div>
 
-  //       <div style={{ display: "flex" }}>
-
-  //         {/*Componente Precios*/}
-  //         <div className="Suscripcion">
-  //           <div className="banner1">
-  //             <h1>Felicidades ya tienes una Suscripcion Premium</h1>
-
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-
-  //   }
-}
 
 export default Suscription;
