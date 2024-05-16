@@ -12,11 +12,12 @@ function Suscription() {
     baseURL: process.env.REACT_APP_SERVER_URL,
   });
 
-  const sub = async () =>
-    await axiosInstance.get(
-      "/server/payments/getSubscription/" + susId.toString
-    );
-  console.log(sub());
+  // pendiente para validar suscripcion actual del usuario
+  // const sub = async () =>
+  //   await axiosInstance.get(
+  //     "/server/payments/getSubscription/" + susId.toString
+  //   );
+  // console.log(sub());
 
   // if(sub.data == 0){
 

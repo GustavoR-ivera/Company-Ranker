@@ -10,7 +10,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  
+
   const [err, setErr] = useState(null);
 
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ const Login = () => {
           <a href="recovery">¿Has olvidado tu contraseña?</a>
           <p>
             ¿No tienes una cuenta?
-            <a href="register">Registrarte</a>
+            <a href="/register">Registrarte</a>
           </p>
         </div>
       </div>

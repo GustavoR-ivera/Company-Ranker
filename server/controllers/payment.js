@@ -1,11 +1,11 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago';
-import {BACKEND_URL} from "../config.js"
+import {BACKEND_URL, ACCESS_TOKEN_SECRET} from "../config.js"
 
 import { db } from "../connect.js";
 
 export const createOrder = async (req, res) => {
 
-    const client = new MercadoPagoConfig({ accessToken: 'TEST-5218571602676801-050822-9ecd472134a3478ccb449cc9f1924100-1803280763' });
+    const client = new MercadoPagoConfig({ accessToken: ACCESS_TOKEN_SECRET });
 
     const preference = new Preference(client);
 
