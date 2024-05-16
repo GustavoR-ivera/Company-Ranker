@@ -25,6 +25,7 @@ import Suscription from "./pages/suscription/suscription.jsx";
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
+import Error_Form from "./pages/error_form/Error_form.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -127,6 +128,10 @@ function App() {
         {
           path: "/Suscripcion",
           element: < Suscription />,
+        },
+        {
+          path: "/registrar_comentario_soporte",
+          element: < Error_Form />,
         },
         
       ],

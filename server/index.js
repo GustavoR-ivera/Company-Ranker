@@ -11,11 +11,10 @@ import userRoutes from "./routes/users.js"
 // import likeRoutes from "./routes/likes.js"
 import postjsRoutes from "./routes/postsj.js"
 import postscRoutes from "./routes/postsc.js"
-
 import CompanyRouter from "./routes/companys.js"
-
 import paymentsRoutes from "./routes/payments.js"
 import postpaymentRoutes from "./routes/postpayment.js"
+import errorRoutes from "./routes/errors.js"
 
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -67,6 +66,8 @@ app.use("/server/postsc" , postscRoutes)
 app.use("/server/companys" , CompanyRouter)
 app.use("/server/payments", paymentsRoutes);
 app.use("/server/postpayment", postpaymentRoutes);
+app.use("/server/errors", errorRoutes);
+
 
 repeatingFunction();
 

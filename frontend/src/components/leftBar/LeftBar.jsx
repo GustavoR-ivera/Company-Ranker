@@ -20,18 +20,16 @@ function LeftBar() {
         <hr />
         <div className="menu">
           <span>Explorar</span>
-          {
-            currentUser && (
-              <>
-                <div className="item">
-                  {/**podria consultarse validando la cantidad de
-                   *  reseñas en un periodo de tiempo */}
-                  <img src={trending} alt="trending" />
-                  <span>Empresas tendencia</span>
-                </div>
-              </>
-            )
-          }
+          {currentUser && (
+            <>
+              <div className="item">
+                {/**podria consultarse validando la cantidad de
+                 *  reseñas en un periodo de tiempo */}
+                <img src={trending} alt="trending" />
+                <span>Empresas tendencia</span>
+              </div>
+            </>
+          )}
 
           <div className="item">
             <img src={news} alt="news" />
@@ -63,7 +61,7 @@ function LeftBar() {
           <span>Otros</span>
           <div className="item">
             <img src={contact} alt="job" />
-            <span>Contáctanos</span>
+            <Link to={"/registrar_comentario_soporte"}>Contáctanos</Link>
           </div>
           <div className="item">
             <img src={about} alt="salary" />

@@ -6,19 +6,25 @@ import GoBack from "../../components/goBack/GoBack.jsx";
 import logo from "../../images/logo.png";
 import axios from "axios";
 
-
-
 const Error_Form = () => {
+  const { currentUser } = useContext(AuthContext);
+
   const [inputs, setInputs] = useState({
     email: "",
     error_comment: "",
+    userId: currentUser.idUser,
   });
   const [err, setErr] = useState(null);
 
   const navigate = useNavigate();
 
-  
- 
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -27,7 +33,7 @@ const Error_Form = () => {
       return;
     }
     try {
-        await axios.post("http://localhost:8800/server/auth/errors", inputs);
+      await axiosInstance.post("/server/errors", inputs);
       navigate("/home");
     } catch (err) {
       setErr(err.response.data);
@@ -49,18 +55,19 @@ const Error_Form = () => {
               placeholder="E-mail"
               name="email"
               required={true}
+              onChange={handleChange}
             />
-            <input
-              type="text"
+            <textarea
+              cols="15"
+              rows="3"
               placeholder="Comentario"
               name="error_comment"
               required={true}
-            />
+              onChange={handleChange}
+            ></textarea>
             <span>{err}</span>
             <button onClick={handleForm}>Enviar Comentario</button>
           </form>
-          
-    
         </div>
       </div>
     </div>

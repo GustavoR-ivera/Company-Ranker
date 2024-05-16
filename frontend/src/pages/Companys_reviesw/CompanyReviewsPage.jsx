@@ -4,10 +4,13 @@ import CompanyReviews from "../../components/companyReviews/CompanyReviews";
 import "./companyReviewsPage.scss";
 
 function CompanyReviewsPage() {
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
   //definicion de funcion para realizar la peticion y listar las reseñas laborales
   const getCompanyReviews = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/server/companys/");
+      const res = await axiosInstance.get("/server/companys/");
       return res.data;
     } catch (err) {
       console.log(err);
@@ -27,7 +30,6 @@ function CompanyReviewsPage() {
   }, []);
 
   console.log(listCompanyReviews);
-  
 
   return (
     <div className="company-reviews">

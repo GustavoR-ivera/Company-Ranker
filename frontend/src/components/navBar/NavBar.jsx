@@ -181,7 +181,7 @@ function NavBar() {
         {currentUser == null ? (
           <>
             {/*Suscription*/}
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/register" style={{ textDecoration: "none" }}>
               Suscripción
             </Link>
             {/*About*/}

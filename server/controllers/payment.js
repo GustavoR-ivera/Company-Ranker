@@ -1,4 +1,6 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago';
+import {BACKEND_URL} from "../config.js"
+
 import { db } from "../connect.js";
 
 export const createOrder = async (req, res) => {
@@ -10,9 +12,9 @@ export const createOrder = async (req, res) => {
     const result = await preference.create({
       body: {
         back_urls:{
-          success: 'http://localhost:8800/server/postpayment/success/' + req.params.idSubscription,
-          failure: 'http://localhost:8800/server/postpayment/failure',
-          pending: 'http://localhost:8800/server/postpayment/pending'
+          success: BACKEND_URL+'/server/postpayment/success/' + req.params.idSubscription,
+          failure: BACKEND_URL+'/server/postpayment/failure',
+          pending: BACKEND_URL+'/server/postpayment/pending'
       },
         items: [
           {
