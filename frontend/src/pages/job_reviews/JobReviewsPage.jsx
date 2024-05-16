@@ -4,10 +4,13 @@ import JobReviews from "../../components/jobReviews/JobReviews";
 import "./jobReviewsPage.scss";
 
 function JobReviewsPage() {
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_SERVER_URL,
+  });
   //definicion de funcion para realizar la peticion y listar las reseñas laborales
   const getJobReviews = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/server/postsj/");
+      const res = await axiosInstance.get("/server/postsj/");
       return res.data;
     } catch (err) {
       console.log(err);

@@ -105,29 +105,33 @@ function App() {
           element: <h3>profile for user x</h3>,
         },
         {
-          path: "/reseñas/mis_reseñas",
-          element: <My_reviews />,
+          path: "/resenas/mis_resenas",
+          element: <My_reviews/>,
         },
         {
-          path: "/gestionar_reseñas/reseñas_productos",
+          path: "/gestionar_resenas/resenas_productos",
           element: <ManageProductReviews />,
         },
         {
-          path: "/gestionar_reseñas/reseñas_laborales",
+          path: "/gestionar_resenas/resenas_laborales",
           element: < ManageJobReviews />,
         },
         {
-          path: "/reseñas/reseñas_laborales",
+          path: "/resenas/resenas_laborales",
           element: < JobReviewsPage/>,
         },
         {
-          path: "/reseñas/reseñas_de_productos",
+          path: "/resenas/resenas_de_productos",
           element: < CustomerReviewsPage/>,
         },
         {
           path: "/Empresas",
           element: < CompanyReviewsPage/>,
-        }
+        },
+        {
+          path: "/Suscripcion",
+          element: < Suscription />,
+        },
         
       ],
     },
