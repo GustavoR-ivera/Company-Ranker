@@ -1,4 +1,6 @@
  import { db } from "../connect.js";
+ import {FRONTEND_URL} from "../config.js"
+
 import { checkAccount} from "./accountcheck.js";
 
 
@@ -22,7 +24,7 @@ export const success = (req, res) => {
 
         checkAccount();
         if (data.affectedRows > 0) {
-            return res.redirect("http://localhost:3000");
+            return res.redirect(FRONTEND_URL);
         }else{
             return res.status(500).send("Error al activar la suscripción");
         }

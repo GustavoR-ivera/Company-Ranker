@@ -62,10 +62,10 @@ const Login = () => {
             <span>{err}</span>
             <button onClick={handleLogin}>Iniciar sesión</button>
           </form>
-          <a href="recovery">¿Has olvidado tu contraseña?</a>
+          <Link to="/recovery">¿Has olvidado tu contraseña?</Link>
           <p>
             ¿No tienes una cuenta?
-            <a href="/register">Registrarte</a>
+            <Link to="/register">Registrarte</Link>
           </p>
         </div>
       </div>

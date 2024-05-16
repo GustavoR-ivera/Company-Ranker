@@ -69,7 +69,7 @@ const Register = () => {
           <GoBack />
           <p>
             ¿Ya tienes una cuenta?
-            <a href="login">Ingresar</a>
+            <Link to="/login">Ingresar</Link>
           </p>
           <h1>Company Ranker</h1>
         </div>

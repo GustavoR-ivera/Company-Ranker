@@ -102,12 +102,14 @@ const NewReview = () => {
             service_score: "",
           });
           setErr(null);
-          window.location.reload();
+          //window.location.reload();
+          navigate("/home");
         }
       } catch (err) {
         console.log(err);
         alert("Se produjo un error al registrar la reseña, intenta nuevamente");
-        window.location.reload();
+        //window.location.reload();
+        navigate("/home");
         //setErr(err.response.data);
       }
     }
@@ -157,12 +159,14 @@ const NewReview = () => {
             salary: "",
           });
           setErr2(null);
-          window.location.reload();
+          navigate("/home");
+          //window.location.reload();
         }
       } catch (err2) {
         console.log(err2);
         //setErr(err.response.data);
-        window.location.reload();
+        navigate("/home");
+        //window.location.reload();
       }
     }
   };
