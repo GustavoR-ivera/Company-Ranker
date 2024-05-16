@@ -1,6 +1,6 @@
 .login {
   height: 100vh;
-  background-color: #021f75;
+  background-color: #edf2ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,8 @@
     background-color: white;
     border-radius: 10px;
     min-height: 600px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); // Agrega esta línea
+
 
     .right {
       flex: 1;

@@ -14,17 +14,18 @@ import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
-import My_reviews from "./pages/my_reviews/My_reviews";
+//import My_reviews from "./pages/my_reviews/My_reviews";
 import ManageProductReviews from "./pages/manage_product_reviews/ManageProductReviews";
 import ManageJobReviews from "./pages/manage_job_reviews/ManageJobReviews";
 import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
 import CustomerReviewsPage from "./pages/customer_reviews/CustomerReviewsPage";
 import CompanyReviewsPage from "./pages/Companys_reviesw/CompanyReviewsPage.jsx";
+//import ProductReviewsPage from "./pages/product_reviews/ProductReviewsPage.jsx";
 
 import { useContext } from "react";
 import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
-
+import UserProfile from "./pages/user_profile/User_profile.jsx";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -96,8 +97,8 @@ function App() {
         },
         //direccion al perfil de un usuario especifico
         {
-          path: "/profile",
-          element: <h3>profile for user x</h3>,
+          path: "/user_profile",
+          element: <UserProfile />,
         },
         {
           path: "/resenas/mis_resenas",
@@ -122,7 +123,8 @@ function App() {
         {
           path: "/Empresas",
           element: < CompanyReviewsPage/>,
-        }
+        },
+
         
       ],
     },

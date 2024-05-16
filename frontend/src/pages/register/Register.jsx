@@ -44,7 +44,7 @@ const Register = () => {
       return;
     }
     try {
-      await axiosInstance.post("/server/auth/register", inputs);
+      await axiosInstance.post("http://localhost:8800/server/auth/register", inputs);
       //si el registro es exitoso se redirige a la pagina de inicio
       //apartir de este punto, con que datos de usuario funciona la pagina?
       //al redireccionar a login, actualizamos el estado de currentUser el cual podra ser usado
@@ -61,10 +61,7 @@ const Register = () => {
       <div className="card">
         <div className="header">
           <GoBack />
-          <p>
-            ¿Ya tienes una cuenta?
-            <a href="login">Ingresar</a>
-          </p>
+
           <h1>Company Ranker</h1>
         </div>
 
@@ -128,13 +125,14 @@ const Register = () => {
             focused={focused.toString()}
           />
           <span>Las contraseñas no coinciden</span>
-
-          <p className="error_general">{err}</p>
-          <button onClick={handleClick}>Regístrate</button>
-
           <p>
             Al dar click en registrarte estás aceptando nuestros términos y
             condiciones, políticas de privacidad y manejo de cookies{" "}
+          </p>
+          <p className="error_general">{err}</p>
+          <button onClick={handleClick}>Regístrate</button>
+          <p>
+            <a href="login">¿Ya tienes una cuenta?</a>
           </p>
           <hr />
         </form>
