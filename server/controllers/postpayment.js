@@ -19,14 +19,25 @@ export const success = (req, res) => {
     db.query(query,[ start_date, end_date, id], (err, data) => {
         if (err) {
             console.log(err);
-            return res.status(500).send("Error al activar la suscripción");
+            return res.status(500).send("Error al activar la suscripción_1");
         }
 
         checkAccount();
+
+        //validacion update subscription
         if (data.affectedRows > 0) {
+            //update user role
+            const id = req.params.idSubscription;
+            const q = `update User set Role = 'premium' where Subscription_idSubscription = ?` ;
+            db.query(q, [id], (err, data) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send("Error al activar la suscripción_2");
+                }
+            });
             return res.redirect(FRONTEND_URL);
         }else{
-            return res.status(500).send("Error al activar la suscripción");
+            return res.status(500).send("Error al activar la suscripción_3");
         }
         
     });

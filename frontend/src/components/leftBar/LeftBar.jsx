@@ -17,27 +17,28 @@ function LeftBar() {
     <div className="leftBar">
       <div className="container">
         <h3>Categorias</h3>
-        <hr />
-        <div className="menu">
-          <span>Explorar</span>
-          {currentUser && (
-            <>
-              <div className="item">
-                {/**podria consultarse validando la cantidad de
-                 *  reseñas en un periodo de tiempo */}
-                <img src={trending} alt="trending" />
-                <span>Empresas tendencia</span>
-              </div>
-            </>
-          )}
 
-          <div className="item">
+        {/* se valida el rol premium del usuario  */}
+        {currentUser && currentUser.Role === "premium" && (
+          <div className="menu">
+            <span>Premium</span>
+
+            <div className="item">
+              {/**podria consultarse validando la cantidad de
+               *  reseñas en un periodo de tiempo */}
+              <img src={trending} alt="trending" />
+              <Link to="/dashboard">Empresas tendencia</Link>
+            </div>
+
+            {/* <div className="item">
             <img src={news} alt="news" />
             <span>Noticias</span>
+          </div> */}
           </div>
-        </div>
+        )}
+
         <hr />
-        <div className="menu">
+        {/* <div className="menu">
           <span>Mercado Comercial</span>
           {
             //podria consultarse las empresas con mejor valoracion
@@ -55,8 +56,8 @@ function LeftBar() {
             <img src={industries} alt="industries" />
             <span>Ver sectores comerciales</span>
           </div>
-        </div>
-        <hr />
+        </div> */}
+
         <div className="menu">
           <span>Otros</span>
           <div className="item">
