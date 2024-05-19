@@ -10,6 +10,7 @@ function Footer() {
       <div className="container">
         <Link to="/about">Sobre nosotros</Link>
         <Link to="/registrar_comentario_soporte">Contáctanos</Link>
+        <Link to="/value">Valor de la marca </Link>
         {/* <a href="/about">Sobre nosotros</a> */}
         {/* <a href="#">Contáctanos</a> */}
       </div>

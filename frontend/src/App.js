@@ -27,6 +27,8 @@ import Recovery from "./pages/recovery/Recovery.jsx";
 import { AuthContext } from "./context/authContext.js";
 import Error_Form from "./pages/error_form/Error_form.jsx";
 import Dashboard from "./pages/dashboard_premium/Dashboard.jsx";
+import Value_proposal from "./pages/value_proposal/value_proposal.jsx";
+
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -85,6 +87,10 @@ function App() {
     {
       path: "/Questions",
       element: <Questions />,
+    },
+    {
+      path: "/Value",
+      element: <Value_proposal />,
     },
 
     //rutas protegidas que usan la plantilla de barras de navegacion
