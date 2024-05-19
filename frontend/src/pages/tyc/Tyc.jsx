@@ -1,5 +1,6 @@
 import "./tyc.scss";
 import NavBar from "../../components/navBar/NavBar";
+import Footer from "../../components/footer/Footer";
 
 const Tyc = () => {
   return (
@@ -9,7 +10,7 @@ const Tyc = () => {
 
         <div className="container">
           <div className="item">
-            <span>Términos y Condiciones de Uso</span>
+            <div className=" tittle">Términos y Condiciones de Uso</div>
             <p>
               Estos términos y condiciones de uso ("Términos") rigen el acceso y uso del sitio web “Company Ranker” <a href="https://company-ranker-front.onrender.com">(https://company-ranker-front.onrender.com)</a> y sus servicios relacionados. Al acceder o utilizar el Sitio Web, usted acepta estos Términos en su totalidad. Si no está de acuerdo con estos Términos, por favor abstenerse de utilizar el Sitio Web.{" "}
             </p>
@@ -35,6 +36,7 @@ const Tyc = () => {
             <p>7.1. Si tiene alguna pregunta sobre estos Términos, puede ponerse en contacto con nosotros en la sección de quejas o reclamos de la página Company Ranker.</p>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
