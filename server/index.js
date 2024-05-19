@@ -1,4 +1,4 @@
-import {PORT, FRONTEND_URL} from "./config.js"
+import {PORT, FRONTEND_URL, DOMINIO} from "./config.js"
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -41,15 +41,33 @@ const app = express();
 app.use(express.json());
 
 app.options("/", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
+  //res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.sendStatus(204);
 });
 
 //habilitar recepcion de peticiones desde el servidor de frontend
+// app.use(cors({
+//   origin: FRONTEND_URL,
+//   credentials: true
+// }));
+
+//chatgpt forma para recibir peticiones desde el frontend
+const allowedOrigins = [FRONTEND_URL , DOMINIO ];
+
 app.use(cors({
-  origin: FRONTEND_URL,
+  origin: function(origin, callback){
+    // allow requests with no origin 
+    // (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
 
