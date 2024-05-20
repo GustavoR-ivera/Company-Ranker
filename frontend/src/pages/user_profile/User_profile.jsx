@@ -88,25 +88,23 @@ function UserProfile() {
             <input type="text" value={currentUser.Subscription_idSubscription} readOnly />
           </label>
           <h3>Cambiar contraseña</h3>
-  <label>
-    Contraseña antigua
-    <input type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
-  </label>
-  <label>
-    Nueva contraseña
-    <input type="password" value={newPassword} onChange={handlePasswordChange} required />
-  </label>
-  {!passwordsMatch && <p style={{ color: "red" }}>Las contraseñas no coinciden</p>}
-  <label>
-    Confirmar nueva contraseña
-    <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
-  </label>
-  <button type="submit">Cambiar contraseña</button>
-</form>
-    </div>
+          <label>
+            Contraseña antigua:
+            <input type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
+          </label>
+          <label>
+            Nueva contraseña
+            <input type="password" value={newPassword} onChange={handlePasswordChange} required />
+          </label>
+          {!passwordsMatch && <p style={{ color: "red" }}>Las contraseñas no coinciden</p>}
+          <label>
+            Confirmar nueva contraseña:
+            <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
+          </label>
+          <button type="submit" className="change-password-btn">Cambiar contraseña</button>        </form>
+      </div>
     </div>
   );
-
 }
 
 export default UserProfile;

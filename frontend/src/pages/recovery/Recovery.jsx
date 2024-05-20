@@ -7,6 +7,7 @@ import log from "../../assets/imagenes/logo.png";
 const Recovery = () => {
     return (
         <div className = "recovery">
+            <div className="recovery recovery-container"></div>
             <div className="card">
                 <div className="left">
                 <header className="header">
@@ -18,7 +19,7 @@ const Recovery = () => {
                         <button>Recuperar contraseña</button>
                     </form>
                 </div>
-                <div className="right">
+                <div className="right recovery-right">
                     <p>
                         <p2>¿Ya tienes una cuenta?</p2>
                             <Link to = "/login">
