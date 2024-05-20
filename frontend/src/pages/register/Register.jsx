@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from 'react-helmet';
 
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
@@ -58,6 +59,9 @@ const Register = () => {
 
   return (
     <div className="register">
+      <Helmet>
+        <title>Company Ranker - Registro</title>
+      </Helmet>
       <div className="card">
         <div className="header">
           <GoBack />

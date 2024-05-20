@@ -225,7 +225,7 @@ function NavBar() {
             <div className="user">
               <span>{currentUser == null ? "user" : currentUser.Name}</span>
             </div>
-            <Link to="/user_profile" style={{ textDecoration: "none" }}>
+            <Link to="/perfil" style={{ textDecoration: "none" }}>
               Perfil
             </Link>
             <Link onClick={logout} style={{ textDecoration: "none" }}>

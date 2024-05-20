@@ -4,6 +4,7 @@ import "./user_profile.scss";
 import { AuthContext } from "../../context/authContext";
 import { useContext, useState } from "react";
 import { Dropdown } from "react-bootstrap";
+import { Helmet } from 'react-helmet';
 
 // se debe pasar el dato que determina si el usuario tiene la sesion activa o no para determinar
 // si se muestra el boton de login-registro o el nombre del usuario
@@ -54,6 +55,9 @@ function UserProfile() {
   };
   return (
     <div className="profile-container">
+      <Helmet>
+        <title>{currentUser.Name} - Perfil</title>
+      </Helmet>
       <h1>Perfil</h1>
       <div className="my-info">
         <h3>Información personal</h3>

@@ -102,7 +102,7 @@ function App() {
         },
         //direccion al perfil de un usuario especifico
         {
-          path: "/user_profile",
+          path: "/perfil",
           element: <UserProfile />,
         },
         {
