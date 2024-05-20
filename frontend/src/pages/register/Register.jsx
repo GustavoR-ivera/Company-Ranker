@@ -66,7 +66,7 @@ const Register = () => {
         </div>
 
         <form>
-          <p>Registrate para empezar a compartir tus experiencias</p>
+          <p className="register-text">Registrate para empezar a compartir tus experiencias</p>
           <input
             type="text"
             placeholder="Nombres"
@@ -125,7 +125,7 @@ const Register = () => {
             focused={focused.toString()}
           />
           <span>Las contraseñas no coinciden</span>
-          <p2>
+          <p2 className = "terms-text">
             Al dar click en registrarte estás aceptando nuestros <a href="/tyc">términos y
             condiciones</a> políticas de privacidad y manejo de cookies{" "}
           </p2>
