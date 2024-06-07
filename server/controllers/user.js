@@ -13,7 +13,7 @@ export const getUser = (req,res)=>{
         }
     });
 }
-const express = require('express');
+/*const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
@@ -70,3 +70,4 @@ function authenticate(req, res, next) {
 }
 
 module.exports = router;
+*/
