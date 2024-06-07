@@ -51,7 +51,7 @@ const Register = () => {
     }
 
     try {
-      await axiosInstance.post("http://localhost:8800/server/auth/register", inputs);
+      await axiosInstance.post("/server/auth/register", inputs);
       //si el registro es exitoso se redirige a la pagina de inicio
       //apartir de este punto, con que datos de usuario funciona la pagina?
       //al redireccionar a login, actualizamos el estado de currentUser el cual podra ser usado
