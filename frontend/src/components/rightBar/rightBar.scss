@@ -1,4 +1,7 @@
 .rightBar {
+  @media (max-width: 768px) {
+    display: none;
+  }
   z-index: 1;
   flex: 2;
   position: sticky;

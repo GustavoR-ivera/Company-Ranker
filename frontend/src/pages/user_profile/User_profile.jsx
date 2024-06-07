@@ -6,15 +6,13 @@ import { useContext, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { Helmet } from 'react-helmet';
 
-// se debe pasar el dato que determina si el usuario tiene la sesion activa o no para determinar
-// si se muestra el boton de login-registro o el nombre del usuario
 function UserProfile() {
   const { currentUser, setCurrentUser } = useContext(AuthContext);
   const [viewDropdown, setViewDropdown] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // Nuevo estado para el mensaje de error
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -25,7 +23,7 @@ function UserProfile() {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
-      setErrorMessage("Las contraseñas no coinciden"); // Establecer el mensaje de error
+      setErrorMessage("Las contraseñas no coinciden");
       return;
     }
     try {
@@ -62,8 +60,7 @@ function UserProfile() {
       <div className="my-info">
         <h3>Información personal</h3>
         <p>Aquí es donde se muestra tu información personal</p>
-        <form>
-
+        <form onSubmit={handleChangePassword}>
           <label>
             Nombre
             <input type="text" value={currentUser.Name} readOnly />
@@ -74,9 +71,11 @@ function UserProfile() {
           </label>
           <label>
             Tipo de usuario: <input type="text" value={currentUser.Role === 'basic'
-              ? '(Usuario estandar)'
+              ? 'Usuario estandar'
               : currentUser.Role === 'admin'
                 ? 'Usuario administrador'
+              : currentUser.Role === "premium"
+                ? 'Usuario premium'
                 : '(Otro tipo de usuario)'} readOnly />
           </label>
           <label>
@@ -105,7 +104,8 @@ function UserProfile() {
             Confirmar nueva contraseña:
             <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
           </label>
-          <button type="submit" className="change-password-btn">Cambiar contraseña</button>        </form>
+          <button type="submit" className="change-password-btn">Cambiar contraseña</button>
+        </form>
       </div>
     </div>
   );
