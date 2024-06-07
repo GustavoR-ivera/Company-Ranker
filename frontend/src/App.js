@@ -14,7 +14,7 @@ import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About.jsx";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
-import My_reviews from "./pages/my_reviews/My_reviews";
+//import My_reviews from "./pages/my_reviews/My_reviews";
 import ManageProductReviews from "./pages/manage_product_reviews/ManageProductReviews";
 import ManageJobReviews from "./pages/manage_job_reviews/ManageJobReviews";
 import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
@@ -29,7 +29,8 @@ import Error_Form from "./pages/error_form/Error_form.jsx";
 import Dashboard from "./pages/dashboard_premium/Dashboard.jsx";
 import Value_proposal from "./pages/value_proposal/value_proposal.jsx";
 
-
+import Tyc from "./pages/tyc/Tyc.jsx";
+import UserProfile from "./pages/user_profile/User_profile.jsx";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -91,6 +92,8 @@ function App() {
     {
       path: "/Value",
       element: <Value_proposal />,
+      path: "/tyc",
+      element: < Tyc/>,
     },
 
     //rutas protegidas que usan la plantilla de barras de navegacion
@@ -109,8 +112,8 @@ function App() {
         },
         //direccion al perfil de un usuario especifico
         {
-          path: "/profile",
-          element: <h3>profile for user x</h3>,
+          path: "/perfil",
+          element: <UserProfile />,
         },
         {
           path: "/resenas/mis_resenas",

@@ -1,4 +1,7 @@
 .leftBar {
+  @media (max-width: 768px) {
+    display: none;
+  }
   flex: 2;
   position: sticky;
   top: 70px;

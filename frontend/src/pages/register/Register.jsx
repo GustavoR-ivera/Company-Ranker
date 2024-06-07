@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Helmet } from 'react-helmet';
 
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import GoBack from "../../components/goBack/GoBack";
+import GoBack from "../../components/goBack/GoBack.jsx";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -50,7 +51,7 @@ const Register = () => {
     }
 
     try {
-      await axiosInstance.post("/server/auth/register", inputs);
+      await axiosInstance.post("http://localhost:8800/server/auth/register", inputs);
       //si el registro es exitoso se redirige a la pagina de inicio
       //apartir de este punto, con que datos de usuario funciona la pagina?
       //al redireccionar a login, actualizamos el estado de currentUser el cual podra ser usado
@@ -64,6 +65,9 @@ const Register = () => {
 
   return (
     <div className="register">
+      <Helmet>
+        <title>Company Ranker - Registro</title>
+      </Helmet>
       <div className="card">
         <div className="header">
           <GoBack />
@@ -71,11 +75,12 @@ const Register = () => {
             ¿Ya tienes una cuenta?
             <Link to="/login">Ingresar</Link>
           </p>
+
           <h1>Company Ranker</h1>
         </div>
 
         <form>
-          <p>Registrate para empezar a compartir tus experiencias</p>
+          <p className="register-text">Registrate para empezar a compartir tus experiencias</p>
           <input
             type="text"
             placeholder="Nombres"
@@ -134,13 +139,14 @@ const Register = () => {
             focused={focused.toString()}
           />
           <span>Las contraseñas no coinciden</span>
-
+          <p2 className = "terms-text">
+            Al dar click en registrarte estás aceptando nuestros <a href="/tyc">términos y
+            condiciones</a> políticas de privacidad y manejo de cookies{" "}
+          </p2>
           <p className="error_general">{err}</p>
           <button onClick={handleClick}>Regístrate</button>
-
           <p>
-            Al dar click en registrarte estás aceptando nuestros términos y
-            condiciones, políticas de privacidad y manejo de cookies{" "}
+            <a href="login">¿Ya tienes una cuenta?</a>
           </p>
           <hr />
         </form>

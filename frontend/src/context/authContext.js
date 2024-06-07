@@ -14,8 +14,8 @@ export const AuthContextProvider = ({ children }) => {
   });
   //metodo login invocado en el inicio de sesion al accionar el boton del form
   const login = async (inputs) => {
-    const res = await axiosInstance.post(
-      "/server/auth/login",
+    const res = await axios.post(
+      "http://localhost:8800/server/auth/login",
       inputs,
       {
         withCredentials: true,
