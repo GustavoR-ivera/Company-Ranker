@@ -1,9 +1,9 @@
 import { useState } from "react";
-
+import { Helmet } from 'react-helmet';
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import GoBack from "../../components/goBack/GoBack";
+import GoBack from "../../components/goBack/GoBack.jsx";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -64,18 +64,17 @@ const Register = () => {
 
   return (
     <div className="register">
+      <Helmet>
+        <title>Company Ranker - Registro</title>
+      </Helmet>
       <div className="card">
         <div className="header">
           <GoBack />
-          <p>
-            ¿Ya tienes una cuenta?
-            <Link to="/login">Ingresar</Link>
-          </p>
           <h1>Company Ranker</h1>
         </div>
 
         <form>
-          <p>Registrate para empezar a compartir tus experiencias</p>
+          <p className="register-text">Registrate para empezar a compartir tus experiencias</p>
           <input
             type="text"
             placeholder="Nombres"
@@ -134,13 +133,14 @@ const Register = () => {
             focused={focused.toString()}
           />
           <span>Las contraseñas no coinciden</span>
-
+          <p2 className = "terms-text">
+            Al dar click en registrarte estás aceptando nuestros <Link to= "/tyc">términos y
+            condiciones</Link> políticas de privacidad y manejo de cookies{" "}
+          </p2>
           <p className="error_general">{err}</p>
           <button onClick={handleClick}>Regístrate</button>
-
           <p>
-            Al dar click en registrarte estás aceptando nuestros términos y
-            condiciones, políticas de privacidad y manejo de cookies{" "}
+            <Link to="login">¿Ya tienes una cuenta?</Link>
           </p>
           <hr />
         </form>

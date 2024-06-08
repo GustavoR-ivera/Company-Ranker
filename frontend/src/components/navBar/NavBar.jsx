@@ -211,10 +211,10 @@ function NavBar() {
         )}
 
         {/*search*/}
-        <div className="search">
+        {/* <div className="search">
           <SearchIcon />
           <input type="text" placeholder="Buscar" />
-        </div>
+        </div> */}
       </div>
 
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una
@@ -225,7 +225,7 @@ function NavBar() {
             <div className="user">
               <span>{currentUser == null ? "user" : currentUser.Name}</span>
             </div>
-            <Link to="/profile" style={{ textDecoration: "none" }}>
+            <Link to="/perfil" style={{ textDecoration: "none" }}>
               Perfil
             </Link>
             <Link onClick={logout} style={{ textDecoration: "none" }}>

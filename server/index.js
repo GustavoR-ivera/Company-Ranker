@@ -16,6 +16,8 @@ import paymentsRoutes from "./routes/payments.js"
 import postpaymentRoutes from "./routes/postpayment.js"
 import errorRoutes from "./routes/errors.js"
 import likeRoutes from "./routes/likes.js"
+import userProfile from './routes/userProfile.js';
+
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -90,6 +92,7 @@ app.use("/server/errors", errorRoutes);
 
 
 repeatingFunction();
+app.use("/server/user_profile" , userProfile)
 
 
 app.listen(PORT, () => {
