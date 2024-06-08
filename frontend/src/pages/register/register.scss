@@ -1,17 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
+body {
+  margin: 0;
+}
 .register {
   //height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #021f75;
+  background-color: rgb(240, 243, 255);
   justify-content: center;
+  
 
   .card {
     width: 35%;
     display: flex;
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #e3e2ff;
     border-radius: 10px;
     //min-height: 600px;
     //height: 100vh;
@@ -20,16 +23,25 @@
     flex-direction: column;
     gap: 15px;
     padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    
+    .terms-text {
+      font-family: 'Arial', sans-serif; // Cambia 'Arial' al nombre de la fuente que quieras usar
+      font-size: 14px; // Cambia '14px' al tamaño de fuente que quieras usar
+    }
+
 
     .header {
-      //margin-bottom: -30px;
+      flex: 1;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      //margin-left: 10px;
+      gap: 20px;
+      justify-content: center;
       h1 {
+        text-align: center;
         font-size: 30px;
-        font-family: "Lato", sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 700;
         font-style: normal;
       }
@@ -44,13 +56,14 @@
       flex-direction: column;
       gap: 20px;
       p {
-        font-family: "Lato", sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 400;
-        font-style: normal;
-        font-size: 17px;
+        font-style: bold;
+        font-size: 18px;
         margin: auto;
         text-align: center;
       }
+
       input {
         font-size: 16px;
         border: 1px solid #ccc;
@@ -68,6 +81,14 @@
         color: red;
         display: none;
       }
+      .p2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 12px;
+        margin: auto;
+        text-align: center;
+      }
       .error_general {
         font-size: 16px;
         color: red;
@@ -81,15 +102,23 @@
         font-weight: bold;
         cursor: pointer;
       }
+      .terms-text {
+        font-family: 'Arial', sans-serif;
+        font-size: 14px; 
+        text-align: center;
+      }
       a {
         text-align: center;
         color: #009bec;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        text-decoration: none;
       }
     }
     a {
       text-align: center;
       color: #009bec;
       font-size: 18px;
-    }
+    }    
   }
 }

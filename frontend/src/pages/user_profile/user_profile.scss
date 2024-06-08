@@ -1,0 +1,59 @@
+.profile-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.my-info {
+  margin-top: 30px;
+}
+h1{
+  text-align: center;
+  font-family: 'Gadugi'; // Cambia 'Arial' por la fuente que prefieras
+
+}
+
+label {
+  font-family: inherit;
+  font-size: small;
+  font-style: bold;
+  display: block;
+  margin-bottom: 12px;
+}
+
+input, select {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+input[type="text"] {
+  font-family: var(--gd-product-font);
+  height: 30%;
+  font-weight: bold;
+  color: rgb(113, 113, 113);
+}
+
+select {
+  height: 40px;
+  padding: 10px;
+}
+.change-password-btn {
+  background-color: #456ae5; // Cambia el color de fondo del botón
+  color: white; // Cambia el color del texto del botón
+  border: none; // Elimina el borde del botón
+  padding: 15px 32px; // Añade un poco de padding alrededor del texto
+  text-align: center; // Centra el texto dentro del botón
+  text-decoration: none; // Elimina la subrayado del texto
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; // Cambia el cursor a un puntero cuando se pasa por encima del botón
+  border-radius: 4px; // Añade bordes redondeados al botón
+}
