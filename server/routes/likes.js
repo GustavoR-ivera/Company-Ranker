@@ -1,8 +1,8 @@
 import express  from "express";
-import { } from "../controllers/like.js";
+import {getLikesfromUser } from "../controllers/like.js";
 
 const router = express.Router()
 
-router.get("")
+router.get("/:id", getLikesfromUser)
 
 export default router
