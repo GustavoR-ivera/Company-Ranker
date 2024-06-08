@@ -41,10 +41,10 @@ function noSub_View(susId){
         <h3 class="pricing-table__price">GRATIS</h3>
         <a class="pricing-table__actual">Plan Actual</a>
         <ul class="pricing-table__list">
-          <li>Visualisaciones Limitadas</li>
-          <li>3 Reseñas por Perfil</li>
-          <li>ᵃ</li>
-          <li>ᵃ</li>
+          <li>Visualizaciones limitadas</li>
+          <li>x</li>
+          <li>x</li>
+          <li>x</li>
         </ul>
       </div>
       <div class="pricing-table featured-table">
@@ -57,10 +57,10 @@ function noSub_View(susId){
           Unete!
         </a>
         <ul class="pricing-table__list">
-          <li>Visuaizaciones Ilimitadas</li>
-          <li>ᵃ</li>
-          <li>ᵃ</li>
-          <li>ᵃ</li>
+          <li>Visualizaciones Ilimitadas</li>
+          <li>Gráficos de tendencias</li>
+          <li>Interacción con reseñas</li>
+          <li>Últimas noticias</li>
         </ul>
       </div>
 
@@ -83,10 +83,10 @@ function noSub_View(susId){
           Ya lo tienes
         </a>
         <ul class="pricing-table__list">
-          <li>Visuaizaciones Ilimitadas</li>
-          <li>ᵃ</li>
-          <li>ᵃ</li>
-          <li>ᵃ</li>
+          <li>Visualizaciones Ilimitadas</li>
+          <li>Gráficos de tendencias</li>
+          <li>Interacción con reseñas</li>
+          <li>Últimas noticias</li>
         </ul>
       </div>
 

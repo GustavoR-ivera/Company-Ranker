@@ -7,6 +7,7 @@ import glassdoor from "../../images/glassdoor.png"
 import comunidad_cr from "../../images/por_que_es_importante_la_comunidad_cr.png"
 import bestPlacesToWork from "../../images/best_places_to_work_home_page.png"
 import NewReview from "../../components/newReview/NewReview";
+import { Helmet } from 'react-helmet';
 
 function Home() {
   //validar que currentUser exista antes de acceder a sus atributos
@@ -19,6 +20,9 @@ function Home() {
 
   return (
     <div className="home">
+      <Helmet>
+        <title>Inicio</title>
+      </Helmet>
       <div className="banner1">
         <h2>¡Hola {currentUser == null ? "user " : currentUser.Name + "! "} 
          realiza tu aporte a esta comunidad registrando una</h2>
