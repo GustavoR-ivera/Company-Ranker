@@ -13,60 +13,61 @@ export const getUser = (req,res)=>{
         }
     });
 }
-const express = require('express');
-const router = express.Router();
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
-const User = require('../models/user');
 
-// Generar token de autenticación
-function generateToken(user) {
-  return jwt.sign(user.toJSON(), 'ecret_key', { expiresIn: '1h' });
-}
+// const express = require('express');
+// const router = express.Router();
+// const jwt = require('jsonwebtoken');
+// const mongoose = require('mongoose');
+// const User = require('../models/user');
 
-// Autenticar usuario
-router.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  User.findOne({ email, password }, (err, user) => {
-    if (err) {
-      return res.status(500).json({ error: 'Internal Server Error' });
-    }
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
-    const token = generateToken(user);
-    res.json({ token });
-  });
-});
+// // Generar token de autenticación
+// function generateToken(user) {
+//   return jwt.sign(user.toJSON(), 'ecret_key', { expiresIn: '1h' });
+// }
 
-// Obtener perfil de usuario
-router.get('/user_profile', authenticate, (req, res) => {
-  const userId = req.user.id;
-  User.findById(userId, (err, user) => {
-    if (err) {
-      return res.status(500).json({ error: 'Internal Server Error' });
-    }
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
-    const token = generateToken(user);
-    res.json({ token, user });
-  });
-});
+// // Autenticar usuario
+// router.post('/login', (req, res) => {
+//   const { email, password } = req.body;
+//   User.findOne({ email, password }, (err, user) => {
+//     if (err) {
+//       return res.status(500).json({ error: 'Internal Server Error' });
+//     }
+//     if (!user) {
+//       return res.status(401).json({ error: 'Invalid credentials' });
+//     }
+//     const token = generateToken(user);
+//     res.json({ token });
+//   });
+// });
 
-// Autenticar usuario
-function authenticate(req, res, next) {
-  const token = req.headers.authorization;
-  if (!token) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-  try {
-    const user = jwt.verify(token, 'ecret_key');
-    req.user = user;
-    next();
-  } catch (error) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-}
+// // Obtener perfil de usuario
+// router.get('/user_profile', authenticate, (req, res) => {
+//   const userId = req.user.id;
+//   User.findById(userId, (err, user) => {
+//     if (err) {
+//       return res.status(500).json({ error: 'Internal Server Error' });
+//     }
+//     if (!user) {
+//       return res.status(401).json({ error: 'Invalid credentials' });
+//     }
+//     const token = generateToken(user);
+//     res.json({ token, user });
+//   });
+// });
 
-module.exports = router;
+// // Autenticar usuario
+// function authenticate(req, res, next) {
+//   const token = req.headers.authorization;
+//   if (!token) {
+//     return res.status(401).json({ error: 'Unauthorized' });
+//   }
+//   try {
+//     const user = jwt.verify(token, 'ecret_key');
+//     req.user = user;
+//     next();
+//   } catch (error) {
+//     return res.status(401).json({ error: 'Unauthorized' });
+//   }
+// }
+
+// module.exports = router;

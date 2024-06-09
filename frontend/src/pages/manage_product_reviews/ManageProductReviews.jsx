@@ -50,7 +50,7 @@ function ManageProductReviews() {
         `/server/manage-reviews/accept-customer-review/${idReview}/${moderatorComments[idReview]}`
       );
       console.log("reseña aceptada", res);
-      navigate("gestionar_resenas/resenas_productos");
+      navigate("/");
 
       //window.location.reload();
     } catch (err) {
@@ -64,7 +64,7 @@ function ManageProductReviews() {
         `/server/manage-reviews/reject-customer-review/${idReview}/${moderatorComments[idReview]}`
       );
       console.log("reseña rechazada", res);
-      navigate("gestionar_resenas/resenas_productos");
+      navigate("/");
 
       //window.location.reload();
     } catch (err) {
