@@ -125,6 +125,18 @@ const JobReview = ({ jobReview }) => {
         <button className="agree-button">De acuerdo</button>
         <button className="disagree-button">En desacuerdo</button>
       </div>
+      {jobReview.Available === -1 ? (
+        <div className="comentarios">
+          <p>
+            Tu reseña fue rechazada por el moderador:{" "}
+            {jobReview.Moderator_Comments === "undefined"
+              ? ""
+              : jobReview.Moderator_Comments}
+          </p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

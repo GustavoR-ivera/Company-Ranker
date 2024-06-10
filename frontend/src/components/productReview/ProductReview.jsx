@@ -121,6 +121,18 @@ const ProductReview = ({ productReview }) => {
         <button className="agree-button">De acuerdo</button>
         <button className="disagree-button">En desacuerdo</button>
       </div>
+      {productReview.Available === -1 ? (
+        <div className="comentarios">
+          <p>
+            Tu reseña fue rechazada por el moderador:{" "}
+            {productReview.Moderator_Comments === "undefined"
+              ? ""
+              : productReview.Moderator_Comments}
+          </p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
