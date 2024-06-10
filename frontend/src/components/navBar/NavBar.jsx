@@ -211,10 +211,10 @@ function NavBar() {
         )}
 
         {/*search*/}
-        <div className="search">
+        {/* <div className="search">
           <SearchIcon />
           <input type="text" placeholder="Buscar" />
-        </div>
+        </div> */}
       </div>
 
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una

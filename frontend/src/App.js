@@ -90,8 +90,10 @@ function App() {
       element: <Questions />,
     },
     {
-      path: "/Value",
+      path: "/value",
       element: <Value_proposal />,
+    },
+    {
       path: "/tyc",
       element: < Tyc/>,
     },

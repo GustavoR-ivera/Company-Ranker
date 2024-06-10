@@ -13,12 +13,11 @@ export const getUser = (req,res)=>{
         }
     });
 }
-
-// const express = require('express');
-// const router = express.Router();
-// const jwt = require('jsonwebtoken');
-// const mongoose = require('mongoose');
-// const User = require('../models/user');
+/*const express = require('express');
+const router = express.Router();
+const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+const User = require('../models/user');
 
 // // Generar token de autenticación
 // function generateToken(user) {
