@@ -48,6 +48,7 @@ const JobReview = ({ jobReview }) => {
     baseURL: process.env.REACT_APP_SERVER_URL,
   });
 
+
   //obtener informacion del usuario asociado a la reseña
   const getUser = async () => {
     try {
@@ -70,6 +71,52 @@ const JobReview = ({ jobReview }) => {
 
     fetchUser();
   }, []);
+
+
+  var [Liked, setLiked] = useState(false);
+  var [Disliked, setDisliked] = useState(false);
+
+  var [likes, setLikes]= useState(jobReview.Likes);
+  var [dislikes, setDislikes]= useState(jobReview.Dislikes);
+
+
+
+  function handleLikes(){
+    if (Liked == false){
+      setLiked(true);
+      setLikes( likes + 1);
+      if (Disliked){
+        setDislikes(dislikes - 1);
+        setDisliked(false);
+      }
+
+    }else{
+
+      
+      setLiked(false )
+      setLikes(likes - 1); 
+    }
+  }
+
+  function handleDislikes(){
+
+    if (Disliked == false){
+      
+      setDisliked(true);
+      console.log(Liked)
+      setDislikes(dislikes + 1);
+      if (Liked){
+        setLikes(likes - 1);
+        setLiked(false);
+      }
+
+    }else{
+      
+      setDisliked(false)
+      setDislikes(dislikes - 1);
+    }
+    console.log(dislikes)
+  }
 
   return (
     <div className="job-review-card">
@@ -122,8 +169,10 @@ const JobReview = ({ jobReview }) => {
       <hr />
 
       <div className="buttons">
-        <button className="agree-button">De acuerdo</button>
-        <button className="disagree-button">En desacuerdo</button>
+        <div className="numLikes">{ likes}</div>
+        <button className="agree-button" onClick={handleLikes}>De acuerdo</button>
+        <button className="disagree-button" onClick={handleDislikes}>En desacuerdo</button>
+        <div className="numDislikes">{dislikes}</div>
       </div>
     </div>
   );

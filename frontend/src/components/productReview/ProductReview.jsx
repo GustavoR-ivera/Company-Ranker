@@ -117,9 +117,13 @@ const ProductReview = ({ productReview }) => {
       </div>
       <hr />
 
+
+     
       <div className="buttons">
+        <div className="numLikes">{productReview.Likes}</div>
         <button className="agree-button">De acuerdo</button>
         <button className="disagree-button">En desacuerdo</button>
+        <div className="numDislikes">{productReview.DisliKes}</div>
       </div>
     </div>
   );
