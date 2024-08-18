@@ -1,7 +1,9 @@
 import "./jobReview.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import moment from "moment";
 import axios from "axios";
+import { AuthContext } from "../../context/authContext";
+
 
 const JobReview = ({ jobReview }) => {
   const generateStars = (rating) => {
@@ -80,6 +82,41 @@ const JobReview = ({ jobReview }) => {
   var [dislikes, setDislikes]= useState(jobReview.Dislikes);
 
 
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
+
+  const getLike = async () =>{
+    try{
+      const res = await axiosInstance.get(`/server/likes/${currentUser.idUser}`)
+      for (let i = 0; i < res.data.length; i++){
+        if(res.data[i].idReview == productReview.idReview){
+          
+          setLiked(true)
+          console.log(res.data)
+        }
+      }
+      
+    } catch (err){
+      console.log(err)
+    }
+  }
+
+  const getDislike = async () =>{
+    try{
+      const res = await axiosInstance.get(`/server/dislikes/${currentUser.idUser}`)
+      for (let i = 0; i < res.data.length; i++){
+        if(res.data[i].idReview == productReview.idReview){
+          setDisliked(true)
+        }
+      }
+      console.log("pene")
+      console.log(res.data)
+    } catch (err){
+      console.log(err)
+    }
+
+
+  }
+
 
   function handleLikes(){
     if (Liked == false){
@@ -118,9 +155,15 @@ const JobReview = ({ jobReview }) => {
     console.log(dislikes)
   }
 
+ 
+
   return (
     <div className="job-review-card">
       <div className="user-info">
+        <div className="getlikes">
+          {getLike}
+        </div>
+        <div className="getdislikes">{getDislike}</div>
         <div className="left">
           <span>
             user:{" "}

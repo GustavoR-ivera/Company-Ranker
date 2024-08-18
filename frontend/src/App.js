@@ -28,6 +28,7 @@ import { AuthContext } from "./context/authContext.js";
 import Error_Form from "./pages/error_form/Error_form.jsx";
 import Dashboard from "./pages/dashboard_premium/Dashboard.jsx";
 import Value_proposal from "./pages/value_proposal/value_proposal.jsx";
+import AccountConfirmation from "./pages/accountConfirmation/accountConfirmation.jsx";
 
 import Tyc from "./pages/tyc/Tyc.jsx";
 import UserProfile from "./pages/user_profile/User_profile.jsx";
@@ -97,6 +98,10 @@ function App() {
       path: "/tyc",
       element: < Tyc/>,
     },
+    {
+      path: "/accountConfirmation",
+      element: < AccountConfirmation />,
+    },
 
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
@@ -153,6 +158,7 @@ function App() {
           path: "/dashboard",
           element: < Dashboard />,
         },
+        
         
       ],
     },
