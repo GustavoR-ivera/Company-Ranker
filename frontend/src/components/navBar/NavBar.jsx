@@ -4,7 +4,7 @@ import "./navBar.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import logo from "../../images/logo.png";
 import { AuthContext } from "../../context/authContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { Dropdown } from "react-bootstrap";
 
 // se debe pasar el dato que determina si el usuario tiene la sesion activa o no para determinar
@@ -12,6 +12,36 @@ import { Dropdown } from "react-bootstrap";
 function NavBar() {
   const { currentUser, setCurrentUser } = useContext(AuthContext);
   const [viewDropdown, setViewDropdown] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // Nuevo estado para el menú desplegable
+  const menuRef = useRef(null);
+  const [rightMenuOpen, setRightMenuOpen] = useState(false); // Estado para el menú desplegable de la derecha
+  const rightMenuRef = useRef(null);
+
+
+  const toggleMenu = () => {
+    setMenuOpen(menuOpen => !menuOpen);
+  };
+  const toggleRightMenu = () => {
+    setRightMenuOpen(prevRightMenuOpen => !prevRightMenuOpen);
+  };
+  
+
+  // Cerrar el menú cuando se hace clic fuera de él
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+      if (rightMenuRef.current && !rightMenuRef.current.contains(event.target)) {
+        setRightMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
   //validacion ruta "home"
   let path_home = "";
   if (currentUser) {
@@ -49,7 +79,10 @@ function NavBar() {
 
   return (
     <div className="navbar">
-      <div className="left">
+      <button className="menu-button" onClick={toggleMenu}>
+        ☰
+      </button>
+      <div ref={menuRef} className={`left ${menuOpen ? 'open' : ''}`}>
         {/*logo*/}
         <div className="logo">
           <Link to={path_logo}>
@@ -219,9 +252,12 @@ function NavBar() {
 
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una
       sesion activa*/}
-      {currentUser ? (
-        <>
-          <div className="right">
+      <button className="right-menu-button" onClick={toggleRightMenu}>
+        ☰
+      </button>
+      <div ref={rightMenuRef} className={`right ${rightMenuOpen ? 'open' : ''}`}>
+        {currentUser ? (
+          <>
             <div className="user">
               <span>{currentUser == null ? "user" : currentUser.Name}</span>
             </div>
@@ -231,20 +267,18 @@ function NavBar() {
             <Link onClick={logout} style={{ textDecoration: "none" }}>
               Salir
             </Link>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="right">
+          </>
+        ) : (
+          <>
             <Link to="/login" style={{ textDecoration: "none" }}>
               <span>Inicia sesión</span>
             </Link>
             <Link to="/register" style={{ textDecoration: "none" }}>
               <span>Registrate</span>
             </Link>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
