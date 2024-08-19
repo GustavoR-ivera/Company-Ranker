@@ -108,7 +108,7 @@ const JobReview = ({ jobReview }) => {
           setDisliked(true)
         }
       }
-      console.log("pene")
+      
       console.log(res.data)
     } catch (err){
       console.log(err)
@@ -122,14 +122,15 @@ const JobReview = ({ jobReview }) => {
     if (Liked == false){
       setLiked(true);
       setLikes( likes + 1);
+      axiosInstance.post(`/server/likes/likeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
       if (Disliked){
+        axiosInstance.delete(`/server/likes/dislikeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
         setDislikes(dislikes - 1);
         setDisliked(false);
       }
 
     }else{
-
-      
+      axiosInstance.delete(`/server/likes/likeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
       setLiked(false )
       setLikes(likes - 1); 
     }
@@ -140,15 +141,17 @@ const JobReview = ({ jobReview }) => {
     if (Disliked == false){
       
       setDisliked(true);
+      axiosInstance.post(`/server/likes/dislikeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
       console.log(Liked)
       setDislikes(dislikes + 1);
       if (Liked){
+        axiosInstance.delete(`/server/likes/likeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
         setLikes(likes - 1);
         setLiked(false);
       }
 
     }else{
-      
+      axiosInstance.delete(`/server/likes/dislikeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
       setDisliked(false)
       setDislikes(dislikes - 1);
     }

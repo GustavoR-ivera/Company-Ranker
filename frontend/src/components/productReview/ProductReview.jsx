@@ -58,7 +58,19 @@ const ProductReview = ({ productReview }) => {
     }
   };
 
- 
+  
+  const getUserLike = async () => {
+    try {
+      const res = await axiosInstance.get(
+        `/server/likes/${productReview.User_idUser}`
+      );
+      //console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
   const [user_review, setUser_review] = useState(null);
 
   useEffect(() => {
