@@ -6,7 +6,7 @@ export const getUserReviews = (req, res) => {
   //traer las reseñas de productos asociadas a un usuario especifico
     const userId = req.params.id;
     //traer las reseñas laborales asociadas a un usuario especifico
-    const q = 'SELECT * FROM Customer_Review WHERE User_idUser = ? order by Created_At desc limit 10';
+    const q = 'SELECT * FROM Customer_Review WHERE User_idUser = ? order by Created_At desc';
     
         db.query(q, [userId], (err,data) =>{
           if (err) return res.status(500).json(err);
@@ -26,7 +26,7 @@ export const getPosts = (req, res) => {
 
 //     console.log(userId);
     
-    const q = 'SELECT * FROM Customer_Review WHERE Available=1 order by Created_At desc limit 10';
+    const q = 'SELECT * FROM Customer_Review WHERE Available=1 order by Created_At desc';
     //values = [userId, userInfo.idCompany];
 
     db.query(q, (err,data) =>{

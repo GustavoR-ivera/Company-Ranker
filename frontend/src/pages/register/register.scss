@@ -32,18 +32,32 @@ body {
 
 
     .header {
+      //border: 1px solid black;
       flex: 1;
       padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      //gap: 20px;
       justify-content: center;
-      h1 {
-        text-align: center;
+      text-align: center;
+      h2 {
+       
         font-size: 30px;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 700;
         font-style: normal;
+        margin: auto;
+      }
+      .img{
+        //border-radius: 80%;
+        margin: auto;
+        //border: 1px solid black;
+        img{
+          
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        }
       }
     }
 

@@ -56,6 +56,24 @@ function JobReviewsPage() {
     setListJobReviews_filtrada(filteredReviews);
   };
 
+  // const handleFilter = (event) => {
+  //   const selectedOption = Number(event.target.value);
+  //   console.log(selectedOption);
+  //   const filteredReviews_1 = listJobReviews_original.filter(
+  //     (review) => review.Work_Env_Score === selectedOption
+  //   );
+  //   const filteredReviews_2 = listJobReviews_original.filter(
+  //     (review) => review.Growth_Opp_Score === selectedOption
+  //   );
+  //   const filteredReviews_3 = listJobReviews_original.filter(
+  //     (review) => review.Salary_Score === selectedOption
+  //   );
+
+  //   setListJobReviews_filtrada(
+  //     filteredReviews_1 + filteredReviews_2 + filteredReviews_3
+  //   );
+  // };
+
   useEffect(() => {
     const fetchReviews = async () => {
       const reviews = await getJobReviews();
@@ -79,7 +97,21 @@ function JobReviewsPage() {
             placeholder="filtra por cargo laboral"
             onChange={handleChange}
           />
-          <button onClick={handleClickSearch}>buscar</button>
+          <button onClick={handleClickSearch}>Buscar</button>
+        </div>
+        <div className="filter">
+          <div className="filter-info">
+            <span>Filtra por valoraciòn</span>
+          </div>
+          <div className="options">
+            <select name="filter" id="filter">
+              <option value="5">Excelente</option>
+              <option value="4">Buena</option>
+              <option value="3">Regular</option>
+              <option value="2">Mala</option>
+              <option value="1">Pèsima</option>
+            </select>
+          </div>
         </div>
         {console.log(searchInput.search_input)}
       </div>

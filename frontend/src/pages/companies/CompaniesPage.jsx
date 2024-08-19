@@ -53,8 +53,10 @@ function CompaniesPage() {
 
   useEffect(() => {
     const fetchReviews = async () => {
-      const reviews = await getCompanyReviews();
-      setListCompanyReviews(reviews.reverse());
+      const companies = await getCompanyReviews();
+      if (companies) {
+        setListCompanyReviews(companies.reverse());
+      }
     };
 
     fetchReviews();

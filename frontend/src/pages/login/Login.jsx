@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext.js";
@@ -47,7 +47,7 @@ const Login = () => {
           <Link to="/">
             <img src={logo} alt="CompanyRanker" draggable="false" />
           </Link>
-          <h1>Company Ranker</h1>
+          <h2>Company Ranker</h2>
           <form>
             <input
               type="email"

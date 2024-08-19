@@ -1,7 +1,7 @@
 import { db } from "../connect.js";
 
 
-//listar todas reseñas de productos 
+//listar todas reseñas laborales 
 export const getPosts = (req, res) => {
     //const userId = req.query.userId;
     //const token = req.cookies.accessToken;
@@ -12,7 +12,7 @@ export const getPosts = (req, res) => {
   
   //     console.log(userId);
       
-      const q = 'SELECT * FROM Job_review WHERE Available=1 order by Created_At desc limit 10';
+      const q = 'SELECT * FROM Job_review WHERE Available=1 order by Created_At desc';
       //values = [userId, userInfo.idCompany];
   
       db.query(q, (err,data) =>{
