@@ -4,7 +4,7 @@ import { db } from "../connect.js";
 export const getCompanys = (req, res) => {
 
       
-      const q = 'SELECT * FROM Company WHERE Available=1 LIMIT 10 OFFSET 1';
+      const q = 'SELECT * FROM Company WHERE Available=1 LIMIT 20 OFFSET 1';
 
   
       db.query(q, (err,data) =>{
