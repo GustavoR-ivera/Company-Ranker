@@ -14,11 +14,11 @@
     //height: 50%;
 
     //width: 100%; 
-    .user-info {
+    .card-header{
         display: flex;
         justify-content: space-between;
         padding: 10px;
-        background-color: rgb(149, 149, 156);
+        background-color: rgb(115, 115, 243);
         color: #fff;
         text-align: center;
         font-size: 20px;
@@ -34,24 +34,50 @@
     }
     .content {
         //margin-bottom: 20px;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
+        justify-content: left;
+        // text-align: center;
+        //align-items: center;
         display: flex;
         flex-direction: column;
+        border: 1px solid #ccc;
+        .company-info{
+            //align-items: center;
+            display: flex;
+            justify-content: left;
+            border: 1px solid #ccc;
+            .company-photo{
+                pointer-events: none;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                border: 1px solid #ccc;                
+            }
+            .company-name{
+                font-size: 20px;
+                font-weight: bold;
+                padding: 10px;
+                margin-top: 10px;
+                // justify-content: center;
+                // align-items: center;
+            }
+        }
+        .description {
+            //font-weight: bold;
+            font-size: 17px;
+            border: 1px solid #ccc;
+            justify-content: left
+        }
     }
-    .description {
-        //font-weight: bold;
-        font-size: 17px;
-    }
+   
 
-      .agree-button{
+      .company-reviews{
         padding: 5px;
         font-family: "Lato", sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 15px;
+        font-size: 17px;
         border-radius: 5px;
+        text-align: right;
       }
 
 }

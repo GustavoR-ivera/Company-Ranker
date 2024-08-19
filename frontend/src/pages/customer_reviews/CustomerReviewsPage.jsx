@@ -18,9 +18,9 @@ function CustomerReviewsPage() {
   };
   //definicion de variable que guarda la lista de reseñas de producto obtenidas
   const [listProductReviews_original, setListProductReviews_original] =
-    useState(null);
+    useState([]);
   const [listProductReviews_filtrada, setListProductReviews_filtrada] =
-    useState(null);
+    useState([]);
 
   const [searchInput, setSearchInput] = useState({
     search_input: "",
@@ -70,7 +70,9 @@ function CustomerReviewsPage() {
     <div className="customer-reviews-page">
       <div className="header">
         <h2>Aqui puedes ver todas las reseñas de productos</h2>
-        <div className="search_input">
+      </div>
+      <div className="search_input">
+        <div className="input">
           <input
             type="text"
             name="search_input"
@@ -78,10 +80,12 @@ function CustomerReviewsPage() {
             placeholder="filtra por nombre de producto"
             onChange={handleChange}
           />
+        </div>
+        <div className="button">
           <button onClick={handleClickSearch}>buscar</button>
         </div>
-        {console.log(searchInput.search_input)}
       </div>
+      {console.log(searchInput.search_input)}
 
       {searchInput.search_input.trim() === "" ? (
         listProductReviews_original == null ? (

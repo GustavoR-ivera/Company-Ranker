@@ -18,8 +18,8 @@ function JobReviewsPage() {
   };
 
   //definicion de variable que guarda la lista de reseñas laborales obtenidas
-  const [listJobReviews_original, setListJobReviews_original] = useState(null);
-  const [listJobReviews_filtrada, setListJobReviews_filtrada] = useState(null);
+  const [listJobReviews_original, setListJobReviews_original] = useState([]);
+  const [listJobReviews_filtrada, setListJobReviews_filtrada] = useState([]);
 
   const [searchInput, setSearchInput] = useState({
     search_input: "",

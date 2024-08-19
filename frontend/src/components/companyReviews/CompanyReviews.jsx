@@ -8,7 +8,7 @@ const CompanyReviews = (props) => {
       {props.CompanyReviews.map((companyReview) => (
         <CompanyReview
           companyReview={companyReview}
-          key={companyReview.idcompany_Review}
+          key={companyReview.idCompany}
         />
       ))}
     </div>

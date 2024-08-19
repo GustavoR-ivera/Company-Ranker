@@ -1,4 +1,4 @@
-.customer-reviews-page{
+.company-reviews{
     .header{
     font-family: "Lato", sans-serif;
     font-weight: 100;
@@ -12,17 +12,19 @@
         margin: auto;
         //border: 1px solid #ccc;
         display: flex;
-        gap: 10px;
+        //gap: 10px;
         margin-bottom: 15px;
         justify-content: center;
         align-items: center;
         gap: 15px;
+        font-size: 20px;
             .input{
                // padding: 10px;
                 border-radius: 5px;
                 width: 80%;
                 margin-top: 10px;
                 border-radius: 10px;
+                font-size: 20px;
             }
             .button{
                 padding: 5px;
@@ -31,11 +33,12 @@
                 border: none;
                 cursor: pointer;
                 margin-bottom: 10px;
+                font-size: 16px;
         
             }
         }
 
-    .no-reviews{
+    .no-companies{
         font-family: "Lato", sans-serif;
         font-weight: 100;
         font-style: normal;
