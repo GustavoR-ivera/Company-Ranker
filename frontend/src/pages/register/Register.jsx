@@ -140,7 +140,7 @@ const Register = () => {
           <p className="error_general">{err}</p>
           <button onClick={handleClick}>Regístrate</button>
           <p>
-            <Link to="login">¿Ya tienes una cuenta?</Link>
+            <Link to="/login">¿Ya tienes una cuenta?</Link>
           </p>
           <hr />
         </form>

@@ -31,6 +31,7 @@ import Value_proposal from "./pages/value_proposal/value_proposal.jsx";
 
 import Tyc from "./pages/tyc/Tyc.jsx";
 import UserProfile from "./pages/user_profile/User_profile.jsx";
+import Footer from "./components/footer/Footer.jsx";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -49,6 +50,7 @@ function App() {
           </div>
           <RightBar />
         </div>
+        <Footer/>
       </div>
     );
   }

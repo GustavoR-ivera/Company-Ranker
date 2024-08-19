@@ -6,6 +6,7 @@ import logo from "../../images/logo.png";
 import { AuthContext } from "../../context/authContext";
 import { useContext, useState, useEffect, useRef } from "react";
 import { Dropdown } from "react-bootstrap";
+import User from "../../images/User.png"
 
 // se debe pasar el dato que determina si el usuario tiene la sesion activa o no para determinar
 // si se muestra el boton de login-registro o el nombre del usuario
@@ -22,9 +23,9 @@ function NavBar() {
     setMenuOpen(menuOpen => !menuOpen);
   };
   const toggleRightMenu = () => {
-    setRightMenuOpen(prevRightMenuOpen => !prevRightMenuOpen);
+    setRightMenuOpen(!rightMenuOpen);
   };
-  
+
 
   // Cerrar el menú cuando se hace clic fuera de él
   useEffect(() => {
@@ -42,6 +43,7 @@ function NavBar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuRef]);
+
   //validacion ruta "home"
   let path_home = "";
   if (currentUser) {
@@ -252,8 +254,8 @@ function NavBar() {
 
       {/*uso de condicional para mostrar diferentes opciones dependiendo de si hay una
       sesion activa*/}
-      <button className="right-menu-button" onClick={toggleRightMenu}>
-        ☰
+      <button className="menu-button" onClick={toggleRightMenu}>
+        <img src = {User} alt = "User Icon" className="user-icon"/>
       </button>
       <div ref={rightMenuRef} className={`right ${rightMenuOpen ? 'open' : ''}`}>
         {currentUser ? (
