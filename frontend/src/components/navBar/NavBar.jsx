@@ -106,7 +106,7 @@ function NavBar() {
           (currentUser.Role === "admin" ||
             currentUser.Role === "moderator") && (
             <>
-              <div className="left">
+              <div ref={menuRef} className={`left ${menuOpen ? 'open' : ''}`}>
                 <div
                   className="seccion_reseñas"
                   onMouseEnter={() => setViewDropdown(true)}
