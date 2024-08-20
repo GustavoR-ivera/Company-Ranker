@@ -9,47 +9,46 @@
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
-    //justify-content: space-between;
     justify-content: center;
     gap: 50px;
     align-items: center;
     text-align: center;
 
-    button{
-        margin-top: 5px;
-        padding: 7px;
-        font-family: "Lato", sans-serif;
-        font-size: 20px;
-        font-weight: 700;
-        font-style: normal;
-        border-radius: 5px;
-        background-color: rgb(8, 8, 250) ;
-        color:white
+    button {
+      margin-top: 5px;
+      margin-left: 10px;
+      padding: 7px;
+      font-family: "Lato", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      font-style: normal;
+      border-radius: 5px;
+      background-color: rgb(8, 8, 250);
+      color: white;
     }
   }
 
-  .container{
+  .container {
     font-family: "Lato", sans-serif;
     font-size: 20px;
     font-weight: 400;
     display: flex;
     flex-direction: column;
-    //border: 1px solid;
     padding: 20px;
-    //margin-top: 5px;
-    h3{
+    align-items: center;
+
+    h3 {
       text-align: center;
     }
-    .row{
+
+    .row {
       display: flex;
       gap: 20px;
-      //border: 1px solid;
       padding: 10px;
-      //margin: auto;
       margin-top: 10px;
       justify-content: center;
 
-      .item{
+      .item {
         padding: 15px;
         display: flex;
         flex-direction: column;
@@ -58,20 +57,48 @@
         text-align: center;
         align-items: center;
         width: 300px;
-        //background-color: rgb(141, 156, 161);
-        img{
+
+        img {
           width: 50%;
           height: 40%;
           pointer-events: none;
         }
-        p{
-          color: rgb(124, 122, 122)
-        }
-        a{
-          text-decoration: none;
-          color: blue
+
+        p {
+          color: rgb(124, 122, 122);
         }
 
+        a {
+          text-decoration: none;
+          color: blue;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      .row {
+        flex-direction: column; /* Cambia la dirección del flex a columna */
+        align-items: center; /* Alinea los elementos al centro verticalmente */
+
+        .item {
+          width: 100%; /* Asegura que cada ítem ocupe el 100% del ancho del contenedor */
+          margin-bottom: 20px; /* Añade un margen inferior para separar los ítems */
+        }
+      }
+    }
+
+    .banner1 {
+      flex-direction: column; /* Asegura que el contenido del banner se apile verticalmente */
+      gap: 20px; /* Ajusta el espacio entre los elementos del banner */
+
+      h2 {
+        font-size: 24px; /* Ajusta el tamaño de la fuente */
+      }
+
+      button {
+        font-size: 20px; /* Ajusta el tamaño de la fuente */
       }
     }
   }
