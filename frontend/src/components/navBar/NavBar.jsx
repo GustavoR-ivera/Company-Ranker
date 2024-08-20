@@ -146,9 +146,7 @@ function NavBar() {
                   </Dropdown>
                 </div>
 
-                <Link to="#" style={{ textDecoration: "none" }}>
-                  Gestionar empresas
-                </Link>
+               
               </div>
             </>
           )

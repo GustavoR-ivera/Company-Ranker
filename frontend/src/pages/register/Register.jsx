@@ -134,8 +134,8 @@ const Register = () => {
             focused={focused.toString()}
           />
           <span>
-            Tu contraseña debe tener mínimo 8 caracteres (incluir letras
-            minúsculas y mayúsculas, números y símbolos especiales)
+            Tu contraseña debe tener mínimo 9 caracteres (incluir letras
+            minúsculas y mayúsculas, números y símbolos especiales (!@#$%^&*))
           </span>
           <input
             type="password"

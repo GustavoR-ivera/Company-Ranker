@@ -18,10 +18,11 @@ function RightBar() {
               <div className="item">
                 <div className="header">
                   <AccessTimeRoundedIcon />
-                  <span>Últimas busquedas</span>
+                  <span><a href="https://manualtecnicocompanyrank.blogspot.com/" target="_blank">Manual Tecnico</a></span>
+                  <span><a href="https://drive.google.com/file/d/1whnHhO5hDOvw34wpN0WTC5vS9owQJGPC/view?usp=drive_link" target="_blank">Manual de Ususario</a></span>
                 </div>
                 <ul>
-                  Alkosto Exito
+                
                   {/**
                  * implementar esto con una consulta a la bd usando
                  * currentUser
