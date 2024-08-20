@@ -46,7 +46,7 @@ export const addPost = (req, res) => {
 
 
   const q =
-    "INSERT INTO Job_review (`Created_At`, `Company_Name`, `Occupation` , `Review_J`, `Work_Env_Score`, `Growth_Opp_Score`,`Salary_Score`, `Available`, `User_idUser`, `Company_idCompany`) VALUES (?)";
+    "INSERT INTO Job_review (`Created_At`, `Company_Name`, `Occupation` , `Review_J`, `Work_Env_Score`, `Growth_Opp_Score`,`Salary_Score`, `Available`, `User_idUser`, `Company_idCompany`,`Likes`, `Dislikes`) VALUES (?)";
   const values = [
     created_at,
     req.body.company_name,
@@ -58,6 +58,8 @@ export const addPost = (req, res) => {
     0,
     req.body.idUser,
     1,
+    0,
+    0,
   ];
 
   db.query(q, [values], (err, data) => {

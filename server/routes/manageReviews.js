@@ -32,4 +32,4 @@ router.get("/reject-job-review/:idReview/:comments", rejectJobReview);
 router.get("/link-company-jreview/:idReview/:idCompany", linkCompanyJobReview);
 
 
-export default router;
+export default router; 

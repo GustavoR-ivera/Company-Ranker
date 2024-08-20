@@ -80,14 +80,16 @@ function About() {
             <img src={fotoJavier} className="foto_member" />
             <span>Javier Vargas</span>
             <p>Desarrollador de software</p>
+
             <div className="logos">
-              <a href="https://www.linkedin.com/" target="_blank">
+              <a href="https://www.linkedin.com/in/javier-santiago-vargas-parra-79672223a/" target="_blank">
                 <img src={linkedin_logo} className="logo_linkedin" />
               </a>
               <a href="https://www.github.com/JavierVargas0112" target="_blank">
                 <img src={github_logo} className="logo_github" />
               </a>
             </div>
+
           </div>
         </div>
       </div>

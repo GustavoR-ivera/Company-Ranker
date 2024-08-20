@@ -64,7 +64,7 @@ const Register = () => {
       //apartir de este punto, con que datos de usuario funciona la pagina?
       //al redireccionar a login, actualizamos el estado de currentUser el cual podra ser usado
       //en los demas componentes
-      navigate("/login");
+      navigate("/accountConfirmation");
     } catch (err) {
       setErr(err.response.data);
     }
