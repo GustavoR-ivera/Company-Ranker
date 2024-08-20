@@ -68,7 +68,7 @@ function About() {
             <span>Carlos Camacho</span>
             <p>Desarrollador de software</p>
             <div className="logos">
-              <a href="https://www.linkedin.com/" target="_blank">
+              <a href="https://www.linkedin.com/in/carlos-javier-camacho-cely-6a5199281/" target="_blank">
                 <img src={linkedin_logo} className="logo_linkedin" />
               </a>
               <a href="https://www.github.com/c2camacho" target="_blank">
