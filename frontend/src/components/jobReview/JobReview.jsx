@@ -106,7 +106,7 @@ const JobReview = ({ jobReview }) => {
     try{
       const res = await axiosInstance.get(`/server/Likes/dislikes/${currentUser.idUser}`)
       for (let i = 0; i < res.data.length; i++){
-        if(res.data[i].idReview == productReview.idJob_review){
+        if(res.data[i].idReview == jobReview.idJob_review){
           setDisliked(true)
         }
       } 
