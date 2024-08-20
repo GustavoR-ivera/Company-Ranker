@@ -106,7 +106,7 @@ function NavBar() {
           (currentUser.Role === "admin" ||
             currentUser.Role === "moderator") && (
             <>
-              <div ref={menuRef} className={`left ${menuOpen ? 'open' : ''}`}>
+              <div className="left">
                 <div
                   className="seccion_reseñas"
                   onMouseEnter={() => setViewDropdown(true)}
@@ -259,7 +259,9 @@ function NavBar() {
         {currentUser ? (
           <>
             <div className="user">
-              <span>{currentUser == null ? "user" : currentUser.Name}</span>
+              <span>
+              {currentUser.Name} {currentUser.Role === "premium" && <span className="premium">Premium</span>}
+              </span>
             </div>
             <Link to="/perfil" style={{ textDecoration: "none" }}>
               Perfil
