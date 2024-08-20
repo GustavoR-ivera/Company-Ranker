@@ -17,6 +17,7 @@ import postpaymentRoutes from "./routes/postpayment.js"
 import errorRoutes from "./routes/errors.js"
 import likeRoutes from "./routes/likes.js"
 import userProfile from './routes/userProfile.js';
+import reviewsByCompaniesRoutes from './routes/reviewsByCompanies.js';
 
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -88,6 +89,7 @@ app.use("/server/companys" , CompanyRouter)
 app.use("/server/payments", paymentsRoutes);
 app.use("/server/postpayment", postpaymentRoutes);
 app.use("/server/errors", errorRoutes);
+app.use("/server/reviewsByCompanies", reviewsByCompaniesRoutes);
 
 
 

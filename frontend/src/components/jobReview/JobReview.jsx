@@ -233,9 +233,11 @@ const JobReview = ({ jobReview }) => {
         </div>
       </div>
       <hr />
+
       {premium()}
       
       
+
     </div>
   );
 };

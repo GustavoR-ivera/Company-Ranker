@@ -49,7 +49,7 @@ function ManageJobReviews() {
       );
       console.log("reseña aceptada", res);
       //window.location.reload();
-      navigate("/gestionar_resenas/resenas_laborales");
+      navigate("/");
     } catch (err) {
       console.error("error aceptando reseña", err);
     }
@@ -61,7 +61,7 @@ function ManageJobReviews() {
         `/server/manage-reviews/reject-job-review/${idReview}/${moderatorComments[idReview]}`
       );
       console.log("reseña rechazada", res);
-      navigate("/gestionar_resenas/resenas_laborales");
+      navigate("/");
     } catch (err) {
       console.error("error rechazando reseña", err);
     }

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import GoBack from "../../components/goBack/GoBack.jsx";
+import logo from "../../images/logo.png";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -11,6 +12,7 @@ const Register = () => {
     Last_Name: "",
     Email: "",
     Password: "",
+    ConfirmPassword: "",
   });
 
   const [err, setErr] = useState(null);
@@ -19,6 +21,7 @@ const Register = () => {
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    console.log(inputs);
   };
 
   //console.log(inputs);
@@ -36,16 +39,22 @@ const Register = () => {
     e.preventDefault();
     const form = e.target.form;
     if (!form.checkValidity()) {
-      setErr("Por favor, rellena todos los campos correctamente");
+      setErr("Por favor, rellena todos los campos correctamente_1");
       return;
     }
     if (
       inputs.Name === "" ||
       inputs.Last_Name === "" ||
       inputs.Email === "" ||
-      inputs.Password === ""
+      inputs.Password === "" ||
+      inputs.ConfirmPassword === ""
     ) {
-      setErr("Por favor, rellena todos los campos");
+      setErr("Por favor, rellena todos los campos_2");
+      return;
+    }
+
+    if (inputs.Password !== inputs.ConfirmPassword) {
+      setErr("Las contraseñas no coinciden");
       return;
     }
 
@@ -70,11 +79,16 @@ const Register = () => {
       <div className="card">
         <div className="header">
           <GoBack />
-          <h1>Company Ranker</h1>
+          <div className="img">
+            <img src={logo} alt="CompanyRanker" draggable="false" />
+          </div>
+          <h2>Company Ranker</h2>
         </div>
 
         <form>
-          <p className="register-text">Registrate para empezar a compartir tus experiencias</p>
+          <p className="register-text">
+            Registrate para empezar a compartir tus experiencias
+          </p>
           <input
             type="text"
             placeholder="Nombres"
@@ -126,21 +140,23 @@ const Register = () => {
           <input
             type="password"
             placeholder="Confirmar contraseña"
-            name="confirmPasword"
+            name="ConfirmPassword"
             required={true}
-            pattern={inputs.Password}
+            pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!#$%&^&*].{8,200}"
             onBlur={handleFocus}
+            onChange={handleChange}
             focused={focused.toString()}
           />
-          <span>Las contraseñas no coinciden</span>
-          <p2 className = "terms-text">
-            Al dar click en registrarte estás aceptando nuestros <Link to= "/tyc">términos y
-            condiciones</Link> políticas de privacidad y manejo de cookies{" "}
+
+          <p2 className="terms-text">
+            Al dar click en registrarte estás aceptando nuestros{" "}
+            <Link to="/tyc">términos y condiciones</Link> políticas de
+            privacidad y manejo de cookies{" "}
           </p2>
           <p className="error_general">{err}</p>
           <button onClick={handleClick}>Regístrate</button>
           <p>
-            <Link to="login">¿Ya tienes una cuenta?</Link>
+            <Link to="/login">¿Ya tienes una cuenta?</Link>
           </p>
           <hr />
         </form>

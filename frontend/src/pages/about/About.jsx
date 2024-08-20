@@ -5,6 +5,7 @@ import fotoDaniel from "../../images/fotoAboutDaniel.jpg";
 import fotoJavier from "../../images/fotoAboutJavier.jpg";
 import fotoCarlos from "../../images/fotoAboutCarlos.jpg";
 import linkedin_logo from "../../images/linkedin.png";
+import github_logo from "../../images/github.png";
 import Footer from "../../components/footer/Footer.jsx";
 
 function About() {
@@ -18,16 +19,16 @@ function About() {
           <span>¿Quiénes somos?</span>
           <p>
             En company ranker agrupamos y validamos por medio de una plataforma las reseñas de los usuarios para la toma de decisiones
-          con base en la experiencia de los trabajadores y compradores, y así ajustandonos a las tendencias
-          y visibilidad de las pymes en el mercado laboral colombiano
+            con base en la experiencia de los trabajadores y compradores, y así ajustandonos a las tendencias
+            y visibilidad de las pymes en el mercado laboral colombiano
           </p>
         </div>
         <div className="item">
           <span>Visión</span>
           <p>
-          En el año 2026, Company Ranker se consolidará como el sitio web de reseñas
-            preferido para las personas que busquen información sobre empresas colombianas, 
-            Nuestro liderazgo se basará en una comunidad sincera, 
+            En el año 2026, Company Ranker se consolidará como el sitio web de reseñas
+            preferido para las personas que busquen información sobre empresas colombianas,
+            Nuestro liderazgo se basará en una comunidad sincera,
             ya que creemos firmemente en un mercado laboral transparente y honesto.{" "}
           </p>
         </div>
@@ -38,36 +39,57 @@ function About() {
             <img className="foto_member" src={fotoGustavo} />
             <span>Gustavo Rivera</span>
             <p>Desarrollador de software</p>
-            <a
-              href="https://www.linkedin.com/in/gustavo-rivera-b78977206/"
-              target="_blank"
-            >
-              <img src={linkedin_logo} className="logo_linkedin" />
-            </a>
+            <div className="logos">
+              <a href="https://www.linkedin.com/in/gustavo-rivera-b78977206/"
+                target="_blank"
+              >
+                <img src={linkedin_logo} className="logo_linkedin" />
+              </a>
+              <a href="https://www.github.com/GustavoR-ivera" target="_blank">
+                <img src={github_logo} className="logo_github" />
+              </a>
+            </div>
           </div>
           <div className="member">
             <img src={fotoDaniel} className="foto_member" />
-            <span>Daniel</span>
+            <span>Daniel Mateus</span>
             <p>Desarrollador de software</p>
-            <a href="https://www.linkedin.com/" target="_blank">
-              <img src={linkedin_logo} className="logo_linkedin" />
-            </a>
+            <div className="logos">
+              <a href="https://www.linkedin.com/in/daniel-fernando-mateus-vega-465043139/" target="_blank">
+                <img src={linkedin_logo} className="logo_linkedin" />
+              </a>
+              <a href="https://www.github.com/" target="_blank">
+                <img src={github_logo} className="logo_github" />
+              </a>
+            </div>
           </div>
           <div className="member">
             <img src={fotoCarlos} className="foto_member" />
-            <span>Carlos</span>
+            <span>Carlos Camacho</span>
             <p>Desarrollador de software</p>
-            <a href="https://www.linkedin.com/" target="_blank">
-              <img src={linkedin_logo} className="logo_linkedin" />
-            </a>
+            <div className="logos">
+              <a href="https://www.linkedin.com/in/carlos-javier-camacho-cely-6a5199281/" target="_blank">
+                <img src={linkedin_logo} className="logo_linkedin" />
+              </a>
+              <a href="https://www.github.com/c2camacho" target="_blank">
+                <img src={github_logo} className="logo_github" />
+              </a>
+            </div>
           </div>
           <div className="member">
             <img src={fotoJavier} className="foto_member" />
-            <span>Javier</span>
+            <span>Javier Vargas</span>
             <p>Desarrollador de software</p>
-            <a href="www.linkedin.com/in/javier-santiago-vargas-parra-79672223a" target="_blank">
-              <img src={linkedin_logo} className="logo_linkedin" />
-            </a>
+
+            <div className="logos">
+              <a href="https://www.linkedin.com/in/javier-santiago-vargas-parra-79672223a/" target="_blank">
+                <img src={linkedin_logo} className="logo_linkedin" />
+              </a>
+              <a href="https://www.github.com/JavierVargas0112" target="_blank">
+                <img src={github_logo} className="logo_github" />
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
