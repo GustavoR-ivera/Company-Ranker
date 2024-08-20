@@ -188,7 +188,7 @@
       width: 75%;
       gap: 20px;
       .logo {
-        align-self: center;
+        align-self:flex-start;
       }
       & > * {
         margin: 1px 0;
@@ -235,6 +235,10 @@
         &:hover {
           background-color: #f1f1f1;
         }
+      }
+      .premium {
+        color: gold; /* O cualquier otro estilo que prefieras */
+        font-weight: bold;
       }
     }
   }

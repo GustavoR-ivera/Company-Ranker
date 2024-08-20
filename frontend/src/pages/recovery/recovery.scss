@@ -9,7 +9,7 @@
         width: 50%;
         display: flex;
         border-radius: 10px;
-        min-height: 600px;
+        max-height: 600px;
         box-shadow: 0 0 10px rgba(0,0,0,0.15);
         background-color: white;
 
@@ -88,6 +88,22 @@
                 text-align: center;
                 text-decoration: none;
                 margin-bottom: 10px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .left {
+                border-right: none;
+            }
+
+            .right {
+                order: 1; // Asegura que .right aparezca después de .left
             }
         }
     }

@@ -261,7 +261,9 @@ function NavBar() {
         {currentUser ? (
           <>
             <div className="user">
-              <span>{currentUser == null ? "user" : currentUser.Name}</span>
+              <span>
+              {currentUser.Name} {currentUser.Role === "premium" && <span className="premium">Premium</span>}
+              </span>
             </div>
             <Link to="/perfil" style={{ textDecoration: "none" }}>
               Perfil
