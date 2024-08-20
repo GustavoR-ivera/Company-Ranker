@@ -57,12 +57,16 @@ function noSub_View(susId){
           Unete!
         </a>
         <ul class="pricing-table__list">
-          <li>Visualizaciones Ilimitadas</li>
           <li>Gráficos de tendencias</li>
           <li>Interacción con reseñas</li>
-          <li>Últimas noticias</li>
+          <li>Ultimas Noticias</li>
+          <li>x</li>
+
+
         </ul>
       </div>
+
+      <h2>(Si ya activaste tu plan premium y todavia no te aparece activado prueba saliendo de tu sesion y volviendo a ingresar)</h2>
 
       </div>
    )
@@ -86,9 +90,11 @@ function noSub_View(susId){
           <li>Visualizaciones Ilimitadas</li>
           <li>Gráficos de tendencias</li>
           <li>Interacción con reseñas</li>
-          <li>Últimas noticias</li>
+          <li>x</li>
         </ul>
       </div>
+
+
 
       </div>
       </div>

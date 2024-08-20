@@ -65,7 +65,7 @@ function About() {
             <img src={fotoJavier} className="foto_member" />
             <span>Javier</span>
             <p>Desarrollador de software</p>
-            <a href="https://www.linkedin.com/" target="_blank">
+            <a href="www.linkedin.com/in/javier-santiago-vargas-parra-79672223a" target="_blank">
               <img src={linkedin_logo} className="logo_linkedin" />
             </a>
           </div>

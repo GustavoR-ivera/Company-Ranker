@@ -16,7 +16,7 @@ const JobReview = ({ jobReview }) => {
           </span>
         );
       } else {
-        stars.push(
+        stars.push( 
           <span key={i} className="star">
             &#9734;
           </span>
@@ -88,7 +88,7 @@ const JobReview = ({ jobReview }) => {
     try{
       const res = await axiosInstance.get(`/server/likes/${currentUser.idUser}`)
       for (let i = 0; i < res.data.length; i++){
-        if(res.data[i].idReview == productReview.idReview){
+        if(res.data[i].jobId == jobReview.idJob_review){
           
           setLiked(true)
           console.log(res.data)
@@ -100,16 +100,18 @@ const JobReview = ({ jobReview }) => {
     }
   }
 
+
+ 
   const getDislike = async () =>{
     try{
-      const res = await axiosInstance.get(`/server/dislikes/${currentUser.idUser}`)
+      const res = await axiosInstance.get(`/server/Likes/dislikes/${currentUser.idUser}`)
       for (let i = 0; i < res.data.length; i++){
-        if(res.data[i].idReview == productReview.idReview){
+        if(res.data[i].idReview == productReview.idJob_review){
           setDisliked(true)
         }
-      }
+      } 
       
-      console.log(res.data)
+      
     } catch (err){
       console.log(err)
     }
@@ -119,18 +121,22 @@ const JobReview = ({ jobReview }) => {
 
 
   function handleLikes(){
+    
+
     if (Liked == false){
+      axiosInstance.post(`/server/likes/likeJ`, {userId: currentUser.idUser, jobId: jobReview.idJob_review})
+      console.log("aaaaa")
       setLiked(true);
       setLikes( likes + 1);
-      axiosInstance.post(`/server/likes/likeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
+      
       if (Disliked){
-        axiosInstance.delete(`/server/likes/dislikeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
+        axiosInstance.delete(`/server/likes/dislikeJ`, {userId: currentUser.idUser, jobId: jobReview.idJob_review})
         setDislikes(dislikes - 1);
         setDisliked(false);
       }
 
     }else{
-      axiosInstance.delete(`/server/likes/likeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
+       axiosInstance.delete(`/server/likes/likeJ`, {userId: currentUser.idUser, jobId: jobReview.idJob_review})
       setLiked(false )
       setLikes(likes - 1); 
     }
@@ -141,23 +147,37 @@ const JobReview = ({ jobReview }) => {
     if (Disliked == false){
       
       setDisliked(true);
-      axiosInstance.post(`/server/likes/dislikeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
-      console.log(Liked)
+      
+      axiosInstance.post(`/server/likes/dislikeJ`, {userId: currentUser.idUser, jobId: jobReview.idJob_review})
+    
       setDislikes(dislikes + 1);
       if (Liked){
-        axiosInstance.delete(`/server/likes/likeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
+        axiosInstance.delete(`/server/likes/likeJ`, {userId: currentUser.idUser, jobId: jobReview.idJob_review})
         setLikes(likes - 1);
         setLiked(false);
       }
 
     }else{
-      axiosInstance.delete(`/server/likes/dislikeJ`, {userId: currentUser.idUser, idReview: jobReview.idReview})
+      axiosInstance.delete(`/server/likes/dislikeJ`, {userId: currentUser.idUser, jobId: jobReview.idJob_review})
       setDisliked(false)
       setDislikes(dislikes - 1);
     }
-    console.log(dislikes)
+    
   }
 
+  function premium(){
+    if(currentUser.Role == "premium"){
+      return (
+        <div className="buttons">
+        <div className="numLikes">{ likes}</div>
+        <button className="agree-button" onClick={handleLikes}>De acuerdo</button>
+        <button className="disagree-button" onClick={handleDislikes}>En desacuerdo</button>
+        <div className="numDislikes">{dislikes}</div>
+      </div>
+
+      );
+    }
+  }
  
 
   return (
@@ -166,7 +186,7 @@ const JobReview = ({ jobReview }) => {
         <div className="getlikes">
           {getLike}
         </div>
-        <div className="getdislikes">{getDislike}</div>
+        <div className="getdislikes">{getDislike}</div> 
         <div className="left">
           <span>
             user:{" "}
@@ -181,7 +201,7 @@ const JobReview = ({ jobReview }) => {
           <span>
             {jobReview.Created_At == null
               ? "fecha"
-              : moment(jobReview.Created_At).fromNow()}
+              : moment(jobReview.Created_At).fromNow()} 
           </span>
         </div>
       </div>
@@ -213,13 +233,9 @@ const JobReview = ({ jobReview }) => {
         </div>
       </div>
       <hr />
-
-      <div className="buttons">
-        <div className="numLikes">{ likes}</div>
-        <button className="agree-button" onClick={handleLikes}>De acuerdo</button>
-        <button className="disagree-button" onClick={handleDislikes}>En desacuerdo</button>
-        <div className="numDislikes">{dislikes}</div>
-      </div>
+      {premium()}
+      
+      
     </div>
   );
 };

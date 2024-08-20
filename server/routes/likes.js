@@ -1,9 +1,10 @@
 import express  from "express";
-import {getLikesfromUser, addCostumerLike, addJobLike, addCostumerDislike, addJobDislike, deleteCostumerDislike, deleteJobDislike, deleteJobLike, deleteCostumerLike} from "../controllers/like.js";
+import {getLikesfromUser, getDislikesfromUser,  addCostumerLike, addJobLike, addCostumerDislike, addJobDislike, deleteCostumerDislike, deleteJobDislike, deleteJobLike, deleteCostumerLike} from "../controllers/like.js";
 
 const router = express.Router()
 
 router.get("/:userId", getLikesfromUser)
+router.get("/dislikes/:userId", getDislikesfromUser)
 router.post("/likeC", addCostumerLike)
 router.post("/likeJ", addJobLike)
 router.post("/dislikeC", addCostumerDislike)

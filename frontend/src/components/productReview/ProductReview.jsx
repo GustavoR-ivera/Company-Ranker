@@ -1,5 +1,5 @@
 import "./productReview.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import moment from "moment";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
@@ -24,6 +24,8 @@ const ProductReview = ({ productReview }) => {
     }
     return stars;
   };
+
+  console.log(productReview);
   const [Quality_Score, setQuality_Score] = useState(null);
   const [Price_Score, setPrice_Score] = useState(null);
   const [Service_Score, setService_Score] = useState(null);
@@ -39,6 +41,9 @@ const ProductReview = ({ productReview }) => {
     };
     stars();
   }, []);
+
+
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
 
   //def url base del servidor backend
   const axiosInstance = axios.create({
@@ -59,17 +64,106 @@ const ProductReview = ({ productReview }) => {
   };
 
   
-  const getUserLike = async () => {
-    try {
-      const res = await axiosInstance.get(
-        `/server/likes/${productReview.User_idUser}`
-      );
-      //console.log(res.data);
-      return res.data;
-    } catch (err) {
-      console.log(err);
+  const getLike = async () =>{
+    try{
+      const res = await axiosInstance.get(`/server/likes/${currentUser.idUser}`)
+      for (let i = 0; i < res.data.length; i++){
+        if(res.data[i].costumerId == productReview.idCostumer_Review){
+          
+          setLiked(true)
+          console.log(res.data)
+        }
+      }
+      
+    } catch (err){
+      console.log(err)
     }
-  };
+  }
+
+
+  const getDislike = async () =>{
+    try{
+      const res = await axiosInstance.get(`/server/Likes/dislikes/${currentUser.idUser}`)
+      for (let i = 0; i < res.data.length; i++){
+        if(res.data[i].costumerId == productReview.idCostumer_Review){
+          setDisliked(true)
+        }
+      } 
+      
+      
+    } catch (err){
+      console.log(err)
+    }
+
+
+  }
+
+
+  var [Liked, setLiked] = useState(false);
+  var [Disliked, setDisliked] = useState(false);
+
+  var [likes, setLikes]= useState(productReview.Likes);
+  var [dislikes, setDislikes]= useState(productReview.DisliKes);  
+ 
+  function handleLikes(){
+    
+
+    if (Liked == false){
+      axiosInstance.post(`/server/likes/likeC`, {userId: currentUser.idUser, jobId: productReview.idCostumer_Review})
+      console.log("aaaaa")
+      setLiked(true);
+      setLikes( likes + 1);
+      
+      if (Disliked){
+        axiosInstance.delete(`/server/likes/dislikeC`, {userId: currentUser.idUser, costumerId: productReview.idCostumer_Review})
+        setDislikes(dislikes - 1);
+        setDisliked(false);
+      }
+
+    }else{
+       axiosInstance.delete(`/server/likes/likeC`, {userId: currentUser.idUser, costumerId: productReview.idCostumer_Review})
+      setLiked(false )
+      setLikes(likes - 1); 
+    }
+  }
+
+
+  
+  function handleDislikes(){
+
+    if (Disliked == false){
+      
+      setDisliked(true);
+      
+      axiosInstance.post(`/server/likes/dislikeJ`, {userId: currentUser.idUser, jobId: productReview.idCostumer_Review})
+    
+      setDislikes(dislikes + 1);
+      if (Liked){
+        axiosInstance.delete(`/server/likes/likeJ`, {userId: currentUser.idUser, jobId: productReview.idCostumer_Review})
+        setLikes(likes - 1);
+        setLiked(false);
+      }
+
+    }else{
+      axiosInstance.delete(`/server/likes/dislikeJ`, {userId: currentUser.idUser, jobId: productReview.idCostumer_Review})
+      setDisliked(false)
+      setDislikes(dislikes - 1);
+    }
+    
+  }
+
+  function premium(){
+
+    if(currentUser.Role == "premium"){
+    return(
+    <div className="buttons">
+        <div className="numLikes">{likes}</div>
+        <button className="agree-button" onClick={handleLikes}>De acuerdo</button>
+        <button className="disagree-button" onClick={handleDislikes}  >En desacuerdo</button>
+        <div className="numDislikes" >{dislikes}</div>
+      </div>)
+    }
+  }
   
   const [user_review, setUser_review] = useState(null);
 
@@ -133,13 +227,8 @@ const ProductReview = ({ productReview }) => {
       <hr />
 
 
-     
-      <div className="buttons">
-        <div className="numLikes">{productReview.Likes}</div>
-        <button className="agree-button">De acuerdo</button>
-        <button className="disagree-button">En desacuerdo</button>
-        <div className="numDislikes">{productReview.DisliKes}</div>
-      </div>
+     {premium()}
+      
     </div>
   );
 };
