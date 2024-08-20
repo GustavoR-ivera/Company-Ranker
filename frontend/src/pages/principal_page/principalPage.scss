@@ -6,19 +6,36 @@
   //margin-top: 25px;
 
   .banner1 {
-    padding: 20px;
+    //border: 1px solid black;
+    //padding: 20px;
     //margin: auto;
+    display: flex;
+    flex-direction: column;
     background-color: whitesmoke;
+    justify-content: center;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     h1 {
       font-family: "Lato", sans-serif;
       font-weight: 700;
       font-style: normal;
       color: #274ec5;
       font-size: 50px;
+      margin-top: 0px;
     }
     img {
-      width: 27%;
-      height: 25%;
+      width: 15%;
+      height: 15%;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+    a{
+      text-decoration: none;
+      color: rgb(23, 56, 204);
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
   }
   .banner2 {

@@ -9,6 +9,7 @@ import company_ppage from "../../images/company_ppage.png";
 import product_ppage from "../../images/product_ppage.png";
 import community_ppage from "../../images/community_ppage.png";
 import trending_ppage from "../../images/trending_ppage.png";
+import { Link } from "react-router-dom";
 
 function PrincipalPage() {
   const { currentUser } = useContext(AuthContext);
@@ -24,9 +25,16 @@ function PrincipalPage() {
           <div className="banner1">
             <h1>Una comunidad surgida a partir de tus experiencias</h1>
             <img src={community_ppage} alt="company_ppage" />
+            Consulta la guìa de inicio ràpido en el siguiente link:
+            <a
+              target="blank"
+              href="https://drive.google.com/file/d/1whnHhO5hDOvw34wpN0WTC5vS9owQJGPC/view?usp=drive_link"
+            >
+              ¿Còmo funciona?
+            </a>
           </div>
           <div className="banner2">
-            <h3>Encuentra lo que buscas en Company Ranker</h3>
+            <h3>Encuentra la información que buscas en Company Ranker</h3>
             <p>
               Busca información verificada y de calidad sobre el producto que
               deseas comprar o sobre la empresa en la que deseas trabajar

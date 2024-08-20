@@ -19,7 +19,7 @@ import ManageProductReviews from "./pages/manage_product_reviews/ManageProductRe
 import ManageJobReviews from "./pages/manage_job_reviews/ManageJobReviews";
 import JobReviewsPage from "./pages/job_reviews/JobReviewsPage";
 import CustomerReviewsPage from "./pages/customer_reviews/CustomerReviewsPage";
-import CompanyReviewsPage from "./pages/Companys_reviesw/CompanyReviewsPage.jsx";
+import CompaniesPage from "./pages/companies/CompaniesPage.jsx";
 import Questions from "./pages/Questions/Questions.jsx";
 import Suscription from "./pages/suscription/suscription.jsx"
 import { useContext } from "react";
@@ -28,9 +28,11 @@ import { AuthContext } from "./context/authContext.js";
 import Error_Form from "./pages/error_form/Error_form.jsx";
 import Dashboard from "./pages/dashboard_premium/Dashboard.jsx";
 import Value_proposal from "./pages/value_proposal/value_proposal.jsx";
+import ReviewsByCompany from "./pages/reviews_by_company/ReviewsByCompany.jsx";
 
 import Tyc from "./pages/tyc/Tyc.jsx";
 import UserProfile from "./pages/user_profile/User_profile.jsx";
+import Footer from "./components/footer/Footer.jsx";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -49,6 +51,7 @@ function App() {
           </div>
           <RightBar />
         </div>
+        <Footer/>
       </div>
     );
   }
@@ -139,7 +142,7 @@ function App() {
         },
         {
           path: "/Empresas",
-          element: < CompanyReviewsPage/>,
+          element: < CompaniesPage/>,
         },
         {
           path: "/Suscripcion",
@@ -152,6 +155,10 @@ function App() {
         {
           path: "/dashboard",
           element: < Dashboard />,
+        },
+        {
+          path: "/resenas/resenas_por_empresa/:id",
+          element: < ReviewsByCompany/>,
         },
         
       ],

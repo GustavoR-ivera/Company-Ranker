@@ -20,6 +20,14 @@
     font-size: 17px;
   }
 
+  .menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
   .left {
     display: flex;
     align-items: center;
@@ -57,14 +65,12 @@
       }
     }
 
-    .seccion_reseñas{
-      //border: 1px solid rgb(0, 0, 0);
-      //border: none;
+    .seccion_reseñas {
       font-family: "Lato", sans-serif;
       font-weight: 400;
       font-style: normal;
 
-      .titulo_reseñas{
+      .titulo_reseñas {
         border: none;
         background-color: white;
         font-family: "Lato", sans-serif;
@@ -72,11 +78,9 @@
         font-style: normal;
         font-size: 17px;
         position: relative;
-
       }
-      .menu_reseñas{
 
-        //border: 1px solid rgb(0, 0, 0); 
+      .menu_reseñas {
         width: 160px;
         margin-top: 5px;
         position: absolute;
@@ -86,16 +90,13 @@
         flex-direction: column;
         align-items: center;
         border-radius: 3px;
-        //border: 1px solid rgb(0, 0, 0);
-        //width: 100%;
-        //box-sizing: border-box;
 
-        .menu_item{
+        .menu_item {
           background-color: white;
           padding: 5px;
           font-size: 15px;
           width: 100%;
-          :hover{
+          :hover {
             background-color: rgb(214, 203, 203);
             color: rgb(0, 0, 0);
             width: 100%;
@@ -103,15 +104,138 @@
         }
       }
     }
+
+    &.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+
+      a {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #000;
+        display: block;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+    }
   }
+
   .right {
     display: flex;
-    align-items: center;
     gap: 15px;
 
-    span {
-      font-weight: bold;
-      font-size: 19px;
+    &.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      background-color: white;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      padding: 10px;
+      z-index: 1000;
+
+      a {
+        color: #333;
+        text-decoration: none;
+        padding: 10px;
+        border-bottom: 1px solid lightgray;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: none; /* Oculta los elementos en dispositivos móviles */
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    .left {
+      display: none;
+    }
+    .right {
+      display: none;
+    }
+
+    .menu-button {
+      display: block;
+
+      .user-icon {
+        width: 24px; // Ajusta el tamaño según sea necesario
+        height: 24px; // Ajusta el tamaño según sea necesario
+      }
+    }
+
+    .left.open {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 75%;
+      gap: 20px;
+      .logo {
+        align-self: center;
+      }
+      & > * {
+        margin: 1px 0;
+        width: 100px;
+        padding: 10px 2px;
+        border-bottom: 1px solid lightgray;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .menu-item {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #000;
+        display: block;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+    }
+
+    .right.open {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%;
+      gap: 20px;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+
+      a {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #000;
+        display: block;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
     }
   }
 }
