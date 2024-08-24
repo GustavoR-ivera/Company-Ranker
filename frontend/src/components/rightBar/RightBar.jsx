@@ -17,19 +17,22 @@ function RightBar() {
             <>
               <div className="item">
                 <div className="header">
-                  <AccessTimeRoundedIcon />
-                  <span><a href="https://manualtecnicocompanyrank.blogspot.com/" target="_blank">Manual Tecnico</a></span>
-                  <span><a href="https://drive.google.com/file/d/1whnHhO5hDOvw34wpN0WTC5vS9owQJGPC/view?usp=drive_link" target="_blank">Manual de Ususario</a></span>
+                  <div className="link-with-icon">
+                    <AccessTimeRoundedIcon />
+                    <div className="links">
+                      <span><a href="https://manualtecnicocompanyrank.blogspot.com/" target="_blank" rel="noopener noreferrer">Manual Tecnico</a></span>
+                      <span><a href="https://drive.google.com/file/d/1whnHhO5hDOvw34wpN0WTC5vS9owQJGPC/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Manual de Usuario</a></span>
+                    </div>
+                  </div>
                 </div>
                 <ul>
-                
                   {/**
-                 * implementar esto con una consulta a la bd usando
-                 * currentUser
-                 * {props.searches && 
-                props.searches.map((search) => (
-                  <li>{search}</li>
-                ))} */}
+                   * implementar esto con una consulta a la bd usando
+                   * currentUser
+                   * {props.searches && 
+                  props.searches.map((search) => (
+                    <li>{search}</li>
+                  ))} */}
                 </ul>
               </div>
             </>
