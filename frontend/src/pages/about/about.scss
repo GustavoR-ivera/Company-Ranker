@@ -88,7 +88,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     .team {
       flex-wrap: wrap;
       flex-direction:row; /* Permite que los elementos se envuelvan */
@@ -98,6 +98,7 @@
       width: 100%;
 
       .member {
+        max-width: 280px;
         flex-basis: 40%; /* Cada miembro ocupará aproximadamente el 45% del ancho del contenedor */
         margin-bottom: 20px; /* Añade un margen inferior para separar los miembros */
       }

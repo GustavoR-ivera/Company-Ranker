@@ -12,6 +12,7 @@ body {
 
   .card {
     width: 35%;
+    min-width: 400px;
     display: flex;
     background-color: rgb(255, 255, 255);
     border: 1px solid #e3e2ff;
@@ -26,6 +27,9 @@ body {
     .terms-text {
       font-family: 'Arial', sans-serif;
       font-size: 14px;
+      text-align: center;
+      word-wrap: break-word; // Permite que el texto se ajuste a la pantalla
+      width: 100%; // Asegura que el texto ocupe todo el ancho disponible
     }
 
     .header {
@@ -138,15 +142,41 @@ body {
       color: #009bec;
       font-size: 18px;
     }
+.form-group {
+  display: flex;
+  align-items: center; // Centra verticalmente el contenido
+  margin-bottom: 0px;
+  width: 350px;
+
+  input[type="checkbox"] {
+    margin-left: 2px;
+    width: 20px;
+  }
+
+  label {
+    min-width: none;
+    max-width: 350px;
+    padding-left: 10px;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 0px;
+    white-space: normal;
+    word-wrap:normal;
+  }
+}
   }
 
   @media (max-width: 768px) {
     .card {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 0;
+      width: 90%;
+      max-width: 900%;
       height: 100vh;
       box-shadow: none;
+    }
+  }
+  @media(max-height: 768px) {
+    .card {
+      height: auto; // Opcional: elimina la altura para que el contenido determine la altura
     }
   }
 }
