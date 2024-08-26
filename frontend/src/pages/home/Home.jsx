@@ -25,8 +25,8 @@ function Home() {
       </Helmet>
       <div className="banner1">
         <h2>¡Hola {currentUser == null ? "user " : currentUser.Name + "! "} 
-         realiza tu aporte a esta comunidad registrando una</h2>
-        <button onClick={handleClick}>Nueva reseña</button>
+         realiza tu aporte a esta comunidad registrando una 
+        <button onClick={handleClick}>Nueva reseña</button></h2>
       </div>
       <div>
         <>
@@ -43,15 +43,15 @@ function Home() {
           <p>LinkedIn recomienda
           </p>
           <a href="https://www.linkedin.com/blog/member/career/tips-to-turbocharge-your-career-search" target="_blank">
-            Leer màs
+            Leer más
           </a>
 
         </div>
         <div className="item">
           <img src={comunidad_cr} alt="img" />
-          <span>¿Por que es importante esta comunidad?</span>
+          <span>¿Por qué es importante esta comunidad?</span>
           <p>En este articulo veràs la importancia de generar
-            una comunidad baes importante esta comunidad?sada en las experiencias personales
+            una comunidad basada en las experiencias personales
           </p>
           <a href="#" target="_blank">
             Leer màs
@@ -74,7 +74,7 @@ function Home() {
         <div className="item">
           <img src={businessColombia} alt="img" />
           <span>Realidades de hacer negocios en Colombia</span>
-          <p>crèditos: goldenharbors
+          <p>créditos: goldenharbors
           </p>
           <a href="https://goldenharbors.com/articles/doing-business-in-colombia" target="_blank">
             Leer màs

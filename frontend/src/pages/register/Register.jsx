@@ -64,7 +64,7 @@ const Register = () => {
       //apartir de este punto, con que datos de usuario funciona la pagina?
       //al redireccionar a login, actualizamos el estado de currentUser el cual podra ser usado
       //en los demas componentes
-      navigate("/login");
+      navigate("/accountConfirmation");
     } catch (err) {
       setErr(err.response.data);
     }
@@ -134,8 +134,8 @@ const Register = () => {
             focused={focused.toString()}
           />
           <span>
-            Tu contraseña debe tener mínimo 8 caracteres (incluir letras
-            minúsculas y mayúsculas, números y símbolos especiales)
+            Tu contraseña debe tener mínimo 9 caracteres (incluir letras
+            minúsculas y mayúsculas, números y símbolos especiales (!@#$%^&*))
           </span>
           <input
             type="password"

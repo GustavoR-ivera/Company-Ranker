@@ -21,7 +21,7 @@ function Footer() {
         <a href="https://www.instagram.com/companyranker/" target="_blank">
           <InstagramIcon />
         </a>
-        <a href="#">
+        <a href="mailto:companyrankerweb@gmail.com">
           <EmailIcon />
         </a>
         <span>companyrankerweb@gmail.com</span>

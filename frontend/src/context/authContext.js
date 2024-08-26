@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
+
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
@@ -35,3 +36,6 @@ export const AuthContextProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+
+export const AuthCodes = [154685 ,203471, 368917, 476231, 547963, 685479, 741256, 876325, 903247]

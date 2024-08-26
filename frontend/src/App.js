@@ -28,10 +28,13 @@ import { AuthContext } from "./context/authContext.js";
 import Error_Form from "./pages/error_form/Error_form.jsx";
 import Dashboard from "./pages/dashboard_premium/Dashboard.jsx";
 import Value_proposal from "./pages/value_proposal/value_proposal.jsx";
+import AccountConfirmation from "./pages/accountConfirmation/accountConfirmation.jsx";
 import ReviewsByCompany from "./pages/reviews_by_company/ReviewsByCompany.jsx";
+
 
 import Tyc from "./pages/tyc/Tyc.jsx";
 import UserProfile from "./pages/user_profile/User_profile.jsx";
+import Footer from "./components/footer/Footer.jsx";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -50,6 +53,7 @@ function App() {
           </div>
           <RightBar />
         </div>
+        <Footer/>
       </div>
     );
   }
@@ -97,6 +101,10 @@ function App() {
     {
       path: "/tyc",
       element: < Tyc/>,
+    },
+    {
+      path: "/accountConfirmation",
+      element: < AccountConfirmation />,
     },
 
     //rutas protegidas que usan la plantilla de barras de navegacion
@@ -158,6 +166,7 @@ function App() {
           path: "/resenas/resenas_por_empresa/:id",
           element: < ReviewsByCompany/>,
         },
+        
         
       ],
     },

@@ -93,7 +93,7 @@ app.use("/server/reviewsByCompanies", reviewsByCompaniesRoutes);
 
 
 
-repeatingFunction();
+//repeatingFunction();
 app.use("/server/user_profile" , userProfile)
 
 

@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 body {
   margin: 0;
 }
+
 .register {
-  //height: 100vh;
   display: flex;
   align-items: center;
   background-color: rgb(240, 243, 255);
   justify-content: center;
-  
 
   .card {
     width: 35%;
@@ -16,20 +16,17 @@ body {
     background-color: rgb(255, 255, 255);
     border: 1px solid #e3e2ff;
     border-radius: 10px;
-    //min-height: 600px;
-    //height: 100vh;
     margin: 10px 10px;
     padding: 10px;
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-    
-    .terms-text {
-      font-family: 'Arial', sans-serif; // Cambia 'Arial' al nombre de la fuente que quieras usar
-      font-size: 14px; // Cambia '14px' al tamaño de fuente que quieras usar
-    }
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
+    .terms-text {
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+    }
 
     .header {
       //border: 1px solid black;
@@ -43,7 +40,7 @@ body {
       h2 {
        
         font-size: 30px;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Lato", sans-serif;
         font-weight: 700;
         font-style: normal;
         margin: auto;
@@ -62,51 +59,57 @@ body {
     }
 
     form {
-      //margin-top: 10px;
       max-width: 350px;
       display: flex;
       margin-left: auto;
       margin-right: auto;
       flex-direction: column;
       gap: 20px;
-      p {
-        font-family: Arial, Helvetica, sans-serif;
+
+      // Estilo común para todos los elementos de texto en el formulario
+      * {
+        font-family: "Lato", sans-serif;
         font-weight: 400;
-        font-style: bold;
+        font-style: normal;
+      }
+
+      p {
         font-size: 18px;
         margin: auto;
         text-align: center;
       }
 
       input {
+        color: black;
         font-size: 16px;
         border: 1px solid #ccc;
         border-bottom: 1px solid lightgray;
         padding: 8px;
-        border: 1px solid #ccc;
         border-radius: 5px;
         background-color: #f0f0f0;
       }
+
       input:invalid[focused="true"] ~ span {
         display: block;
       }
+
       span {
         font-size: 16px;
         color: red;
         display: none;
       }
+
       .p2 {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 400;
-        font-style: normal;
         font-size: 12px;
         margin: auto;
         text-align: center;
       }
+
       .error_general {
         font-size: 16px;
         color: red;
       }
+
       button {
         width: 100px, 33.33%;
         padding: 10px;
@@ -116,23 +119,34 @@ body {
         font-weight: bold;
         cursor: pointer;
       }
+
       .terms-text {
-        font-family: 'Arial', sans-serif;
-        font-size: 14px; 
+        font-size: 14px;
         text-align: center;
       }
+
       a {
         text-align: center;
         color: #009bec;
-        font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
         text-decoration: none;
       }
     }
+
     a {
       text-align: center;
       color: #009bec;
       font-size: 18px;
-    }    
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 0;
+      height: 100vh;
+      box-shadow: none;
+    }
   }
 }

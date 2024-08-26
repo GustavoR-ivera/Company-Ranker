@@ -1,5 +1,7 @@
 import {DB_HOST, DB_USER, DB_PASSWORD, DB_PORT, DB_DATABASE} from "./config.js"
 import mysql from 'mysql';
+import nodemailer from "nodemailer";
+
 
 export const db = mysql.createConnection({
     host: DB_HOST,
@@ -16,6 +18,18 @@ export const db = mysql.createConnection({
   //   database: "defaultdb",
   //   port: 25060
   // })
+
+
+export const transporter = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // Use `true` for port 465, `false` for all other ports
+  auth: {
+    user: "companyrankerweb@gmail.com",
+    pass: "ppmb fkvl sczc vogx",
+  },
+});
 
 
 
