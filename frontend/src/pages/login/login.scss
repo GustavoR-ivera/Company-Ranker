@@ -5,21 +5,24 @@
   align-items: center;
   justify-content: center;
   .card {
-    font-family: "JejuGothic", sans-serif;
-    width: 40%;
+    width: 35%;
+    min-width: 400px;
     display: flex;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #e3e2ff;
     border-radius: 10px;
-    min-height: 600px;
+    margin: 10px 10px;
+    padding: 10px;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
-
     .right {
-      flex: 1;
+      flex: auto;
       padding: 20px;
       display: flex;
       flex-direction: column;
-      //gap: 20px;
       justify-content: center;
       img {
         width: 58px;
@@ -35,6 +38,7 @@
         font-style: normal;
       }
       form {
+        max-width: 350px;
         margin-top: 10px;
         width: 75%;
         display: flex;
@@ -47,7 +51,6 @@
           border: 1px solid #ccc;
           border-bottom: 1px solid lightgray;
           padding: 8px;
-          border: 1px solid #ccc;
           border-radius: 5px;
           background-color: #f0f0f0;
         }
@@ -66,24 +69,27 @@
         }
       }
       a {
+        margin-left: 7px;
         font-family: "Lato", sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 17px;
+        font-size: 16px;
         text-align: center;
         color: #009bec;
         text-decoration: none;
+        margin-top: 20px; // Añadir margen superior al enlace
       }
       p {
         font-family: "Lato", sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 17px;
+        font-size: 16px;
         text-align: center;
-        a1 {
+        .a1 {
+          margin-left: 10px;
           font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
           padding-left: 10px;
-          font-size: 18px;
+          font-size: 16px;
           color: #021f75;
         }
       }
@@ -94,11 +100,18 @@
   }
   @media (max-width: 768px) {
     .card {
-      width: 100%; // Ocupa el 100% del ancho del contenedor .login
-      max-width: 100%; // Asegúrate de que no haya un ancho máximo
-      border-radius: 0; // Opcional: elimina el borde redondeado para un mejor ajuste
+      min-height: auto; // Opcional: elimina la altura para que el contenido determine la altura
+      height: auto; // Opcional: elimina la altura para que el contenido determine la altura
+      width: 90%; // Ocupa el 100% del ancho del contenedor .login
+      max-width: 90%; // Asegúrate de que no haya un ancho máximo
+      border-radius: 10px; // Opcional: elimina el borde redondeado para un mejor ajuste
       height: 100vh; // Opcional: ocupa toda la altura de la pantalla
       box-shadow: none; // Opcional: elimina la sombra para un diseño más plano
+    }
+  }
+  @media(max-height: 768px) {
+    .card {
+      height: auto; // Opcional: elimina la altura para que el contenido determine la altura
     }
   }
 }

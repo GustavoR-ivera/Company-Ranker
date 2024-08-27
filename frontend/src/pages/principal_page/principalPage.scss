@@ -4,6 +4,7 @@
   flex: 8;
   text-align: center;
   //margin-top: 25px;
+  min-width: 600px;
 
   .banner1 {
     //border: 1px solid black;
@@ -97,5 +98,15 @@
       height: 10%;
       margin: 10px;
     }
+  }
+  @media (max-width: 1250px) and (min-width: 1151px) {
+    max-width: 650px;
+  }
+  @media (max-width: 1150px) and (min-width: 1016px) {
+    max-width: 550px;
+    
+  }
+  @media (max-width: 1015px) {
+
   }
 }

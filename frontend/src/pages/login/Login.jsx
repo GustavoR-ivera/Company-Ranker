@@ -68,7 +68,7 @@ const Login = () => {
           </form>
           <Link to="/recovery">¿Has olvidado tu contraseña?</Link>
           <p>
-            ¿No tienes una cuenta?
+            ¿No tienes una cuenta? 
             <Link to="/register">Registrarte</Link>
           </p>
         </div>

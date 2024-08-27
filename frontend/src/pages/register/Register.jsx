@@ -16,15 +16,18 @@ const Register = () => {
   });
 
   const [err, setErr] = useState(null);
-
   const [focused, setFocused] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     console.log(inputs);
   };
 
-  //console.log(inputs);
+  const handleTermsChange = (event) => {
+    setAcceptedTerms(event.target.checked);
+  };
+
   const navigate = useNavigate();
 
   const handleFocus = (e) => {
@@ -58,18 +61,18 @@ const Register = () => {
       return;
     }
 
+    if (!acceptedTerms) {
+      setErr("Debes aceptar los términos y condiciones");
+      return;
+    }
+
     try {
       await axiosInstance.post("/server/auth/register", inputs);
-      //si el registro es exitoso se redirige a la pagina de inicio
-      //apartir de este punto, con que datos de usuario funciona la pagina?
-      //al redireccionar a login, actualizamos el estado de currentUser el cual podra ser usado
-      //en los demas componentes
       navigate("/accountConfirmation");
     } catch (err) {
       setErr(err.response.data);
     }
   };
-  //console.log(err);
 
   return (
     <div className="register">
@@ -148,13 +151,22 @@ const Register = () => {
             focused={focused.toString()}
           />
 
-          <p2 className="terms-text">
-            Al dar click en registrarte estás aceptando nuestros{" "}
-            <Link to="/tyc">términos y condiciones</Link> políticas de
-            privacidad y manejo de cookies{" "}
-          </p2>
+          <div className="form-group">
+            <input
+              type="checkbox"
+              id="terms"
+              checked={acceptedTerms}
+              onChange={handleTermsChange}
+            />
+            <label htmlFor="terms">
+              Acepto los <Link to="/tyc">términos y condiciones </Link> de Company Ranker.
+            </label>
+          </div>
+
           <p className="error_general">{err}</p>
-          <button onClick={handleClick}>Regístrate</button>
+          <button onClick={handleClick} disabled={!acceptedTerms}>
+            Regístrate
+          </button>
           <p>
             <Link to="/login">¿Ya tienes una cuenta?</Link>
           </p>

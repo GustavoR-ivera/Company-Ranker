@@ -76,7 +76,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1015px) {
     .container {
       .row {
         flex-direction: column; /* Cambia la dirección del flex a columna */
@@ -99,6 +99,31 @@
 
       button {
         font-size: 20px; /* Ajusta el tamaño de la fuente */
+      }
+    }
+  }
+  @media (max-width: 1295px) and (min-width:1016px){
+    .container {
+      .row {
+        
+        .item {
+          max-width: 190px;
+          img{
+            width: 50%;
+            height: 25%;
+          }
+          padding: 0px;
+        }
+        
+      }
+    }
+  }
+  @media (max-width: 1450px) and (min-width:1296px){
+    .container {
+      .row {
+        .item {
+          max-width: 250px;
+        }
       }
     }
   }
