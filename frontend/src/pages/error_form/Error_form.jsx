@@ -7,12 +7,12 @@ import logo from "../../images/logo.png";
 import axios from "axios";
 
 const Error_Form = () => {
-  const { currentUser } = useContext(AuthContext);
+  
 
   const [inputs, setInputs] = useState({
     email: "",
     error_comment: "",
-    userId: currentUser.idUser,
+    userId: 4,
   });
   const [err, setErr] = useState(null);
 
