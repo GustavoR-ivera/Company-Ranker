@@ -106,6 +106,10 @@ function App() {
       path: "/accountConfirmation",
       element: < AccountConfirmation />,
     },
+    {
+      path: "/registrar_comentario_soporte",
+      element: < Error_Form />,
+    },
 
     //rutas protegidas que usan la plantilla de barras de navegacion
     {
@@ -154,10 +158,7 @@ function App() {
           path: "/Suscripcion",
           element: < Suscription />,
         },
-        {
-          path: "/registrar_comentario_soporte",
-          element: < Error_Form />,
-        },
+        
         {
           path: "/dashboard",
           element: < Dashboard />,
