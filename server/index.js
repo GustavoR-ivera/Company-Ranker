@@ -57,7 +57,7 @@ app.options("/", (req, res) => {
 // }));
 
 //chatgpt forma para recibir peticiones desde el frontend
-const allowedOrigins = [FRONTEND_URL , DOMINIO ];
+const allowedOrigins = [FRONTEND_URL , DOMINIO, "company-ranker.com", "https://company-ranker.com" ];
 
 app.use(cors({
   origin: function(origin, callback){

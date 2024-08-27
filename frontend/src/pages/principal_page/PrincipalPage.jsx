@@ -24,8 +24,15 @@ function PrincipalPage() {
         <div className="principalPage">
           <div className="banner1">
             <h1>Una comunidad surgida a partir de tus experiencias</h1>
+            <p>
+              Somos la opción indicada para que las personas encuentren
+              información verificada y de calidad sobre el producto que desean
+              comprar o sobre la empresa en la que desean trabajar basandose en
+              la experiencia de trabajadores y compradores en el mercado laboral
+              colombiano.
+            </p>
             <img src={community_ppage} alt="company_ppage" />
-            Consulta la guìa de inicio ràpido en el siguiente link:
+            <p> Consulta la guìa de inicio ràpido en el siguiente link:</p>
             <a
               target="blank"
               href="https://drive.google.com/file/d/1whnHhO5hDOvw34wpN0WTC5vS9owQJGPC/view?usp=drive_link"
